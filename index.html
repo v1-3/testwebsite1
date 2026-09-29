@@ -1,4 +1,3 @@
-<object:text path="index.html">
 <!DOCTYPE html>
 <html lang="pt-BR" class="h-full">
 <head>
@@ -112,11 +111,21 @@
             border-color: rgba(239, 68, 68, 0.3);
         }
         .glass-red:hover { border-color: rgba(239, 68, 68, 0.6); box-shadow: 0 10px 30px -10px rgba(239, 68, 68, 0.4); }
+
+        @keyframes toastFade {
+            0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+            15% { opacity: 1; transform: translateY(0) scale(1); }
+            85% { opacity: 1; transform: translateY(0) scale(1); }
+            100% { opacity: 0; transform: translateY(-20px) scale(0.9); }
+        }
+        .toast-animation {
+            animation: toastFade 4.5s ease-in-out forwards;
+        }
     </style>
 </head>
 <body class="min-h-full flex flex-col justify-between selection:bg-rose-500 selection:text-white relative">
 
-    <!-- SPLASH SCREEN PARA AUTOPLAY PERFEITO -->
+    <!-- SPLASH SCREEN -->
     <div id="welcome-screen" class="fixed inset-0 z-50 bg-[#120710]/95 backdrop-blur-xl flex flex-col items-center justify-center p-6 text-center transition-opacity duration-700">
         <div class="glass-card rounded-3xl p-8 sm:p-12 max-w-md w-full space-y-6 shadow-2xl border border-roseGold/30">
             <div class="w-16 h-16 mx-auto bg-rose-600/20 rounded-full flex items-center justify-center text-rose-400 text-3xl animate-pulse">
@@ -127,10 +136,13 @@
                 <p class="text-xs sm:text-sm text-roseGold/80">Preparei algo especial com todo o meu amor.</p>
             </div>
             <button id="enter-btn" class="w-full py-4 bg-gradient-to-r from-rose-700 via-pink-600 to-rose-500 hover:opacity-90 text-white font-semibold rounded-2xl shadow-[0_0_25px_rgba(225,29,72,0.5)] transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 text-sm sm:text-base">
-                <i class="fa-solid fa-play text-xs"></i> Clique para Entrar & Tocar Música
+                <i class="fa-solid fa-play text-xs"></i> Clique para Entrar
             </button>
         </div>
     </div>
+
+    <!-- TOAST DE AMOR DINÂMICO -->
+    <div id="love-toast-container" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 pointer-events-none flex flex-col items-center gap-2"></div>
 
     <canvas id="particle-canvas"></canvas>
     <div class="ambient-bg fixed inset-0 pointer-events-none z-0"></div>
@@ -141,10 +153,16 @@
             <span class="font-serifHeader text-xs sm:text-sm tracking-widest uppercase text-roseGold/80">2028 • O Reencontro</span>
         </div>
 
-        <a href="https://open.spotify.com/playlist/6vo1ZL6w8tChAKiIchyOcH" target="_blank" class="glass-card px-4 py-2 rounded-full flex items-center gap-2.5 text-xs sm:text-sm text-roseGold hover:text-white transition-all duration-300 group" title="Ouvir Playlist no Spotify">
-            <i class="fa-brands fa-spotify text-green-400 group-hover:scale-110 transition-transform"></i>
-            <span class="hidden sm:inline">Playlist Spotify</span>
-        </a>
+        <div class="flex items-center gap-3">
+            <div id="audio-indicator" class="glass-card px-3 py-1.5 rounded-full text-[11px] text-rose-300 flex items-center gap-2">
+                <i class="fa-solid fa-volume-xmark text-rose-400" id="audio-icon"></i>
+                <span id="audio-text">Clique para tocar</span>
+            </div>
+            <a href="https://open.spotify.com/playlist/6vo1ZL6w8tChAKiIchyOcH" target="_blank" class="glass-card px-4 py-2 rounded-full flex items-center gap-2.5 text-xs sm:text-sm text-roseGold hover:text-white transition-all duration-300 group" title="Ouvir Playlist no Spotify">
+                <i class="fa-brands fa-spotify text-green-400 group-hover:scale-110 transition-transform"></i>
+                <span class="hidden sm:inline">Spotify</span>
+            </a>
+        </div>
     </header>
 
     <main class="content-layer flex-1 flex flex-col items-center justify-center px-4 py-8 text-center max-w-5xl mx-auto w-full space-y-16">
@@ -218,14 +236,16 @@
                 <i class="fa-solid fa-quote-left text-3xl text-rose-500/20 absolute top-3 left-4"></i>
                 <div class="relative z-10 space-y-3">
                     <p id="quote-text" class="text-sm sm:text-base italic text-pink-100/90 font-light leading-relaxed min-h-[3rem] flex items-center justify-center transition-opacity duration-300">
-                        "O tempo é muito lento para os que esperam, mas para os que amam, o tempo é eternidade."
+                        "O tempo é muito lento para los que esperam, mas para los que amam, o tempo é eternidade."
                     </p>
                     <p id="quote-author" class="text-xs font-semibold text-roseGold tracking-wider uppercase transition-opacity duration-300">— Henry Van Dyke</p>
                 </div>
                 <div class="flex justify-center items-center gap-3 mt-4 pt-4 border-t border-roseGold/10">
                     <button id="prev-quote" class="p-2 text-roseGold/60 hover:text-white transition-colors"><i class="fa-solid fa-chevron-left text-xs"></i></button>
-                    <button id="heart-burst-btn" class="glass-card hover:bg-rose-600/30 text-rose-300 px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300 flex items-center gap-1.5 active:scale-95">
-                        <i class="fa-solid fa-heart text-rose-500"></i> Enviar Amor
+                    <button id="heart-burst-btn" class="glass-card hover:bg-rose-600/30 text-rose-300 px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 flex items-center gap-2 active:scale-95 shadow-[0_0_15px_rgba(225,29,72,0.2)]">
+                        <i class="fa-solid fa-heart text-rose-500 animate-pulse"></i> 
+                        <span id="heart-btn-text">Enviar Amor</span> 
+                        <span id="love-counter" class="bg-rose-500/30 text-rose-200 px-2 py-0.5 rounded-full text-[10px] font-bold">0</span>
                     </button>
                     <button id="next-quote" class="p-2 text-roseGold/60 hover:text-white transition-colors"><i class="fa-solid fa-chevron-right text-xs"></i></button>
                 </div>
@@ -258,7 +278,7 @@
                             <span class="text-[9px] uppercase tracking-widest text-purple-300/80">Horas</span>
                         </div>
                         <div>
-                            <span id="sub-anniv-secs" class="font-serifHeader text-lg sm:text-xl font-bold text-purple-300 block">00</span>
+                            <span id="sub-anniv-secs" class="font-serifHeader text-lg sm:text-xl font-bold text-purple-200 block">00</span>
                             <span class="text-[9px] uppercase tracking-widest text-purple-300/80">Segs</span>
                         </div>
                     </div>
@@ -292,7 +312,7 @@
                             <span class="text-[9px] uppercase tracking-widest text-blue-300/80">Horas</span>
                         </div>
                         <div>
-                            <span id="sub-victor-secs" class="font-serifHeader text-lg sm:text-xl font-bold text-blue-200 block">00</span>
+                            <span id="sub-victor-secs" class="font-serifHeader text-lg sm:text-xl font-bold text-blue-300 block">00</span>
                             <span class="text-[9px] uppercase tracking-widest text-blue-300/80">Segs</span>
                         </div>
                     </div>
@@ -359,7 +379,7 @@
                     </div>
                     <div class="glass-card p-4 rounded-2xl flex items-start gap-3">
                         <span class="text-rose-400 font-bold text-sm mt-0.5">04</span>
-                        <p class="text-xs sm:text-sm text-pink-100/90">Sua beleza,  sendo a vista mais bela que eu poderia imaginar.</p>
+                        <p class="text-xs sm:text-sm text-pink-100/90">Sua beleza, sendo a vista mais bela que eu poderia imaginar.</p>
                     </div>
                     <div class="glass-card p-4 rounded-2xl flex items-start gap-3">
                         <span class="text-rose-400 font-bold text-sm mt-0.5">05</span>
@@ -398,45 +418,132 @@
     </footer>
 
     <script>
-        // Welcome interaction to trigger autoplay
-        document.getElementById('enter-btn').addEventListener('click', () => {
+        // Interactive Web Audio Music & Click Sound Controller
+        let audioCtx = null;
+        let masterGain = null;
+        let isAudioPlaying = false;
+        let inactivityTimer = null;
+        let activeInterval = null;
+
+        function initAudio() {
+            if (audioCtx) return;
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            masterGain = audioCtx.createGain();
+            masterGain.gain.setValueAtTime(0.4, audioCtx.currentTime);
+            masterGain.connect(audioCtx.destination);
+        }
+
+        const chordNotes = [
+            [261.63, 329.63, 392.00, 523.25], // C Major
+            [220.00, 261.63, 329.63, 440.00], // A Minor
+            [174.61, 220.00, 261.63, 349.23], // F Major
+            [196.00, 246.94, 293.66, 392.00]  // G Major
+        ];
+        let noteIndex = 0;
+
+        function playSoftChord() {
+            if (!audioCtx || !isAudioPlaying || audioCtx.state !== 'running') return;
+            const notes = chordNotes[noteIndex % chordNotes.length];
+            noteIndex++;
+
+            notes.forEach((freq, idx) => {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc.type = idx % 2 === 0 ? 'sine' : 'triangle';
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+                gain.gain.setValueAtTime(0, audioCtx.currentTime);
+                gain.gain.linearRampToValueAtTime(0.2, audioCtx.currentTime + 0.8);
+                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 3.5);
+
+                osc.connect(gain);
+                gain.connect(masterGain);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + 3.5);
+            });
+        }
+
+        function playClickSound() {
+            if (!audioCtx) return;
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
+            osc.frequency.exponentialRampToValueAtTime(880.00, audioCtx.currentTime + 0.08); // A5
+
+            gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.1);
+
+            osc.connect(gain);
+            gain.connect(masterGain);
+
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.1);
+        }
+
+        async function startInteractionMusic() {
+            initAudio();
+            if (audioCtx.state === 'suspended') {
+                await audioCtx.resume();
+            }
+
+            if (!isAudioPlaying) {
+                isAudioPlaying = true;
+                document.getElementById('audio-icon').className = "fa-solid fa-volume-high text-rose-400 animate-pulse";
+                document.getElementById('audio-text').innerText = "Música ativa por clique";
+                playSoftChord();
+                activeInterval = setInterval(playSoftChord, 3000);
+            }
+
+            clearTimeout(inactivityTimer);
+            inactivityTimer = setTimeout(() => {
+                stopInteractionMusic();
+            }, 3500);
+        }
+
+        function stopInteractionMusic() {
+            if (!isAudioPlaying) return;
+            isAudioPlaying = false;
+            clearInterval(activeInterval);
+            document.getElementById('audio-icon').className = "fa-solid fa-volume-xmark text-rose-400";
+            document.getElementById('audio-text').innerText = "Clique para tocar";
+        }
+
+        document.getElementById('enter-btn').addEventListener('click', async () => {
             const welcome = document.getElementById('welcome-screen');
             welcome.style.opacity = '0';
             setTimeout(() => {
                 welcome.style.display = 'none';
             }, 700);
 
-            // Trigger Spotify autoplay by reloading src with autoplay=1
-            const iframe = document.getElementById('spotify-iframe');
-            iframe.src += "&autoplay=1";
-            
-            // Also trigger sound effect / burst
+            await startInteractionMusic();
             createHeartBurst(window.innerWidth / 2, window.innerHeight / 2, 25);
-            playLoveSound();
         });
 
-        // Setup main target date
+        window.addEventListener('click', () => {
+            const welcome = document.getElementById('welcome-screen');
+            if (welcome.style.display === 'none') {
+                startInteractionMusic();
+            }
+            playClickSound();
+        });
+
         const targetDate = new Date('January 27, 2028 00:00:00').getTime();
         const startDate = new Date('June 1, 2024 00:00:00').getTime();
 
         const quotes = [
-            { text: "O tempo é muito lento para os que esperam, muito rápido para os que têm medo, mas para os que amam, o tempo é eternidade.", author: "Henry Van Dyke" },
+            { text: "O tempo é muito lento para los que esperam, muito rápido para los que têm medo, mas para los que amam, o tempo é eternidade.", author: "Henry Van Dyke" },
             { text: "Eu te escolheria. Centenas de vidas, em qualquer universo, em qualquer versão da realidade, eu encontraria você.", author: "Kiersten White" },
-            { text: "O amor não consiste em olhar um para o outro, mas em olhar juntos na mesma direção.", author: "Antoine de Saint-Exupéry" },
-            { text: "É uma coisa admirável a ingenuidade do primeiro amor; ela tem tantas ilusões que se crê eterna.", author: "Victor Hugo" },
-            { text: "Amantes jovens não precisam de conselhos, apenas de sonhos nos olhos e a certeza boba de que o mundo foi feito só para os dois.", author: "Poesia Jovem" },
-            { text: "A juventude tem essa doce cegueira: acredita que um olhar cruzado na esquina é capaz de reescrever o destino inteiro.", author: "Crônica do Amanhecer" },
-            { text: "Tão jovens, tão cheios de esperança ingenua, achando que o infinito cabia inteirinho no abraço do primeiro amor.", author: "Romance Moderno" },
+            { text: "O amor não consiste in olhar um para o outro, mas em olhar juntos na mesma direção.", author: "Antoine de Saint-Exupéry" },
             { text: "Até 27 de Janeiro de 2028 e para todo o sempre, cada segundo me aproxima do seu abraço.", author: "Declaração de Amor" },
             { text: "O meu lugar favorito no mundo inteiro é bem ao seu lado, onde o tempo parece parar e o resto do universo deixa de importar.", author: "Declaração de Amor" },
-            { text: "A distância física é apenas um detalhe irrelevante quando o sentimento que habita no peito é maior do que qualquer quilômetro.", author: "Poesia Romântica" },
-            { text: "Você se tornou o meu pensamento mais bonito ao acordar e a última saudade antes de fechar os olhos para dormir.", author: "Declaração de Amor" },
-            { text: "Haverá sempre um pedaço de mim que sorri toda vez que o meu celular vibra e o seu nome aparece na tela.", author: "Declaração de Amor" },
-            { text: "Amar você é a certeza mais bonita que a minha vida teve o privilégio de abraçar.", author: "Declaração de Amor" },
-            { text: "O amor jovem é destemido porque ignora o impossível; ele constrói pontes com promessas e navega no escuro com a pura certeza de se encontrar.", author: "Alquimia do Coração" },
-            { text: "Quando se é jovem e se ama com toda a alma, cada despedida é apenas uma promessa sussurrada de que o reencontro será ainda mais arrebatador.", author: "Crônicas da Paixão" },
-            { text: "Há uma beleza indescritível naqueles que se amam na juventude: eles têm o tempo inteiro do mundo nas mãos e escolhem gastá-lo sonhando um com o outro.", author: "Poesia Juvenil" },
-            { text: "O primeiro grande amor não é apenas um capítulo na história; ele é a tinta com que todas as esperanças do futuro são escritas.", author: "Reflexões de Outono" }
+            { text: "A distância física é apenas um detalhe irrelevante quando o sentimento que habita no peito é maior do que qualquer quilômetro.", author: "Poesia Romântica" }
         ];
 
         let currentQuoteIndex = 0;
@@ -646,41 +753,64 @@
         }
         animateParticles();
 
-        function playLoveSound() {
-            try {
-                const ctx = new (window.AudioContext || window.webkitAudioContext)();
-                const now = ctx.currentTime;
-                const notes = [523.25, 659.25, 783.99, 1046.50]; 
-                notes.forEach((freq, idx) => {
-                    const osc = ctx.createOscillator();
-                    const gain = ctx.createGain();
-                    osc.type = 'sine';
-                    osc.frequency.setValueAtTime(freq, now + idx * 0.06);
-                    
-                    gain.gain.setValueAtTime(0, now + idx * 0.06);
-                    gain.gain.linearRampToValueAtTime(0.08, now + idx * 0.06 + 0.01);
-                    gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.06 + 0.4);
-                    
-                    osc.connect(gain);
-                    gain.connect(ctx.destination);
-                    
-                    osc.start(now + idx * 0.06);
-                    osc.stop(now + idx * 0.06 + 0.45);
-                });
-            } catch (e) {}
+        let loveCount = 0;
+        const sweetMessages = [
+            "Te amo, Julia! ❤️",
+            "Mais um pedacinho do meu coração para você! 💖",
+            "Até o infinito é pouco perto do que sinto! ✨",
+            "Você é a melhor parte dos meus dias! 🌹",
+            "Meu mundo é muito mais feliz com você! 💫",
+            "Cada segundo longe de você é uma contagem regressiva para o nosso abraço. 🫂",
+            "Você é o meu sonho que se tornou realidade. 🌟",
+            "Obrigado por ser a melhor namorada do mundo! 💖",
+            "Com você, qualquer distância vale a pena. 🌍",
+            "Te amo hoje, amanhã e para sempre! 💞",
+            "Seu sorriso é a minha paz. 🥰",
+            "Você faz meu coração acelerar mesmo de longe. 💓",
+            "O som da sua voz ilumina até o meu dia mais cinza. ☀️",
+            "Guardei um pedacinho de mim em cada lembrança nossa. 🧩",
+            "Não vejo a hora de olhar nos seus olhos e te abraçar bem forte. 🤗",
+            "Meu lugar favorito no universo é onde você estiver. 🌌",
+            "Amar você é a coisa mais natural e bonita que já me aconteceu. 🌷",
+            "Você é poesia pura escrita em forma de pessoa. 📖",
+            "Nenhum obstáculo é grande demais quando penso em nós dois. 🧗‍♂️",
+            "Cada detalhe seu me faz te amar um pouquinho mais a cada dia. 🌸",
+            "Você é o meu pensamento favorito ao acordar e ao dormir. 🌙",
+            "Meu futuro tem o seu nome escrito em cada página. 💍",
+            "A distância não diminui o que sinto, só aumenta a vontade de te ver. ✈️",
+            "Você é o meu porto seguro e a minha maior aventura. ⚓"
+        ];
+
+        function showLoveToast() {
+            const container = document.getElementById('love-toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'glass-card px-5 py-2.5 rounded-full text-xs sm:text-sm text-pink-200 border border-rose-500/40 shadow-[0_0_20px_rgba(225,29,72,0.4)] toast-animation flex items-center gap-2';
+            const randomMsg = sweetMessages[Math.floor(Math.random() * sweetMessages.length)];
+            toast.innerHTML = `<i class="fa-solid fa-heart text-rose-500"></i> <span>${randomMsg}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 4500);
         }
+
+        document.getElementById('heart-burst-btn').addEventListener('click', (e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            createHeartBurst(rect.left + rect.width / 2, rect.top, 35);
+
+            loveCount++;
+            document.getElementById('love-counter').innerText = loveCount;
+            
+            const btnText = document.getElementById('heart-btn-text');
+            btnText.innerText = "Amor Enviado! 💖";
+            setTimeout(() => {
+                btnText.innerText = "Enviar Amor";
+            }, 3500);
+
+            showLoveToast();
+        });
 
         window.addEventListener('click', (e) => {
             if (e.target.closest('button') || e.target.closest('a')) return;
             createHeartBurst(e.clientX, e.clientY, 15);
-            playLoveSound();
-        });
-        document.getElementById('heart-burst-btn').addEventListener('click', (e) => {
-            const rect = e.target.getBoundingClientRect();
-            createHeartBurst(rect.left + rect.width / 2, rect.top, 25);
-            playLoveSound();
         });
     </script>
 </body>
 </html>
-</object:text>
