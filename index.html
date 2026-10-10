@@ -152,9 +152,27 @@
         }
 
         /* ===== PALAVRAS CRUZADAS ===== */
-        .cw-wrap { overflow-x: auto; padding: 6px 2px 10px; }
+        /* The complete crossword fits the available width by default. Zooming in
+           deliberately enables horizontal scrolling instead of cutting off cells. */
+        #crossword-section, #crossword-section > .glass-card { min-width: 0; max-width: 100%; }
+        .cw-wrap {
+            width: 100%; max-width: 100%; min-width: 0;
+            box-sizing: border-box; overflow-x: auto; overflow-y: hidden;
+            padding: 6px 3px 12px; touch-action: pan-x pan-y;
+            overscroll-behavior-x: contain; scrollbar-width: thin;
+            scrollbar-color: #fda4af rgba(255,255,255,.09);
+        }
+        .cw-wrap::-webkit-scrollbar { height: 9px; }
+        .cw-wrap::-webkit-scrollbar-track { background: rgba(255,255,255,.08); border-radius: 9px; }
+        .cw-wrap::-webkit-scrollbar-thumb { background: #be567d; border-radius: 9px; }
         .cw-grid { display: grid; gap: 2px; width: max-content; margin: 0 auto; --cw: 36px; }
-        .cw-cell, .cw-blank { position: relative; width: var(--cw); height: var(--cw); }
+        .cw-cell, .cw-blank { position: relative; width: var(--cw); height: var(--cw); flex: none; }
+        .cw-zoom-tools { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:.45rem; margin:.35rem 0 .15rem; }
+        .cw-zoom-tools button { color:#ffe4e6; border:1px solid rgba(232,180,184,.37); background:rgba(255,255,255,.055); border-radius:.55rem; padding:.45rem .7rem; font-size:.75rem; font-weight:600; }
+        .cw-zoom-tools button:hover:not(:disabled) { background:rgba(225,29,72,.27); border-color:#fda4af; }
+        .cw-zoom-tools button:disabled { opacity:.37; cursor:not-allowed; }
+        .cw-zoom-tools span { color:#fbcfe8; font-size:.72rem; }
+        @media (max-width: 480px) { #crossword-section > .glass-card { padding:1rem; } }
         .cw-cell input {
             width: 100%; height: 100%; box-sizing: border-box; padding: 0; margin: 0;
             text-align: center; text-transform: uppercase; font-weight: 700;
@@ -420,9 +438,15 @@
 .ws-select:focus { border-color:#fda4af; }
 .ws-option { display:flex; gap:.45rem; align-items:center; cursor:pointer; font-size:.75rem; color:#fce7f3; }
 .ws-option input { accent-color:#e11d48; width:1rem; height:1rem; flex-shrink:0; }
-.ws-scroll { width:100%; overflow:auto; overscroll-behavior-x:contain; }
-.ws-board { display:grid; grid-template-columns:repeat(var(--ws-grid-size, 12), var(--ws-cell-size, 33px)); gap:2px; width:max-content; margin:auto; padding:1px; user-select:none; -webkit-user-select:none; touch-action:none; }
-.ws-cell { display:flex; width:var(--ws-cell-size, 33px); height:var(--ws-cell-size, 33px); padding:0; align-items:center; justify-content:center; border:1px solid rgba(232,180,184,.16); background:rgba(255,255,255,.075); color:#fff1f2; border-radius:5px; font-size:calc(var(--ws-cell-size, 33px) * .48); font-weight:700; font-family:'Montserrat',sans-serif; line-height:1; cursor:crosshair; transition:background .12s ease; }
+.ws-scroll { box-sizing:border-box; width:100%; min-width:0; max-width:100%; overflow-x:auto; overflow-y:hidden; overscroll-behavior-x:contain; scrollbar-width:thin; scrollbar-color:#be567d rgba(255,255,255,.08); }
+.ws-board { display:grid; grid-template-columns:repeat(var(--ws-grid-size, 12), var(--ws-cell-size, 33px)); gap:2px; width:max-content; max-width:none; margin:0 auto; padding:1px; user-select:none; -webkit-user-select:none; touch-action:none; }
+.ws-cell { box-sizing:border-box; display:flex; width:var(--ws-cell-size, 33px); height:var(--ws-cell-size, 33px); min-width:0; padding:0; align-items:center; justify-content:center; border:1px solid rgba(232,180,184,.16); background:rgba(255,255,255,.075); color:#fff1f2; border-radius:clamp(1px, calc(var(--ws-cell-size, 33px) * .15), 5px); font-size:calc(var(--ws-cell-size, 33px) * .48); font-weight:700; font-family:'Montserrat',sans-serif; line-height:1; cursor:crosshair; transition:background .12s ease; }
+.ws-zoom-tools { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:.45rem; }
+.ws-zoom-tools button { color:#ffe4e6; border:1px solid rgba(232,180,184,.37); background:rgba(255,255,255,.055); border-radius:.55rem; padding:.45rem .7rem; font-size:.75rem; font-weight:600; }
+.ws-zoom-tools button:hover:not(:disabled) { background:rgba(225,29,72,.27); border-color:#fda4af; }
+.ws-zoom-tools button:disabled { opacity:.4; cursor:not-allowed; }
+.ws-zoom-tools span { color:#fbcfe8; font-size:.72rem; }
+#wordsearch-section, #wordsearch-section .glass-card { min-width:0; }
 .ws-cell:hover { background:rgba(225,29,72,.26); }
 .ws-cell.ws-preview { background:#fda4af !important; color:#4c0519; border-color:#fff1f2; }
 .ws-cell.ws-found { background:#166534; color:#f0fdf4; border-color:#4ade80; }
@@ -434,7 +458,7 @@
 .ws-word.ws-word-found::before { content:'✓'; color:#4ade80; }
 .ws-word.ws-word-revealed { color:#fcd34d; }
 .ws-word.ws-word-revealed::before { content:'•'; color:#fcd34d; }
-@media (max-width:540px) { .ws-board { --ws-cell-size:28px; } }
+
 
     /* ===== QUEBRA-CABEÇA COM IMAGENS ONLINE ===== */
 .jig-fieldset{border:1px solid rgba(232,180,184,.25);background:rgba(255,255,255,.025);padding:.8rem 1rem 1rem;border-radius:1rem}
@@ -1691,7 +1715,7 @@
         </section>
 
         <!-- PALAVRAS CRUZADAS -->
-        <section id="crossword-section" class="w-full max-w-3xl">
+        <section id="crossword-section" class="w-full max-w-5xl min-w-0">
             <div class="glass-card rounded-3xl p-6 sm:p-8 space-y-5">
                 <div class="space-y-2">
                     <div class="w-12 h-12 mx-auto bg-rose-600/20 rounded-full flex items-center justify-center text-rose-300 text-2xl"><i class="fa-solid fa-table-cells"></i></div>
@@ -1733,7 +1757,13 @@
 
                 <div id="cw-current" class="glass-card rounded-2xl px-4 py-3 text-left max-w-xl mx-auto min-h-[3.75rem]"></div>
 
-                <div id="cw-wrap" class="cw-wrap"><div id="cw-grid" class="cw-grid" aria-label="Grade de palavras cruzadas"></div></div>
+                <div class="cw-zoom-tools" role="group" aria-label="Controles de zoom das palavras cruzadas">
+                    <button id="cw-fit" type="button" title="Mostrar a grade inteira">Ajustar à tela</button>
+                    <button id="cw-zoom-out" type="button" aria-label="Diminuir a grade" title="Diminuir zoom">−</button>
+                    <button id="cw-zoom-in" type="button" aria-label="Ampliar a grade" title="Ampliar zoom">+</button>
+                    <span id="cw-zoom-status" role="status" aria-live="polite">Grade ajustada à tela</span>
+                </div>
+                <div id="cw-wrap" class="cw-wrap" tabindex="0" aria-label="Grade de palavras cruzadas; deslize horizontalmente após ampliar"><div id="cw-grid" class="cw-grid" aria-label="Grade de palavras cruzadas"></div></div>
 
                 <div class="flex justify-center flex-wrap gap-3">
                     <button id="cw-hint" type="button" class="rounded-full px-5 py-2 text-xs bg-rose-700 hover:bg-rose-600 text-white font-semibold transition"><i class="fa-regular fa-lightbulb mr-1"></i> Dica (revelar letra)</button>
@@ -1812,8 +1842,14 @@
                     <button id="ws-reveal" type="button" class="glass-card rounded-xl px-4 py-3 text-xs text-roseGold hover:text-white" disabled>Mostrar soluções</button>
                 </div>
                 <p id="ws-status" class="text-sm text-rose-200 min-h-5" aria-live="polite" role="status">Escolha as opções e gere um caça-palavras.</p>
-                <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(150px,210px)] gap-4 lg:gap-6 items-start">
-                    <div class="ws-scroll border border-roseGold/20 bg-black/25 rounded-2xl p-2 sm:p-3" id="ws-scroll">
+                <div class="ws-zoom-tools" role="group" aria-label="Controles de zoom do caça-palavras">
+                    <button type="button" id="ws-fit" title="Mostrar a grade inteira" disabled>Ajustar à tela</button>
+                    <button type="button" id="ws-zoom-out" aria-label="Diminuir grade" title="Diminuir zoom" disabled>−</button>
+                    <button type="button" id="ws-zoom-in" aria-label="Ampliar grade" title="Ampliar zoom" disabled>+</button>
+                    <span id="ws-zoom-status" role="status" aria-live="polite">Grade ajustada à tela</span>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(150px,210px)] gap-4 lg:gap-6 items-start min-w-0">
+                    <div class="ws-scroll border border-roseGold/20 bg-black/25 rounded-2xl p-2 sm:p-3" id="ws-scroll" tabindex="0" aria-label="Grade do caça-palavras; depois de ampliar, deslize horizontalmente para ver o restante">
                         <div id="ws-board" class="ws-board" role="group" aria-label="Grade do caça-palavras"></div>
                     </div>
                     <aside class="border border-roseGold/20 rounded-2xl p-4 bg-white/[.03] text-left space-y-3">
@@ -3244,6 +3280,7 @@
             const $ = id => document.getElementById(id);
             const langSel = $('cw-language'), countSel = $('cw-count'), sizeSel = $('cw-size');
             const statusEl = $('cw-status'), wrapEl = $('cw-wrap'), gridEl = $('cw-grid');
+            const zoomStatusEl = $('cw-zoom-status'), fitBtn = $('cw-fit'), zoomOutBtn = $('cw-zoom-out'), zoomInBtn = $('cw-zoom-in');
             const currentEl = $('cw-current'), statsEl = $('cw-stats');
             const acrossEl = $('cw-across'), downEl = $('cw-down');
             const LANGS = window.WordleLanguages;
@@ -3251,6 +3288,7 @@
             const dictCache = new Map();
             const defCache = new Map();
             let puzzle = null, active = null, hintsUsed = 0, gameId = 0, finished = false;
+            let zoomLevel = 1; // 1 = always fit the entire grid, >1 = scrollable magnification
 
             const loc = () => LANGS[langSel.value].locale;
             const base = s => s.normalize('NFD').replace(/\p{M}/gu, '').toLocaleLowerCase();
@@ -3687,10 +3725,29 @@
             const activeEntry = () => active ? active.cell.entries[active.dir] : null;
 
             function layout() {
-                if (!puzzle) return;
-                const avail = Math.max(200, wrapEl.clientWidth - 6);
-                const size = Math.max(24, Math.min(44, Math.floor((avail - (puzzle.cols - 1) * 2) / puzzle.cols)));
+                if (!puzzle || !wrapEl.clientWidth) return;
+                // Never impose a minimum cell width in fit mode: wide grids were
+                // previously clipped on narrow screens by the old 24px minimum.
+                const available = Math.max(40, wrapEl.clientWidth - 12);
+                const fittedSize = Math.min(44, Math.max(1, Math.floor((available - (puzzle.cols - 1) * 2) / puzzle.cols)));
+                const size = Math.max(1, Math.min(48, Math.round(fittedSize * zoomLevel)));
                 gridEl.style.setProperty('--cw', size + 'px');
+                zoomOutBtn.disabled = zoomLevel <= 1;
+                zoomInBtn.disabled = size >= 48;
+                fitBtn.disabled = zoomLevel === 1;
+                zoomStatusEl.textContent = zoomLevel === 1
+                    ? 'Grade inteira visível'
+                    : `Zoom ${Math.round(zoomLevel * 100)}% · deslize para ver o restante`;
+                // If the player returns to fit mode, reset scroll position.
+                if (zoomLevel === 1) wrapEl.scrollLeft = 0;
+            }
+
+            function ensureVisible(cell) {
+                if (!cell || !cell.el || zoomLevel <= 1) return;
+                const outer = wrapEl.getBoundingClientRect();
+                const inner = cell.el.getBoundingClientRect();
+                if (inner.right > outer.right - 12) wrapEl.scrollLeft += inner.right - outer.right + 20;
+                else if (inner.left < outer.left + 12) wrapEl.scrollLeft -= outer.left - inner.left + 20;
             }
 
             function render() {
@@ -3781,13 +3838,14 @@
                 active = { cell, dir };
                 paint();
                 cell.input.focus({ preventScroll: true });
+                ensureVisible(cell);
             }
 
             function selectEntry(entry, focus = true) {
                 const target = entry.cells.find(c => !c.locked && !c.value) || entry.cells.find(c => !c.locked) || entry.cells[0];
                 active = { cell: target, dir: entry.dir };
                 paint();
-                if (focus) target.input.focus({ preventScroll: true });
+                if (focus) { target.input.focus({ preventScroll: true }); ensureVisible(target); }
             }
 
             function advance(cell, dir, step) {
@@ -3959,6 +4017,7 @@
             async function newGame() {
                 const id = ++gameId;
                 finished = false; hintsUsed = 0; active = null; puzzle = null;
+                zoomLevel = 1; wrapEl.scrollLeft = 0;
                 const code = langSel.value;
                 const [minL, maxL] = sizeSel.value.split('-').map(Number);
                 const count = Number(countSel.value);
@@ -4003,6 +4062,9 @@
                     : `${LANGS[code].label}: ${got} palavras.`) + (words.simple ? '' : ' (lista completa do dicionário: algumas palavras podem ser raras)') + ' Leia as pistas e toque numa casa para começar!');
             }
 
+            fitBtn.addEventListener('click', () => { zoomLevel = 1; layout(); });
+            zoomInBtn.addEventListener('click', () => { zoomLevel = Math.min(8, zoomLevel * 1.3); layout(); });
+            zoomOutBtn.addEventListener('click', () => { zoomLevel = Math.max(1, zoomLevel / 1.3); layout(); });
             $('cw-hint').addEventListener('click', () => giveHint());
             $('cw-check').addEventListener('click', verify);
             $('cw-reveal').addEventListener('click', revealWord);
@@ -17186,6 +17248,8 @@
     const newButton = $('ws-new'), revealButton = $('ws-reveal');
     const status = $('ws-status'), wordList = $('ws-word-list'), progress = $('ws-progress');
     const source = $('ws-source');
+    const scroller = $('ws-scroll'), fitButton = $('ws-fit');
+    const zoomOut = $('ws-zoom-out'), zoomIn = $('ws-zoom-in'), zoomStatus = $('ws-zoom-status');
     const checkH = $('ws-horizontal'), checkV = $('ws-vertical');
     const checkD = $('ws-diagonal'), checkR = $('ws-reverse');
     const localeByCode = {pt:'pt-BR',it:'it-IT',es:'es-ES',en:'en-US',de:'de-DE',fr:'fr-FR',nl:'nl-NL',sv:'sv-SE',no:'nb-NO'};
@@ -17215,7 +17279,33 @@
     const censor = new Set(['sexo','sex','porn','porno','pornografia','fuck','fucking','shit','asshole','bitch','merda','puta','puto','foda','foder','mierda','mierdas','putain','merde','scheisse','scheiße','kuken','helvete']);
     let puzzle = null, found = new Set(), revealed = false, requestNumber = 0;
     let pointer = null, anchor = null, preview = [];
+    let zoomLevel = 1; // 1 means the whole puzzle fits inside the visible game panel.
     const setStatus = (message, error=false) => { status.textContent = message; status.style.color = error?'#fda4af':'#fecdd3'; };
+
+    function layoutWordSearch() {
+        if (!puzzle || !scroller.clientWidth) return;
+        const style = window.getComputedStyle(scroller);
+        const available = scroller.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+        const sidePadding = 2; // 1px internal board padding on each side
+        const gap = 2;
+        const fitted = Math.min(36, Math.max(1, Math.floor((available - sidePadding - gap * (puzzle.size - 1)) / puzzle.size)));
+        const cellSize = Math.max(1, Math.min(48, Math.round(fitted * zoomLevel)));
+        board.style.setProperty('--ws-cell-size', cellSize + 'px');
+        fitButton.disabled = zoomLevel <= 1;
+        zoomOut.disabled = zoomLevel <= 1;
+        zoomIn.disabled = cellSize >= 48;
+        zoomStatus.textContent = zoomLevel === 1 ? 'Grade inteira visível' : `Zoom ${Math.round(zoomLevel * 100)}% · deslize para ver o restante`;
+        if (zoomLevel === 1) scroller.scrollLeft = 0;
+    }
+
+    fitButton.addEventListener('click', () => { zoomLevel = 1; layoutWordSearch(); });
+    zoomOut.addEventListener('click', () => { zoomLevel = Math.max(1, +(zoomLevel - .25).toFixed(2)); layoutWordSearch(); });
+    zoomIn.addEventListener('click', () => { zoomLevel = Math.min(5, +(zoomLevel + .25).toFixed(2)); layoutWordSearch(); });
+    if ('ResizeObserver' in window) {
+        new ResizeObserver(() => layoutWordSearch()).observe(scroller);
+    } else {
+        window.addEventListener('resize', layoutWordSearch);
+    }
 
     async function fetchSimpleWords(code) {
         if(!freqCache.has(code)) {
@@ -17428,7 +17518,7 @@
         found.clear();revealed=false;anchor=null;pointer=null;preview=[];
         board.replaceChildren();
         board.style.setProperty('--ws-grid-size',puzzle.size);
-        board.style.setProperty('--ws-cell-size',puzzle.size>22?'27px':puzzle.size>17?'30px':'33px');
+        zoomLevel = 1;
         const fragment=document.createDocumentFragment();
         for(let r=0;r<puzzle.size;r++)for(let c=0;c<puzzle.size;c++){
             const cell=document.createElement('button');
@@ -17445,6 +17535,7 @@
         });
         paint();
         revealButton.disabled=false;
+        layoutWordSearch();
     }
     async function createGame() {
         const token=++requestNumber;
