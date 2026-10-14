@@ -1,0 +1,94 @@
+
+/* ===== THEMES INSIDE PLAYFIELDS: CARDS, BLOCKS, TILES, CARS, LIQUIDS ===== */
+#game-menu-stage{
+ --gg-dark:#15243a;--gg-panel:#25364a;--gg-tile:#304b65;--gg-ink:#fff6eb;--gg-line:#7194bd;
+ --gg-primary:#73cfff;--gg-secondary:#ffc86e;--gg-active:#fff2ae;--gg-good:#68e6a8;
+ --gg-block-1:#50d4ef;--gg-block-2:#ffd46e;--gg-block-3:#bd99fb;--gg-block-4:#61d4b2;
+ --gg-block-5:#fc7a91;--gg-block-6:#6c9bfc;--gg-block-7:#f4a16e;
+ --gg-sky1:#21345c;--gg-sky2:#6591c7;--gg-sky3:#cadbee;--gg-hillfar1:#6b95b3;--gg-hillfar2:#50748d;
+ --gg-terrain1:#7a9973;--gg-terrain2:#486a55;--gg-terrain3:#1e3f39;--gg-vehicle:#f18b51;--gg-vehicle-edge:#773849
+}
+#game-menu-stage[data-game-theme="postcard"]{--gg-dark:#1b3459;--gg-panel:#28538b;--gg-tile:#33699e;--gg-line:#a6c7eb;--gg-primary:#80c4ff;--gg-secondary:#ffcc7c;--gg-active:#ffe7a3;--gg-block-1:#2a67d6;--gg-block-2:#efbd60;--gg-block-3:#a7a1ef;--gg-block-4:#5fa6b0;--gg-block-5:#db4f55;--gg-block-6:#68abf0;--gg-block-7:#e98f59;--gg-sky1:#69b1e3;--gg-sky2:#c0dff2;--gg-sky3:#fff8e9;--gg-hillfar1:#9cbdd5;--gg-hillfar2:#729dbc;--gg-terrain1:#d3b58c;--gg-terrain2:#b68c5d;--gg-terrain3:#806448;--gg-vehicle:#df423c;--gg-vehicle-edge:#87302d}
+#game-menu-stage[data-game-theme="ocean"]{--gg-dark:#0c3045;--gg-panel:#0b4c67;--gg-tile:#156b88;--gg-line:#80d9ec;--gg-primary:#78e6fc;--gg-secondary:#ffd68c;--gg-active:#fce7a1;--gg-block-1:#14a5c6;--gg-block-2:#e7c36d;--gg-block-3:#7baadf;--gg-block-4:#39c2b0;--gg-block-5:#f08e91;--gg-block-6:#4483dc;--gg-block-7:#f6a25e;--gg-sky1:#267db2;--gg-sky2:#80d0ea;--gg-sky3:#e3f9f3;--gg-hillfar1:#4ea7ba;--gg-hillfar2:#268298;--gg-terrain1:#66d3bd;--gg-terrain2:#168e9c;--gg-terrain3:#084d68;--gg-vehicle:#f6876c;--gg-vehicle-edge:#a74565}
+#game-menu-stage[data-game-theme="forest"]{--gg-dark:#163528;--gg-panel:#27513b;--gg-tile:#396a50;--gg-line:#8bcc9a;--gg-primary:#adeda3;--gg-secondary:#edca7d;--gg-active:#faf0b4;--gg-block-1:#4db99e;--gg-block-2:#d8bd69;--gg-block-3:#a1b685;--gg-block-4:#5fbd73;--gg-block-5:#db8e73;--gg-block-6:#66a8ae;--gg-block-7:#dfaa63;--gg-sky1:#4c9270;--gg-sky2:#96cb8b;--gg-sky3:#ebf5be;--gg-hillfar1:#4d9567;--gg-hillfar2:#337a51;--gg-terrain1:#9abb77;--gg-terrain2:#537a44;--gg-terrain3:#234b34;--gg-vehicle:#e0a744;--gg-vehicle-edge:#755f2e}
+#game-menu-stage[data-game-theme="sunset"]{--gg-dark:#563151;--gg-panel:#764366;--gg-tile:#956078;--gg-line:#efabc6;--gg-primary:#ffb8ad;--gg-secondary:#ffdb7f;--gg-active:#ffe998;--gg-block-1:#e07da5;--gg-block-2:#ffc671;--gg-block-3:#ab87cc;--gg-block-4:#ed9e7f;--gg-block-5:#f46c73;--gg-block-6:#9993df;--gg-block-7:#ffa464;--gg-sky1:#803d74;--gg-sky2:#e2738f;--gg-sky3:#ffcca2;--gg-hillfar1:#bd6f8e;--gg-hillfar2:#965473;--gg-terrain1:#eaa86d;--gg-terrain2:#ba6a65;--gg-terrain3:#723d65;--gg-vehicle:#ffc36b;--gg-vehicle-edge:#a45749}
+#game-menu-stage[data-game-theme="galaxy"]{--gg-dark:#0d102d;--gg-panel:#282050;--gg-tile:#3a3173;--gg-line:#b8a4ff;--gg-primary:#a6a9ff;--gg-secondary:#ffca8b;--gg-active:#e3beff;--gg-block-1:#7ac8ff;--gg-block-2:#ffcf86;--gg-block-3:#a48cf8;--gg-block-4:#83c8b9;--gg-block-5:#f68bc6;--gg-block-6:#7884ff;--gg-block-7:#e3a4c6;--gg-sky1:#090b2b;--gg-sky2:#27336c;--gg-sky3:#625092;--gg-hillfar1:#3b3a84;--gg-hillfar2:#292661;--gg-terrain1:#7766aa;--gg-terrain2:#4d397a;--gg-terrain3:#211b4e;--gg-vehicle:#a9e0ff;--gg-vehicle-edge:#646bbd}
+#game-menu-stage[data-game-theme="neon"]{--gg-dark:#130b25;--gg-panel:#271440;--gg-tile:#40245c;--gg-line:#cb69fa;--gg-primary:#35e6f1;--gg-secondary:#f954cd;--gg-active:#fded7a;--gg-block-1:#32dbe9;--gg-block-2:#ffda51;--gg-block-3:#aa72fa;--gg-block-4:#45e7ad;--gg-block-5:#ff4aa9;--gg-block-6:#6489ff;--gg-block-7:#fd8f4e;--gg-sky1:#0e0b25;--gg-sky2:#452067;--gg-sky3:#8e2c8e;--gg-hillfar1:#58318c;--gg-hillfar2:#372667;--gg-terrain1:#632d88;--gg-terrain2:#3a2169;--gg-terrain3:#160f34;--gg-vehicle:#25e6f1;--gg-vehicle-edge:#bc45f5}
+/* Actual game boards and playable spaces, not just the surrounding card. */
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.tt-board-wrap,.bb-board-frame,.pj-board,.pj-board-wrap,.rc-scene,.ps-lab,.sm-main,.jig-board,.jig-tray,.hanoi-tower,.cw-wrap,.ws-scroll,.aq-play,.lg-play){border-color:var(--gg-line)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.tt-board-wrap,.bb-board-frame,.pj-board,.rc-scene,.ps-lab,.jig-board,.jig-tray){background:linear-gradient(155deg,var(--gg-panel),var(--gg-dark))!important;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--gg-line) 22%,transparent),0 8px 21px #05031438!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.bb-cell:not(.bb-filled):not(.bb-valid):not(.bb-invalid),.cw-cell input:not(:disabled),.ws-cell:not(.ws-found):not(.ws-revealed):not(.ws-preview)){background:var(--gg-tile)!important;border-color:var(--gg-line)!important;color:var(--gg-ink)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.cw-cell.cross input,.cw-cell.in-word input,.cw-cell.active input,.ws-cell.ws-preview){background:var(--gg-active)!important;color:#18122d!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .cw-cell.locked input{background:#d4ffe6!important;color:#0c5131!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .cw-cell.wrong input{background:#ffd0cb!important;color:#792926!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .ws-cell.ws-found{background:#1c8d61!important;color:#fff!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .ws-cell.ws-revealed:not(.ws-found){background:#a27624!important;color:#fff!important}
+/* Blocks keep seven distinctive playable colors, including in the queue previews. */
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.bb-cell.bb-filled,.bb-cell.bb-valid,.bb-mini-cell.bb-filled){--bb-color:var(--gg-block-1)!important;border-color:var(--gg-line)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.bb-cell.bb-filled,.bb-mini-cell.bb-filled)[style*="#eeae3a"]{--bb-color:var(--gg-block-2)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.bb-cell.bb-filled,.bb-mini-cell.bb-filled)[style*="#a880f0"]{--bb-color:var(--gg-block-3)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.bb-cell.bb-filled,.bb-mini-cell.bb-filled)[style*="#36c9a3"]{--bb-color:var(--gg-block-4)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.bb-cell.bb-filled,.bb-mini-cell.bb-filled)[style*="#fb7290"]{--bb-color:var(--gg-block-5)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.bb-cell.bb-filled,.bb-mini-cell.bb-filled)[style*="#648cf4"]{--bb-color:var(--gg-block-6)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.bb-cell.bb-filled,.bb-mini-cell.bb-filled)[style*="#e47bc5"]{--bb-color:var(--gg-block-7)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.bb-piece,.tt-control,.tt-button:not([disabled]),.pj-difficulty,.ps-tool,.hanoi-size,.aq-button,.lg-button,.rc-face-button){border-color:var(--gg-line)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.tt-button:not(.tt-button-muted),.aq-button:not(.secondary),.lg-primary,.rc-face-button,.ps-tool-primary,.pj-difficulty[aria-pressed="true"]){background:var(--gg-panel)!important;color:var(--gg-ink)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .bb-piece[aria-pressed="true"]{border-color:var(--gg-active)!important;box-shadow:0 0 0 2px var(--gg-secondary)!important}
+/* Parking Jam: each car gets a theme color; the player's car stays easy to distinguish. */
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .pj-board{background-color:var(--gg-dark)!important;background-image:linear-gradient(90deg,#ffffff15 1px,transparent 1px),linear-gradient(#ffffff15 1px,transparent 1px),linear-gradient(145deg,var(--gg-panel),var(--gg-dark))!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .pj-car{--car-color:var(--gg-block-1)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .pj-car:nth-child(6n + 1){--car-color:var(--gg-block-2)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .pj-car:nth-child(6n + 2){--car-color:var(--gg-block-3)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .pj-car:nth-child(6n + 3){--car-color:var(--gg-block-4)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .pj-car:nth-child(6n + 4){--car-color:var(--gg-block-6)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .pj-car.pj-target{--car-color:var(--gg-block-5)!important;border-color:#fff7e8!important;box-shadow:0 0 0 2px var(--gg-active),0 2px 9px #0008!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .pj-exit{border-color:var(--gg-primary)!important;color:var(--gg-primary)!important}
+/* The liquid layers retain distinct identities so the puzzle remains solvable. */
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .ps-liquid{--liquid:var(--gg-block-5)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .ps-liquid[style*="#38bdf8"]{--liquid:var(--gg-block-1)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .ps-liquid[style*="#fbbf24"]{--liquid:var(--gg-block-2)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .ps-liquid[style*="#a78bfa"]{--liquid:var(--gg-block-3)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .ps-liquid[style*="#34d399"]{--liquid:var(--gg-block-4)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .ps-liquid[style*="#fb923c"]{--liquid:var(--gg-block-7)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .ps-liquid[style*="#f472b6"]{--liquid:var(--gg-block-6)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .ps-flask .ps-glass{border-color:var(--gg-line)!important}
+/* Towers of Hanoi: disk size remains legible, but ring paint changes. */
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .hanoi-disk{background:linear-gradient(160deg,color-mix(in srgb,var(--gg-secondary) 85%,white),var(--gg-primary))!important;border-color:var(--gg-line)!important;box-shadow:inset 0 2px 2px #fff7,0 3px 6px #0005!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .hanoi-disk:nth-child(2n){background:linear-gradient(160deg,var(--gg-block-3),var(--gg-block-1))!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .hanoi-disk:nth-child(3n){background:linear-gradient(160deg,var(--gg-block-4),var(--gg-block-2))!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .hanoi-tower:before{background:linear-gradient(90deg,var(--gg-dark),var(--gg-line),var(--gg-dark))!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .hanoi-tower:after{background:linear-gradient(180deg,var(--gg-line),var(--gg-panel))!important}
+/* 3D Rubik cube sticker colors change but the logical face identity is untouched. */
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .rc-sticker{--rc-color:var(--gg-block-1)!important;border-color:var(--gg-line)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .rc-sticker[style*="#f3f4f7"]{--rc-color:var(--gg-ink)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .rc-sticker[style*="#f6d32e"]{--rc-color:var(--gg-block-2)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .rc-sticker[style*="#ff952e"]{--rc-color:var(--gg-block-7)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .rc-sticker[style*="#e74752"]{--rc-color:var(--gg-block-5)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .rc-sticker[style*="#28af67"]{--rc-color:var(--gg-block-4)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .rc-sticker[style*="#418de7"]{--rc-color:var(--gg-block-6)!important}
+/* Memory cards get their own deck design, including the back and revealed face. */
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .sm-card-back{background:radial-gradient(circle at 25% 17%,var(--gg-tile),var(--gg-panel) 55%,var(--gg-dark))!important;border-color:var(--gg-line)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .sm-card-back:before{border-color:var(--gg-secondary)!important;box-shadow:inset 0 0 12px var(--gg-primary)}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .sm-card-face{background:radial-gradient(circle at 38% 12%,var(--gg-panel),var(--gg-dark))!important;border-color:var(--gg-primary)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .sm-card-label{color:var(--gg-ink)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .sm-card-back svg{filter:drop-shadow(0 0 7px var(--gg-primary))!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .sm-card.is-matched .sm-card-face{border-color:#87f5b6!important;box-shadow:0 0 12px #60da9f!important}
+/* Question cards, progress indicators and overlays are parts of the quiz experience. */
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.aq-answer:not(.aq-correct):not(.aq-wrong),.lg-stat,.aq-stat,.geo-hint-card,.flag-row,.sm-stat,.jig-result,.tt-preview){background:var(--gg-panel)!important;border-color:var(--gg-line)!important;color:var(--gg-ink)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.aq-letter,.lg-pill,.geo-hint-number,.sm-header-icon){background:var(--gg-tile)!important;border-color:var(--gg-primary)!important;color:var(--gg-ink)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.aq-progress-track > *, .earth-timer-track > *){background:var(--gg-primary)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .aq-answer:hover:not(:disabled){background:var(--gg-tile)!important;border-color:var(--gg-secondary)!important}
+/* Puzzle pieces + maps: change borders, highlights and eligible regions (not actual photographic imagery). */
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .jig-piece[aria-pressed="true"]{filter:drop-shadow(0 0 7px var(--gg-primary))!important;outline-color:var(--gg-secondary)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .jig-board-cell.jig-target{background:color-mix(in srgb,var(--gg-primary) 28%,transparent)!important;outline-color:var(--gg-secondary)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .map-country.map-eligible{fill:var(--gg-tile)!important;stroke:var(--gg-line)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .map-country.map-eligible:hover{fill:var(--gg-block-1)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .map-country.map-selected{fill:var(--gg-active)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) #map-board{background:var(--gg-dark)!important}
+/* Letter tiles remain readable and the correct/present feedback keeps its meaning. */
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) #wordle-board>div>div{background:var(--gg-tile)!important;border-color:var(--gg-line)!important;color:var(--gg-ink)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) #wordle-board>div>div.bg-emerald-700{background:#217955!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) #wordle-board>div>div.bg-amber-600{background:#bb7b18!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) #wordle-board>div>div.bg-slate-700{background:#3b4051!important}
+/* In-game canvas paint (Tetris and Hill Climb) uses the tokens above through JS events. */
+@media(prefers-reduced-motion:reduce){#game-menu-stage[data-game-theme] .sm-card-inner{transition:none!important}}

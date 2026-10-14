@@ -1,0 +1,135 @@
+
+
+        <!-- ATELIÊ DE IMAGENS: SEARCH + JIGSAW WORKSPACE -->
+        <section id="jigsaw-section" class="w-full max-w-6xl" aria-labelledby="jig-heading">
+          <div class="jig-studio glass-card rounded-3xl overflow-hidden text-left">
+            <header class="jig-studio-head">
+              <div class="jig-hero-label"><i class="fa-solid fa-puzzle-piece mr-2"></i>ATELIÊ INTERATIVO · WIKIMEDIA COMMONS</div>
+              <div class="jig-headline-grid">
+                <div>
+                  <h3 id="jig-heading" class="font-serifHeader font-bold text-white text-3xl sm:text-4xl">Galeria & Quebra-Cabeça</h3>
+                  <p class="text-sm text-roseGold/85 mt-2 leading-relaxed">Encontre uma imagem e monte o quebra-cabeça.</p>
+                </div>
+                <div class="jig-hero-mark" aria-hidden="true"><i class="fa-regular fa-images"></i></div>
+              </div>
+            </header>
+
+            <div class="jig-search-layout">
+              <div class="jig-search-sidebar">
+                <div class="jig-step"><span class="jig-step-number">01</span><span>DESCUBRA UMA IMAGEM</span></div>
+                <form id="jig-search-form" class="jig-search-form">
+                  <label for="jig-subject" class="jig-label">O que você quer encontrar?</label>
+                  <div class="jig-primary-input-wrap"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <input id="jig-subject" name="subject" type="search" autocomplete="off" spellcheck="false" placeholder="Ex.: flores, cavalos, Paris, batalhas…" />
+                  </div>
+                  <div class="jig-examples"><span>Experimente:</span>
+                    <button type="button" class="jig-example" data-preset="monet">Monet e jardins</button>
+                    <button type="button" class="jig-example" data-preset="landscape">Paisagens</button>
+                    <button type="button" class="jig-example" data-preset="paris">Paris antiga</button>
+                  </div>
+
+                  <div class="jig-filter-title"><i class="fa-solid fa-sliders" aria-hidden="true"></i> Refinar resultados <span>opcional</span></div>
+                  <div id="jig-advanced-search-panel" class="jig-filter-grid">
+                    <label class="jig-label" for="jig-author">Autor / fotógrafo
+                      <input id="jig-author" type="search" autocomplete="off" placeholder="Ex.: Claude Monet" />
+                    </label>
+                    <label class="jig-label" for="jig-title">Título da obra
+                      <input id="jig-title" type="search" autocomplete="off" placeholder="Ex.: Water Lilies" />
+                    </label>
+                    <label class="jig-label" for="jig-location">Local retratado
+                      <input id="jig-location" type="search" autocomplete="off" placeholder="Ex.: França, Roma" />
+                    </label>
+                    <div class="jig-label">Tipo de imagem
+                      <div id="jig-types" class="jig-type-choice" aria-label="Tipo de imagem">
+                        <button type="button" data-value="photograph" aria-pressed="false">Fotografia</button>
+                        <button type="button" data-value="art" aria-pressed="false" title="Óleo, aquarela, acrílica, têmpera, guache e afrescos. Exclui desenhos e ilustrações.">Pinturas (óleo, aquarela…)</button>
+                      </div>
+                    </div>
+                    <div class="jig-years jig-wide">
+                      <label class="jig-label" for="jig-year-from">De (ano)<input id="jig-year-from" type="number" min="1000" max="2100" step="1" placeholder="1800" /></label>
+                      <label class="jig-label" for="jig-year-to">Até (ano)<input id="jig-year-to" type="number" min="1000" max="2100" step="1" placeholder="1900" /></label>
+                    </div>
+                    <label class="jig-label jig-wide" for="jig-period">Período de criação
+                      <select id="jig-period" class="jig-select w-full">
+                        <option value="">Qualquer período</option>
+                        <option value="before1800">Antes de 1800</option>
+                        <option value="1800s">Século XIX (1800–1899)</option>
+                        <option value="1900s">Século XX (1900–1999)</option>
+                        <option value="2000s">Século XXI (2000–atual)</option>
+                      </select>
+                    </label>
+                  </div>
+
+                  <details id="jig-categories-panel" class="jig-disclosure">
+                    <summary><i class="fa-solid fa-tags mr-2"></i> Explorar categorias do Commons <i class="fa-solid fa-chevron-down jig-disclosure-arrow"></i></summary>
+                    <div class="jig-disclosure-inner">
+                      
+                      <div class="jig-category-search-row">
+                        <input id="jig-category-query" type="search" autocomplete="off" spellcheck="false" placeholder="Ex.: impressionism, castles" aria-label="Buscar categorias do Commons" />
+                        <button id="jig-category-search" class="jig-icon-button" type="button" aria-label="Pesquisar categorias"><i class="fa-solid fa-magnifying-glass"></i></button>
+                      </div>
+                      <p id="jig-category-status" class="jig-muted" role="status" aria-live="polite">Digite 2 ou mais letras para pesquisar.</p>
+                      <div id="jig-category-results" class="jig-category-results" role="listbox" aria-label="Categorias encontradas"></div>
+                      <button id="jig-category-more" class="jig-light-button hidden" type="button">Mais categorias</button>
+                      <div class="jig-chip-topline"><span>Categorias selecionadas <b id="jig-category-count">(0)</b></span><button id="jig-category-clear" type="button" disabled>Limpar</button></div>
+                      <div id="jig-category-selected" class="jig-category-chips" aria-live="polite"><span class="jig-muted">Nenhuma categoria selecionada.</span></div>
+                    </div>
+                  </details>
+
+                  <details class="jig-disclosure jig-disclosure-mini">
+                    <summary><i class="fa-solid fa-earth-americas mr-2"></i> Países populares <i class="fa-solid fa-chevron-down jig-disclosure-arrow"></i></summary>
+                    <div id="jig-places" class="jig-toggle-list jig-disclosure-inner" aria-label="Países populares">
+                      <button class="jig-toggle" type="button" data-value="france" aria-pressed="false">França</button>
+                      <button class="jig-toggle" type="button" data-value="usa" aria-pressed="false">EUA</button>
+                      <button class="jig-toggle" type="button" data-value="germany" aria-pressed="false">Alemanha</button>
+                      <button class="jig-toggle" type="button" data-value="spain" aria-pressed="false">Espanha</button>
+                      <button class="jig-toggle" type="button" data-value="uk" aria-pressed="false">Reino Unido</button>
+                      <button class="jig-toggle" type="button" data-value="russia" aria-pressed="false">Rússia</button>
+                      <button class="jig-toggle" type="button" data-value="brazil" aria-pressed="false">Brasil</button>
+                      <button class="jig-toggle" type="button" data-value="italy" aria-pressed="false">Itália</button>
+                      <button class="jig-toggle" type="button" data-value="japan" aria-pressed="false">Japão</button>
+                      <button class="jig-toggle" type="button" data-value="canada" aria-pressed="false">Canadá</button>
+                      <button class="jig-toggle" type="button" data-value="china" aria-pressed="false">China</button>
+                      <button class="jig-toggle" type="button" data-value="india" aria-pressed="false">Índia</button>
+                      <button class="jig-toggle" type="button" data-value="egypt" aria-pressed="false">Egito</button>
+                      <button class="jig-toggle" type="button" data-value="mexico" aria-pressed="false">México</button>
+                      <button class="jig-toggle" type="button" data-value="australia" aria-pressed="false">Austrália</button>
+                    </div>
+                  </details>
+
+                  <div class="jig-search-actions">
+                    <button id="jig-search" type="submit"><i class="fa-solid fa-magnifying-glass mr-2"></i>Pesquisar imagens</button>
+                    <button id="jig-advanced-clear" type="button" title="Limpar todos os filtros" aria-label="Limpar todos os filtros"><i class="fa-solid fa-rotate-left"></i></button>
+                  </div>
+                  
+                </form>
+              </div>
+
+              <div class="jig-gallery-side">
+                <div class="jig-gallery-top">
+                  <div><div class="jig-step"><span class="jig-step-number">02</span><span>ESCOLHA UMA OBRA</span></div><p class="jig-gallery-description">Imagens</p></div>
+                  <label for="jig-difficulty" class="jig-difficulty-label">Nível de jogo
+                    <select id="jig-difficulty" class="jig-select"><option value="3">9 peças</option><option value="4" selected>16 peças</option><option value="5">25 peças</option><option value="6">36 peças</option></select>
+                  </label>
+                </div>
+                <p id="jig-status" class="jig-status" role="status" aria-live="polite">Busque uma imagem.</p>
+                <div id="jig-gallery-empty" class="jig-gallery-empty"><i class="fa-regular fa-images"></i><strong>Sua galeria começa aqui</strong><span>Encontre uma imagem para montar.</span></div>
+                <div id="jig-results" class="jig-results hidden" role="group" aria-label="Imagens encontradas no Wikimedia Commons"></div>
+                <div class="jig-gallery-footer"><button id="jig-images-more" type="button" class="jig-light-button hidden">Carregar mais imagens <i class="fa-solid fa-arrow-down ml-1"></i></button></div>
+              </div>
+            </div>
+
+            <div id="jig-game" class="jig-game hidden">
+              <div class="jig-game-heading">
+                <div><div class="jig-step"><span class="jig-step-number">03</span><span>MONTE O QUEBRA-CABEÇA</span></div>
+                  <h4 id="jig-image-name" class="font-serifHeader text-xl font-semibold text-white mt-2"></h4>
+                  <p id="jig-progress" class="text-xs text-roseGold/80" aria-live="polite">0 peças colocadas</p>
+                </div>
+                <div class="jig-game-actions"><button type="button" id="jig-preview" class="jig-action" aria-pressed="false"><i class="fa-regular fa-image mr-1"></i> Referência</button><button type="button" id="jig-return" class="jig-action" disabled>Devolver peça</button><button type="button" id="jig-reset" class="jig-action"><i class="fa-solid fa-rotate-right mr-1"></i> Reiniciar</button></div>
+              </div>
+              <div class="jig-play-grid"><div class="jig-play-panel"><h5>Tabuleiro <small>Arraste ou toque numa posição</small></h5><div id="jig-board" class="jig-board" role="grid" aria-label="Tabuleiro do quebra-cabeça"></div></div><div class="jig-play-panel"><h5>Peças disponíveis <small>Selecione uma peça para posicionar</small></h5><div id="jig-tray" class="jig-tray" role="group" aria-label="Peças soltas do quebra-cabeça"></div></div></div>
+              <p id="jig-win" class="jig-win hidden" role="status"><i class="fa-solid fa-check-circle mr-2"></i> Quebra-cabeça concluído!</p>
+              <p class="jig-license">Fonte: <a id="jig-credit-link" href="https://commons.wikimedia.org/" target="_blank" rel="noopener noreferrer">Wikimedia Commons — verificar autoria e licença <i class="fa-solid fa-arrow-up-right-from-square"></i></a>. As imagens são carregadas online.</p>
+            </div>
+          </div>
+        </section>

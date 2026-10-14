@@ -1,0 +1,43 @@
+{
+    "sourceFile":  "atlas_arcade_geography_clue_text_white_fixed.html",
+    "scriptMode":  "classic",
+    "core":  {
+                 "originalScriptIndex":  7,
+                 "paths":  [
+                               "scripts/core/audio.js",
+                               "scripts/core/countdown-and-letter.js",
+                               "scripts/core/particles.js",
+                               "scripts/core/wordle.js",
+                               "scripts/core/drawing.js",
+                               "scripts/core/love-interactions.js",
+                               "scripts/core/crossword.js",
+                               "scripts/core/hanoi.js"
+                           ],
+                 "sourceCharacters":  116778,
+                 "originalSha256":  "44a8882a45b5f1917ca56f17e84afb567c7a8b9a7cbef483618f601c1e0423e1",
+                 "concatenatedSha256":  "44a8882a45b5f1917ca56f17e84afb567c7a8b9a7cbef483618f601c1e0423e1",
+                 "sourcePreservedExactly":  true
+             },
+    "geography":  {
+                      "originalScriptIndex":  8,
+                      "paths":  [
+                                    "data/countries.js",
+                                    "scripts/games/geography.js"
+                                ],
+                      "sourceCharacters":  389728,
+                      "originalSha256":  "62ffd6b18af1c8e55db60a4c4b8416949403b6cea6c55ac583bbd6129308b6f8",
+                      "reconstructedSha256":  "62ffd6b18af1c8e55db60a4c4b8416949403b6cea6c55ac583bbd6129308b6f8",
+                      "gameLogicPreservedExactly":  true,
+                      "countryLiteralSha256":  "88ab3567abf4d6a1f9f71aabac71f5138c62fc9c499f97048175eda0eeb6f034",
+                      "specialLocationsLiteralSha256":  "07f7f00c9a6c10f015854ec5f874b4ff3f138b94f96a7da9a37226936965877e",
+                      "countries":  197,
+                      "specialLocations":  36,
+                      "dataGlobal":  "window.AtlasCountryData"
+                  },
+    "dependencies":  [
+                         "Load core paths in listed order after the UI is mounted.",
+                         "Keep classic-script globals: startInteractionMusic and createHeartBurst.",
+                         "Wordle publishes WordleLanguages, WordleFetchWordList and MultiDictionaryCatalog used by drawing, crossword, wordsearch and riddles.",
+                         "Load data/countries.js before scripts/games/geography.js."
+                     ]
+}

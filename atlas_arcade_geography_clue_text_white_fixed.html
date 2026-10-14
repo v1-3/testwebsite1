@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+<script id="tp-theme-init" src="atlas-arcade/scripts/ui/theme-init.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#101B3F">
+<title>Postal Jogos · Cartão-Postal</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/lz-string@1.5.0/libs/lz-string.min.js"></script>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<script src="atlas-arcade/scripts/ui/tailwind-config.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.7.3/maplibre-gl.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&family=Caveat:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="atlas-arcade/styles/index.css">
+</head>
+<body class="min-h-full flex flex-col justify-between selection:bg-rose-500 selection:text-white relative">
+<script src="atlas-arcade/generated/ui/opening.js"></script>
+<script src="atlas-arcade/generated/ui/love-toast.js"></script>
+<script src="atlas-arcade/generated/ui/background.js"></script>
+<script src="atlas-arcade/generated/ui/site-tools.js"></script>
+<script src="atlas-arcade/generated/ui/main-open.js"></script>
+<script src="atlas-arcade/generated/ui/anniversary.js"></script>
+<script src="atlas-arcade/generated/ui/letter.js"></script>
+<script src="atlas-arcade/generated/ui/game-library.js"></script>
+<script src="atlas-arcade/generated/ui/wordle-section.js"></script>
+<script src="atlas-arcade/generated/ui/draw-game-section.js"></script>
+<script src="atlas-arcade/generated/ui/geography-game-section.js"></script>
+<script src="atlas-arcade/generated/ui/flag-game-section.js"></script>
+<script src="atlas-arcade/generated/ui/map-game-section.js"></script>
+<script src="atlas-arcade/generated/ui/literal-guess-section.js"></script>
+<script src="atlas-arcade/generated/ui/crossword-section.js"></script>
+<script src="atlas-arcade/generated/ui/wordsearch-section.js"></script>
+<script src="atlas-arcade/generated/ui/hanoi-section.js"></script>
+<script src="atlas-arcade/generated/ui/earth-game-section.js"></script>
+<script src="atlas-arcade/generated/ui/jigsaw-section.js"></script>
+<script src="atlas-arcade/generated/ui/parking-jam.js"></script>
+<script src="atlas-arcade/generated/ui/pour-sort.js"></script>
+<script src="atlas-arcade/generated/ui/block-blasters-section.js"></script>
+<script src="atlas-arcade/generated/ui/tetris-section.js"></script>
+<script src="atlas-arcade/generated/ui/solar-system-section.js"></script>
+<script src="atlas-arcade/generated/ui/nasa-eyes-section.js"></script>
+<script src="atlas-arcade/generated/ui/hill-climb-section.js"></script>
+<script src="atlas-arcade/generated/ui/astronomy-quiz-section.js"></script>
+<script src="atlas-arcade/generated/ui/space-memory-section.js"></script>
+<script src="atlas-arcade/generated/ui/rubiks-cube-section.js"></script>
+<script src="atlas-arcade/generated/ui/skeeball-section.js"></script>
+<script src="atlas-arcade/generated/ui/whack-a-mole-section.js"></script>
+<script src="atlas-arcade/generated/ui/breakout-section.js"></script>
+<script src="atlas-arcade/generated/ui/visual-pinball-section.js"></script>
+<script src="atlas-arcade/generated/ui/pinball-3d-section.js"></script>
+<script src="atlas-arcade/generated/ui/flap-bird-section.js"></script>
+<script src="atlas-arcade/generated/ui/main-close.js"></script>
+<script src="atlas-arcade/generated/embeds/solar.js"></script>
+<script src="atlas-arcade/generated/embeds/visualPinball.js"></script>
+<script src="atlas-arcade/scripts/ui/load-solar.js"></script>
+<script src="atlas-arcade/scripts/ui/solar-resize.js"></script>
+<script src="atlas-arcade/scripts/games/nasa-eyes.js"></script>
+<script src="atlas-arcade/scripts/ui/game-picker.js"></script>
+<script src="atlas-arcade/scripts/core/audio.js"></script>
+<script src="atlas-arcade/scripts/core/countdown-and-letter.js"></script>
+<script src="atlas-arcade/scripts/core/particles.js"></script>
+<script src="atlas-arcade/scripts/core/wordle.js"></script>
+<script src="atlas-arcade/scripts/core/drawing.js"></script>
+<script src="atlas-arcade/scripts/core/love-interactions.js"></script>
+<script src="atlas-arcade/scripts/core/crossword.js"></script>
+<script src="atlas-arcade/scripts/core/hanoi.js"></script>
+<script src="atlas-arcade/data/countries.js"></script>
+<script src="atlas-arcade/scripts/games/geography.js"></script>
+<script src="atlas-arcade/scripts/games/flags.js"></script>
+<script src="atlas-arcade/scripts/games/country-map.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.7.3/maplibre-gl.js"></script>
+<script src="atlas-arcade/scripts/games/earth-explorer.js"></script>
+<script src="atlas-arcade/scripts/games/wordsearch.js"></script>
+<script src="atlas-arcade/scripts/games/jigsaw.js"></script>
+<script src="atlas-arcade/scripts/games/parking-jam.js"></script>
+<script src="atlas-arcade/scripts/games/pour-sort.js"></script>
+<script src="atlas-arcade/scripts/games/literal-guess.js"></script>
+<script src="atlas-arcade/scripts/games/block-blasters.js"></script>
+<script src="atlas-arcade/scripts/games/tetris.js"></script>
+<script src="atlas-arcade/scripts/games/hill-climb.js"></script>
+<script src="atlas-arcade/scripts/games/astronomy-quiz.js"></script>
+<script src="atlas-arcade/scripts/games/space-memory.js"></script>
+<script src="atlas-arcade/scripts/games/rubiks-cube.js"></script>
+<script id="pj-pinball-controller" src="atlas-arcade/scripts/games/pinball.js"></script>
+<script id="pj-breakout-controller" src="atlas-arcade/scripts/games/breakout.js"></script>
+<script id="pj-skeeball-controller" src="atlas-arcade/scripts/games/skeeball.js"></script>
+<script id="pj-whackamole-controller" src="atlas-arcade/scripts/games/whack-a-mole.js"></script>
+<script id="pj-vp-pinball-bridge" src="atlas-arcade/scripts/games/visual-pinball-bridge.js"></script>
+<script id="tp-theme-controls" src="atlas-arcade/scripts/ui/theme-controls.js"></script>
+<script id="postcard-edition-js" src="atlas-arcade/scripts/ui/postcard-catalog.js"></script>
+<script id="pj-anniversary-countdowns" src="atlas-arcade/scripts/ui/anniversary-countdowns.js"></script>
+<script id="pj-reference-helpers" src="atlas-arcade/scripts/ui/reference-helpers.js"></script>
+<script id="flap-bird-game-js" src="atlas-arcade/scripts/games/flap-bird.js"></script>
+<script id="tp-game-themes-js" src="atlas-arcade/scripts/ui/game-themes.js"></script>
+<script id="atlas-arcade-ui-js" src="atlas-arcade/scripts/ui/interface.js"></script>
+<script id="pj-opening-controller" src="atlas-arcade/scripts/ui/opening.js"></script>
+</body>
+</html>

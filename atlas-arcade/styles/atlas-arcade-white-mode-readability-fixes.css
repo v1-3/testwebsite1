@@ -1,0 +1,139 @@
+
+/* Final readability pass for white mode */
+html[data-postcard-theme="light"]{
+  --wm-ink:#16324d;
+  --wm-ink-soft:#4c647c;
+  --wm-ink-muted:#6e8398;
+  --wm-border:#aec6d4;
+  --wm-panel:#ffffff;
+  --wm-panel-soft:#f3f8fb;
+  --wm-chip:#e9f1f6;
+  --wm-blue-card:#2e5d97;
+  --wm-blue-card-2:#335f95;
+  --wm-blue-ink:#eff7ff;
+  --wm-blue-soft:#d8e8fb;
+}
+
+/* Form controls: darker text and placeholders in white mode */
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section :is(
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+select,textarea,
+.lg-input,.lg-select,.ws-select,.jig-select,.jig-category-input,
+.jig-label input,.jig-label select,.jig-disclosure input,
+.jig-primary-input-wrap input,.tt-lang select,.ss-lang select,
+.sx-label input,.sx-label select,.rc-select,.aq-select,.aq-answer
+){
+  background:var(--wm-panel)!important;
+  color:var(--wm-ink)!important;
+  border-color:var(--wm-border)!important;
+  -webkit-text-fill-color:var(--wm-ink)!important;
+  opacity:1!important;
+}
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section :is(
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),textarea,
+.lg-input,.jig-category-input,.jig-label input,.jig-disclosure input,.jig-primary-input-wrap input,
+.aq-answer,.rc-select,.sx-label input
+)::placeholder{
+  color:var(--wm-ink-muted)!important;
+  -webkit-text-fill-color:var(--wm-ink-muted)!important;
+  opacity:1!important;
+}
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section select option,
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section select optgroup{
+  background:#ffffff!important;
+  color:var(--wm-ink)!important;
+}
+
+/* Labels above controls */
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section :is(
+label,.gg-form-row>label,.lg-label,.sx-label,.jig-label,.jig-advanced-label,
+.tt-lang,.ss-lang,.aq-label,.fb-label,.rc-label,.sm-label,.pj-stat,.geo-stat,
+.flag-row label,.cw-def,.cw-clue-text,.ws-word,.earth-result-label
+){
+  color:var(--wm-ink-soft)!important;
+}
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section :is(
+small,.gg-helper,.gg-status,.gg-score-strip,.text-rose-200,.text-rose-300,.text-roseGold,
+.tp-card-note,.jig-gallery-description,.jig-license,.pj-header p,.pbr-brief,.pbr-foot,.sx-hint
+){
+  color:var(--wm-ink-soft)!important;
+}
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section :is(
+h1,h2,h3,h4,h5,h6,strong,b,.lg-kicker,.gg-eyebrow,.jig-step,.jig-hero-label,.pj-eyebrow
+){
+  color:var(--wm-ink)!important;
+}
+
+/* Buttons / chips / selectors */
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section :is(
+button,.earth-button,.jig-action,.jig-light-button,.flag-region-toggle,.earth-region-toggle,
+.cw-zoom-tools button,.ws-zoom-tools button,.geo-action,.pj-difficulty,.sx-btn,.tt-control
+){
+  color:var(--wm-ink)!important;
+}
+
+/* Geography clue cards and darker info panels: use high-contrast light text */
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section :is(
+.geo-hint-card,.gg-hint-list > *, .gg-hint-list > li, .gg-hint-list > div,
+.gg-map-results .gg-clue, .geo-clue-card, .country-hint-card
+){
+  background:linear-gradient(180deg,var(--wm-blue-card),var(--wm-blue-card-2))!important;
+  border-color:#4f7cb1!important;
+  color:var(--wm-blue-ink)!important;
+}
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section :is(
+.geo-hint-card .geo-hint-text,.geo-hint-card .geo-hint-category,.geo-hint-card .geo-hint-number,
+.gg-hint-list > *,.gg-hint-list > * *, .geo-clue-card, .geo-clue-card *, .country-hint-card, .country-hint-card *
+){
+  color:var(--wm-blue-ink)!important;
+}
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section .geo-hint-card .geo-hint-category{
+  opacity:.96!important;
+  letter-spacing:.12em;
+}
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section .geo-hint-card .geo-hint-number{
+  background:rgba(255,255,255,.16)!important;
+  border-color:rgba(255,255,255,.26)!important;
+}
+
+/* Stats and white panels */
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section :is(
+.geo-stat,.flag-row,.jig-result,.jig-fieldset,.jig-disclosure,.jig-gallery-empty,
+.cw-clue,.ws-option,.earth-map-panel,.earth-placeholder,.hanoi-tower,.pj-stat,.sx-stats span,.sx-selected
+){
+  background:var(--wm-panel-soft)!important;
+  border-color:var(--wm-border)!important;
+  color:var(--wm-ink)!important;
+}
+
+/* Selects that were visibly washed out in screenshots */
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section :is(
+.lg-select,.ws-select,.jig-select,.tt-lang select,.ss-lang select,.sx-label select
+){
+  background:var(--wm-panel-soft)!important;
+  color:var(--wm-ink)!important;
+}
+
+/* Input rows from restored games */
+html[data-postcard-theme="light"] .gg-restored :is(select,input){
+  background:#fff!important;
+  color:var(--wm-ink)!important;
+  border-color:var(--wm-border)!important;
+  -webkit-text-fill-color:var(--wm-ink)!important;
+}
+html[data-postcard-theme="light"] .gg-restored input::placeholder{
+  color:var(--wm-ink-muted)!important;
+  -webkit-text-fill-color:var(--wm-ink-muted)!important;
+  opacity:1!important;
+}
+html[data-postcard-theme="light"] .gg-form-row>label,
+html[data-postcard-theme="light"] .gg-status,
+html[data-postcard-theme="light"] .gg-helper,
+html[data-postcard-theme="light"] .gg-score-strip{color:var(--wm-ink-soft)!important}
+html[data-postcard-theme="light"] .gg-score-strip b{color:var(--wm-ink)!important}
+
+/* Preserve strong contrast on success/failure states */
+html[data-postcard-theme="light"] .cw-cell.locked input{color:#0c5131!important}
+html[data-postcard-theme="light"] .cw-cell.wrong input{color:#792926!important}
+html[data-postcard-theme="light"] .ws-cell.ws-found,
+html[data-postcard-theme="light"] .ws-cell.ws-revealed{color:#fff!important}

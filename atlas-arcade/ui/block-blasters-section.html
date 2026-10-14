@@ -1,0 +1,50 @@
+
+
+
+        <!-- BLOCK BLASTERS: QUEBRA-CABEÇA DE BLOCOS -->
+        <section id="block-blasters-section" class="w-full max-w-4xl" aria-labelledby="bb-title">
+          <div class="bb-shell">
+            <header class="bb-header">
+              <div>
+                <span class="bb-kicker" data-bb-i18n="eyebrow">QUEBRA-CABEÇA DE BLOCOS</span>
+                <h2 id="bb-title">Block Blasters</h2>
+                <p data-bb-i18n="intro">Encaixe as peças, complete linhas ou colunas e marque pontos.</p>
+              </div>
+              <label class="bb-language-label"><span data-bb-i18n="language">Idioma</span>
+                <select id="bb-language" class="bb-language" aria-label="Idioma do Block Blasters">
+                  <option value="pt">Português</option><option value="it">Italiano</option><option value="es">Español</option>
+                  <option value="en">English</option><option value="de">Deutsch</option><option value="fr">Français</option>
+                  <option value="nl">Nederlands</option><option value="sv">Svenska</option><option value="no">Norsk</option>
+                </select>
+              </label>
+            </header>
+            <div class="bb-stats" aria-live="polite">
+              <div class="bb-stat"><strong id="bb-score">0</strong><span data-bb-i18n="score">Pontos</span></div>
+              <div class="bb-stat"><strong id="bb-best">0</strong><span data-bb-i18n="best">Recorde</span></div>
+              <div class="bb-stat"><strong id="bb-lines">0</strong><span data-bb-i18n="lines">Linhas</span></div>
+              <div class="bb-stat"><strong id="bb-combo">0</strong><span data-bb-i18n="combo">Combo</span></div>
+            </div>
+            <div class="bb-play">
+              <div class="bb-board-frame" id="bb-frame">
+                <div id="bb-board" class="bb-board" role="group" aria-label="Tabuleiro 8 por 8"></div>
+                <div id="bb-burst" class="bb-burst" hidden aria-hidden="true"></div>
+                <div id="bb-end" class="bb-end" hidden>
+                  <div class="bb-end-card">
+                    <h3 data-bb-i18n="endTitle">Fim de jogo</h3>
+                    <p id="bb-end-score"></p>
+                    <button type="button" id="bb-play-again" class="bb-btn" data-bb-i18n="again">Jogar novamente</button>
+                  </div>
+                </div>
+              </div>
+              <div id="bb-offers" class="bb-offers" role="group" aria-label="Três peças disponíveis"></div>
+              <p class="bb-message" id="bb-message" role="status" aria-live="polite">Selecione uma peça e toque no tabuleiro ou arraste-a.</p>
+              <div class="bb-actions">
+                <button type="button" class="bb-btn" id="bb-new"><i class="fa-solid fa-rotate-right" aria-hidden="true"></i> <span data-bb-i18n="new">Novo jogo</span></button>
+              </div>
+              <details class="bb-help">
+                <summary data-bb-i18n="how">Como jogar</summary>
+                <p data-bb-i18n="help">Arraste uma das três peças até o tabuleiro de 8×8, ou selecione a peça e toque numa posição. Preencha uma linha ou coluna inteira para eliminá-la. Depois de usar as três peças, outras aparecem. O jogo termina quando nenhuma peça disponível cabe no tabuleiro. As peças não giram.</p>
+              </details>
+            </div>
+          </div>
+        </section>

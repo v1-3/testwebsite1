@@ -1,0 +1,34 @@
+
+/* Final override: geography clue card text must stay light on blue cards. */
+body > main.content-layer #game-menu-stage #geography-game-section .gg-hint-list .geo-hint-card,
+html[data-postcard-theme="light"] body > main.content-layer #game-menu-stage #geography-game-section .gg-hint-list .geo-hint-card,
+html[data-postcard-theme="dark"] body > main.content-layer #game-menu-stage #geography-game-section .gg-hint-list .geo-hint-card,
+#game-menu-stage[data-game-theme] #geography-game-section .gg-hint-list .geo-hint-card {
+  background: linear-gradient(180deg,#2f5e98,#31588a) !important;
+  border: 1px solid #6f98c8 !important;
+  color: #f4f9ff !important;
+}
+body > main.content-layer #game-menu-stage #geography-game-section .gg-hint-list .geo-hint-card *,
+body > main.content-layer #game-menu-stage #geography-game-section .gg-hint-list .geo-hint-card .geo-hint-text,
+body > main.content-layer #game-menu-stage #geography-game-section .gg-hint-list .geo-hint-card .geo-hint-category,
+body > main.content-layer #game-menu-stage #geography-game-section .gg-hint-list .geo-hint-card .geo-hint-number,
+body > main.content-layer #game-menu-stage #geography-game-section .gg-hint-list .geo-hint-card p,
+body > main.content-layer #game-menu-stage #geography-game-section .gg-hint-list .geo-hint-card span,
+body > main.content-layer #game-menu-stage #geography-game-section .gg-hint-list .geo-hint-card div {
+  color: #f4f9ff !important;
+  -webkit-text-fill-color: #f4f9ff !important;
+  opacity: 1 !important;
+  text-shadow: 0 1px 1px rgba(0,0,0,.18) !important;
+}
+body > main.content-layer #game-menu-stage #geography-game-section .gg-hint-list .geo-hint-card .geo-hint-category {
+  color: #dcecff !important;
+  -webkit-text-fill-color: #dcecff !important;
+  font-weight: 800 !important;
+  letter-spacing: .14em !important;
+}
+body > main.content-layer #game-menu-stage #geography-game-section .gg-hint-list .geo-hint-card .geo-hint-number {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: rgba(255,255,255,.16) !important;
+  border: 1px solid rgba(255,255,255,.28) !important;
+}

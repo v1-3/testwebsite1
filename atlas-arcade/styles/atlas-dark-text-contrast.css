@@ -1,0 +1,134 @@
+
+/* Dark mode now changes both the surfaces AND the typography. UI text is
+   never color-inverted with a filter: that would invert game art and canvases. */
+html[data-postcard-theme="dark"] {
+  color-scheme:dark;
+  --ux-ink:#f4f8ff;
+  --ux-ink-sub:#e0eafa;
+  --ux-muted:#bacce2;
+  --tp-ink:#f4f8ff;
+  --tp-soft:#dce6f7;
+  --tp-muted:#b6c9e3;
+}
+html[data-postcard-theme="dark"] body,
+html[data-postcard-theme="dark"] body>main.content-layer,
+html[data-postcard-theme="dark"] .tp-top-tools {color:var(--ux-ink)!important}
+
+/* Main navigation, post cards, catalog descriptions, control dock. */
+html[data-postcard-theme="dark"] :is(.tp-top-credit,.tp-top-credit span,
+.tp-catalog-head p,.tp-card-note,.pj-letter-side p,.pj-letter-side small,
+.pj-letter-card p,.tp-card p,.tp-card small,.tp-catalog-shell p,
+.ux-game-subtitle,.ux-help p,.tp-game-theme-heading p,.tp-game-theme-kicker,
+.tp-game-theme-active,.tp-game-theme-option,.tp-top-actions .tp-header-pill){
+  color:var(--ux-ink-sub)!important;
+}
+html[data-postcard-theme="dark"] :is(.pj-letter-card,.pj-letter-side,.tp-catalog-shell,.tp-card,
+.ux-game-toolbar,.ux-help,#tp-game-theme-bar,.tp-top-actions) :is(h1,h2,h3,h4,h5,h6){
+  color:var(--ux-ink)!important;
+}
+html[data-postcard-theme="dark"] .tp-top-actions :is(.tp-header-pill,.tp-header-pill span,.tp-header-pill i){
+  color:var(--ux-ink)!important;
+}
+html[data-postcard-theme="dark"] .tp-top-actions .tp-header-pill:hover,
+html[data-postcard-theme="dark"] .tp-top-actions .tp-header-pill:hover :is(span,i){
+  color:var(--ux-highlight-ink)!important;
+}
+
+/* A lighter in-game theme must still adopt dark paper and light ink when
+   the WEBSITE switches to dark mode. Do not modify rendered tiles or canvases. */
+html[data-postcard-theme="dark"] #game-menu-stage{
+  --ug-bg:#14283c;--ug-panel:#20374d;--ug-soft:#2b4560;
+  --ug-border:#58748e;--ug-text:#f5f8ff;--ug-muted:#d0dfef;
+  --ug-accent:#91dfe7;--ug-accent-ink:#143344;
+}
+html[data-postcard-theme="dark"] #game-menu-stage[data-game-theme="postcard"]{
+  --ug-bg:#172c47;--ug-panel:#233e5a;--ug-soft:#30516e;
+  --ug-border:#6988a6;--ug-text:#f7fbff;--ug-muted:#d7e5f4;
+  --ug-accent:#8fd3ff;--ug-accent-ink:#0d344a;--ug-shadow:#050e1c6e;
+}
+html[data-postcard-theme="dark"] #game-menu-stage[data-game-theme="original"]{
+  --ug-bg:#231c30;--ug-panel:#31283d;--ug-soft:#45334f;
+  --ug-border:#81658c;--ug-text:#fff7ff;--ug-muted:#eddaed;
+  --ug-accent:#f3b9d9;--ug-accent-ink:#3b1c38;
+}
+/* Dark mode typography tokens for game themes, not their graphics. */
+html[data-postcard-theme="dark"] #game-menu-stage{
+  --repair-ink:#f6f9ff;
+  --repair-copy:#dbe8f8;
+  --repair-muted:#bfd0e5;
+  --gt-paper-heading:#f6f9ff;
+  --gt-paper-body:#dbe8f8;
+  --gt-paper-accent:#bcdffc;
+}
+
+/* Game headings, explanatory copy and status labels: override older palettes
+   that fixed them to dark ink or to faded pink, but exclude graphical tiles. */
+html[data-postcard-theme="dark"] body>main.content-layer #game-menu-stage>section
+:is(.gg-game-shell,.glass-card,.lg-shell,.jig-studio,.pj-shell,.ps-shell,.bb-shell,
+.tt-shell,.rc-shell,.fb-shell,.pbr-shell,.hc-shell,.aq-shell,.sm-shell,.ney-shell)
+:is(.gg-game-header h2,.gg-game-header h3,.gg-game-header strong,.gg-game-header .gg-eyebrow,
+.gg-score-strip b,.gg-status strong,.gg-draw-prompt strong,.geo-stat strong,
+.lg-header h2,.pj-header h2,.ps-header h2,.tt-header h2,.bb-header h2,
+.rc-header h2,.fb-header h2,.hc-header h2,.aq-header h2,.sm-header h2,
+.pj-stat strong,.tt-stat strong,.fb-stat strong,.rc-panel-title,.rc-inner-title,
+.gg-score-strip strong,.jig-gallery-top h3,.jig-studio-head h2){
+ color:var(--repair-ink)!important;
+}
+html[data-postcard-theme="dark"] body>main.content-layer #game-menu-stage>section
+:is(.gg-game-shell,.glass-card,.lg-shell,.jig-studio,.pj-shell,.ps-shell,.bb-shell,
+.tt-shell,.rc-shell,.fb-shell,.pbr-shell,.hc-shell,.aq-shell,.sm-shell,.ney-shell)
+:is(.gg-game-header p,.gg-helper,.gg-status,.gg-score-strip,.gg-form-row>label,
+.gg-draw-prompt,.gg-draw-prompt>span,.geo-stat,.lg-header p,.pj-header p,
+.ps-help,.tt-status,.bb-header p,.hc-header p,.fb-help,.fb-instructions,
+.rc-instructions,.rc-message,.rc-inner-description,.aq-header p,.sm-header p,
+.jig-license,.jig-gallery-description,.jig-status,.pj-stat,
+.ws-word,.cw-clue-text,.cw-def){
+ color:var(--repair-copy)!important;
+}
+
+/* Text entry and settings fields become dark with light, readable letters. */
+html[data-postcard-theme="dark"] body>main.content-layer #game-menu-stage>section
+:is(.gg-restored input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+.gg-restored select,.lg-input,.lg-select,.jig-label input,.jig-label select,
+.jig-primary-input-wrap input,.ws-select,.tt-lang select,.ss-lang select,
+.sx-label select,.sx-label input,.rc-select,.aq-select,.aq-answer,
+.flag-input,.fb-select,.pj-select,.gg-inline-form input){
+  background:#23394e!important;
+  color:#f4f9ff!important;
+  -webkit-text-fill-color:#f4f9ff!important;
+  border-color:#7294b0!important;
+  opacity:1!important;
+}
+html[data-postcard-theme="dark"] body>main.content-layer #game-menu-stage>section
+:is(.gg-restored input,.jig-label input,.jig-primary-input-wrap input,.lg-input,
+.flag-input,.aq-answer,.gg-inline-form input)::placeholder{
+  color:#c1d4ea!important;
+  -webkit-text-fill-color:#c1d4ea!important;
+  opacity:1!important;
+}
+html[data-postcard-theme="dark"] body>main.content-layer #game-menu-stage>section select option{
+  background:#23394e!important;
+  color:#f4f9ff!important;
+}
+
+/* The restored geography hints are colored cards: text must follow the card,
+   NOT the global light/dark text setting. Other white-paper islands similarly
+   keep dark ink in both modes. */
+html[data-postcard-theme="dark"] #game-menu-stage #geography-game-section
+.geo-hint-card :is(.geo-hint-text,.geo-hint-category,.geo-hint-number){
+ color:#f5fbff!important;-webkit-text-fill-color:#f5fbff!important;
+}
+html[data-postcard-theme="dark"] #game-menu-stage #tetris-section .tt-overlay :is(h1,h2,h3,p,small,span,strong){
+ color:#fff5ff!important;-webkit-text-fill-color:#fff5ff!important;
+}
+html[data-postcard-theme="dark"] #game-menu-stage #flap-bird-section .fb-overlay-card :is(h1,h2,h3,strong,b){
+ color:#183348!important;-webkit-text-fill-color:#183348!important;
+}
+html[data-postcard-theme="dark"] #game-menu-stage #flap-bird-section .fb-overlay-card :is(p,small,span):not(.fb-overlay-icon){
+ color:#455c70!important;-webkit-text-fill-color:#455c70!important;
+}
+/* Letter tiles and the white drawing page retain fixed dark ink by design. */
+html[data-postcard-theme="dark"] #crossword-section .cw-cell input{
+ color:#182b3e!important;-webkit-text-fill-color:#182b3e!important;
+}
+html[data-postcard-theme="dark"] #draw-game-section :is(#draw-canvas,#draw-view-canvas){filter:none!important}

@@ -1,0 +1,79 @@
+
+
+<section id="game-library" class="w-full max-w-6xl" aria-labelledby="tp-catalog-heading">
+            <div class="tp-catalog-head" id="postal-catalog">
+              <div><div class="tp-eyebrow">PASSAPORTE DE EXPLORAÇÃO <span>✦</span> COLECIONE EXPERIÊNCIAS</div><h2 id="tp-catalog-heading">O mundo cabe <em>num cartão.</em></h2><p>Escolha seu próximo destino. Cada jogo é uma nova parada nessa viagem.</p></div>
+              <div class="tp-passport-card" aria-label="Catálogo de jogos"><span class="tp-passport-icon">✈</span><strong id="tp-game-count">28</strong><small>DESTINOS<br>PARA EXPLORAR</small></div>
+            </div>
+            <div class="tp-catalog-shell" id="tp-catalog-shell">
+              <div class="tp-filter-row" id="tp-filter-row" role="group" aria-label="Filtrar os jogos"></div>
+              <div class="tp-card-grid" id="tp-card-grid"></div>
+              <p class="tp-card-note">✦ Escolha um cartão para abrir o jogo. Seus jogos e seu progresso continuam disponíveis.</p>
+            </div>
+            <div class="tp-choose-bar"><div><span>SEU PRÓXIMO DESTINO</span><strong>Escolha um cartão do catálogo para jogar</strong></div><span class="tp-postmark">BOM JOGO!<small>✦ EST. 2028</small></span></div>
+            <div class="game-library-header">
+              <label class="atlas-static-1" for="game-menu-select">Escolher jogo</label>
+              <div class="relative">
+            <select id="game-menu-select" class="game-menu-select atlas-static-2">
+                        <option value="">Selecione um jogo...</option>
+                        <optgroup label="Palavras e criatividade">
+                            <option value="wordle-section">Termo</option>
+                            <option value="crossword-section">Palavras Cruzadas</option>
+                            <option value="literal-guess-section">Adivinhe: Animal ou Objeto</option>
+                            <option value="wordsearch-section">Caça-Palavras Multilíngue</option>
+                            <option value="draw-game-section">Desenho Misterioso</option>
+                        </optgroup>
+                        <optgroup label="Geografia">
+                            <option value="geography-game-section">Adivinhe o País ou Território</option>
+                            <option value="flag-game-section">Desafio das Bandeiras</option>
+                            <option value="map-game-section">Desafio do Mapa-Múndi</option>
+                            <option value="earth-game-section">Exploração 360°</option>
+                        </optgroup>
+                        <optgroup label="Raciocínio e quebra-cabeças">
+                            <option value="hanoi-section">Torres de Hanói</option>
+                            <option value="jigsaw-section">Galeria &amp; Quebra-Cabeça</option>
+                            <option value="parking-jam">Estacionamento Engarrafado</option>
+                            <option value="pour-sort">Laboratório de Cores</option>
+                            <option value="block-blasters-section">Block Blasters</option>
+                            <option value="tetris-section">Tetris</option>
+                            <option value="rubiks-cube-section">Cubo de Rubik 3D</option>
+                        </optgroup>
+                        <optgroup label="Corrida e habilidade">
+                            <option value="flap-bird-section">Flap Bird · 7 Temas</option>
+                            <option value="skeeball-section">Skee-Ball · Alvos giratórios</option>
+                            <option value="whack-a-mole-section">Whack-a-Mole</option>
+                            <option value="breakout-section">Breakout</option>
+                            <option value="visual-pinball-section">Pinball II · Orbitarium</option>
+                            <option value="pinball-3d-section">Pinball · Fliperama</option>
+                            <option value="hill-climb-section">Hill Climb Racing</option>
+                        </optgroup>
+                        <optgroup label="Ciência e exploração">
+                            <option value="solar-system-section">Sistema Solar · Simulação</option>
+                            <option value="nasa-eyes-section">NASA Eyes on the Solar System</option>
+                            <option value="nasa-eyes-earth-section">NASA Eyes on the Earth</option>
+                            <option value="astronomy-quiz-section">Quiz de Astronomia</option>
+                            <option value="space-memory-section">Memória Espacial</option>
+                        </optgroup>
+                    </select>
+              </div>
+            </div>
+            <div class="atlas-static-3" id="game-menu-placeholder" hidden></div>
+            <button type="button" id="tp-back-catalog" class="tp-back-catalog" hidden>← Voltar ao catálogo de cartões</button>
+            <!-- Individual visual themes for the whole game catalog. -->
+            <div id="tp-game-theme-bar" class="tp-game-theme-bar" hidden aria-label="Temas visuais do jogo">
+              <div class="tp-game-theme-heading">
+                <div>
+                  <span class="tp-game-theme-kicker">✦ PERSONALIZE SUA VIAGEM</span>
+                  <h3 id="tp-game-theme-title">Escolha o cenário</h3>
+                  <p id="tp-game-theme-caption">Um tema para cada experiência.</p>
+                </div>
+                <span class="tp-game-theme-stamp" aria-hidden="true">ESTILO<br>DE JOGO</span>
+              </div>
+              <div id="tp-game-theme-options" class="tp-game-theme-options" role="group" aria-label="Escolher tema do jogo"></div>
+              <div class="tp-game-theme-footer">
+                <span id="tp-game-theme-active" aria-live="polite">Tema original</span>
+                <button type="button" id="tp-game-theme-all" class="tp-game-theme-apply">Aplicar a todos os jogos ↗</button>
+              </div>
+            </div>
+            <div id="game-menu-stage" class="game-menu-stage" aria-label="Jogo selecionado"></div>
+        </section>

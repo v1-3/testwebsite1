@@ -1,0 +1,56 @@
+
+
+
+        <!-- QUIZ DE ASTRONOMIA: SISTEMA SOLAR, ESPAÇO E UNIVERSO -->
+        <section id="astronomy-quiz-section" class="w-full max-w-6xl" aria-labelledby="aq-title">
+          <div class="aq-shell">
+            <header class="aq-header">
+              <div><span class="aq-eyebrow" data-aq-i18n="eyebrow">CIÊNCIA &amp; EXPLORAÇÃO</span>
+                <h2 id="aq-title" data-aq-i18n="title">Quiz de Astronomia</h2>
+                <p data-aq-i18n="intro">Teste seus conhecimentos sobre o espaço, os planetas e o Universo.</p></div>
+              <label class="aq-lang"><span data-aq-i18n="language">Idioma</span>
+                <select id="aq-language" class="aq-select"><option value="pt">Português</option><option value="it">Italiano</option><option value="es">Español</option><option value="en">English</option><option value="de">Deutsch</option><option value="fr">Français</option><option value="nl">Nederlands</option><option value="sv">Svenska</option><option value="no">Norsk</option></select>
+              </label>
+            </header>
+            <div class="aq-config">
+              <label class="aq-field"><span data-aq-i18n="topic">Tema</span><select id="aq-topic" class="aq-select">
+                <option value="all" data-aq-i18n="allTopics">Todos os temas</option>
+                <option value="solar" data-aq-i18n="solar">Sistema Solar</option>
+                <option value="space" data-aq-i18n="space">Espaço</option>
+                <option value="astronomy" data-aq-i18n="astronomy">Astronomia</option>
+              </select></label>
+              <label class="aq-field"><span data-aq-i18n="difficulty">Dificuldade</span><select id="aq-difficulty" class="aq-select">
+                <option value="all" data-aq-i18n="allLevels">Todas</option><option value="easy" data-aq-i18n="easy">Fácil</option><option value="medium" data-aq-i18n="medium">Médio</option><option value="hard" data-aq-i18n="hard">Difícil</option>
+              </select></label>
+              <label class="aq-field"><span data-aq-i18n="length">Questões</span><select id="aq-length" class="aq-select">
+                <option value="5">5</option><option value="10" selected>10</option><option value="15">15</option><option value="20">20</option>
+              </select></label>
+              <button type="button" id="aq-start" class="aq-button" data-aq-i18n="start">Começar quiz</button>
+            </div>
+            <div class="aq-stats" aria-live="polite">
+              <div class="aq-stat"><span data-aq-i18n="score">Pontos</span><strong id="aq-score">0</strong></div>
+              <div class="aq-stat"><span data-aq-i18n="correct">Acertos</span><strong id="aq-correct">0</strong></div>
+              <div class="aq-stat"><span data-aq-i18n="streak">Sequência</span><strong id="aq-streak">0</strong></div>
+              <div class="aq-stat"><span data-aq-i18n="best">Recorde</span><strong id="aq-best">0</strong></div>
+            </div>
+            <div class="aq-progress-wrap"><div class="aq-progress-track"><div id="aq-progress" role="progressbar" aria-label="Progresso do quiz" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div></div></div>
+            <div id="aq-welcome" class="aq-welcome">
+              <div class="aq-illustration" aria-hidden="true"><i class="fa-solid fa-user-astronaut"></i></div>
+              <h3 data-aq-i18n="readyTitle">Pronto para explorar o Universo?</h3>
+              <p data-aq-i18n="ready">Selecione um tema, uma dificuldade e comece. Cada partida usa questões aleatórias.</p>
+            </div>
+            <div id="aq-play" class="aq-play" hidden>
+              <div class="aq-question-top"><span id="aq-number">Questão 1 de 10</span><span class="aq-category" id="aq-category">Sistema Solar</span></div>
+              <h3 id="aq-question" class="aq-question">Qual é o planeta mais próximo do Sol?</h3>
+              <div id="aq-options" class="aq-options" role="group" aria-label="Opções de resposta"></div>
+              <div id="aq-feedback" class="aq-feedback" aria-live="polite" hidden><strong id="aq-feedback-title"></strong><p id="aq-feedback-answer"></p></div>
+              <div class="aq-bottom"><button type="button" id="aq-skip" class="aq-button secondary" data-aq-i18n="skip">Pular questão</button><button type="button" id="aq-next" class="aq-button" hidden>Próxima questão</button></div>
+            </div>
+            <div id="aq-finish" class="aq-finish" hidden>
+              <div class="aq-illustration" aria-hidden="true"><i class="fa-solid fa-award"></i></div>
+              <h3 data-aq-i18n="finishTitle">Viagem concluída!</h3><strong id="aq-final-score" class="aq-final-score">0 pontos</strong><p id="aq-final-text"></p>
+              <button type="button" id="aq-replay" class="aq-button" data-aq-i18n="replay">Jogar novamente</button>
+            </div>
+            <footer class="aq-footer"><span data-aq-i18n="controls">Atalhos: 1–4 para responder e Enter para continuar.</span><a href="https://science.nasa.gov/solar-system/solar-system-facts/" target="_blank" rel="noopener noreferrer" data-aq-i18n="source">Fatos científicos: NASA</a></footer>
+          </div>
+        </section>

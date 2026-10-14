@@ -1,0 +1,82 @@
+
+
+
+        <!-- PLAYABLE RUBIK'S CUBE: 3D CSS, original implementation, works offline -->
+        <section id="rubiks-cube-section" class="w-full max-w-6xl" aria-labelledby="rc-title">
+          <div class="rc-shell">
+            <div class="rc-head">
+              <div>
+                <span class="rc-kicker" data-rc-t="eyebrow">DESAFIO DE LÓGICA · 3D</span>
+                <h2 id="rc-title" data-rc-t="title">Cubo de Rubik 3D</h2>
+                <p data-rc-t="intro">Gire o cubo e suas faces, embaralhe as cores e tente resolver as seis faces.</p>
+              </div><i class="fa-solid fa-cubes-stacked" aria-hidden="true"></i>
+            </div>
+            <div class="rc-toolbar">
+              <div class="rc-size-picker">
+                <label for="rc-size"><span data-rc-t="sizeLabel">Tamanho do cubo</span> · <strong id="rc-size-value">3×3×3</strong> <span id="rc-size-difficulty" class="rc-size-difficulty"></span></label>
+                <input id="rc-size" type="range" min="2" max="4" value="3" step="1" list="rc-size-ticks" aria-label="Tamanho do cubo" aria-valuetext="3×3×3" />
+                <datalist id="rc-size-ticks"><option value="2"></option><option value="3"></option><option value="4"></option></datalist>
+                <div class="rc-size-ticks" aria-hidden="true"><span>2×2</span><span>3×3</span><span>4×4</span></div>
+              </div>
+              <label class="rc-lang-label"><span data-rc-t="language">Idioma</span>
+                <select id="rc-language" class="rc-select">
+                  <option value="pt">Português</option><option value="it">Italiano</option><option value="es">Español</option><option value="en">English</option><option value="de">Deutsch</option><option value="fr">Français</option><option value="nl">Nederlands</option><option value="sv">Svenska</option><option value="no">Norsk</option>
+                </select>
+              </label>
+              <div class="rc-actions">
+                <button id="rc-scramble" type="button" class="rc-button"><span data-rc-t="scramble">Embaralhar</span></button>
+                <button id="rc-undo" type="button" class="rc-button rc-secondary"><span data-rc-t="undo">Desfazer</span></button>
+                <button id="rc-reset" type="button" class="rc-button rc-secondary"><span data-rc-t="reset">Reiniciar</span></button>
+              </div>
+            </div>
+            <div class="rc-content">
+              <div class="rc-display">
+                <div id="rc-scene" class="rc-scene" role="group" aria-label="Cubo tridimensional interativo" tabindex="0">
+                  <div id="rc-camera" class="rc-camera"><div id="rc-model" class="rc-model"></div></div>
+                  <div class="rc-hud" aria-live="polite">
+                    <span class="rc-pill"><span data-rc-t="moves">Movimentos</span>: <span id="rc-moves">0</span></span>
+                    <span id="rc-state" class="rc-pill">Resolvido</span>
+                  </div>
+                  <div class="rc-mini" data-rc-t="drag">Arraste para girar a visão do cubo</div>
+                </div>
+              </div>
+              <div class="rc-panel">
+                <div class="rc-panel-box">
+                  <h3 class="rc-panel-title" data-rc-t="turnFaces">Girar as faces</h3>
+                  <div class="rc-face-grid">
+                    <div class="rc-face-pair" data-rc-face="U"><div class="rc-face-label" data-rc-t="up">Cima (U)</div><div class="rc-face-buttons"><button class="rc-face-button" data-rc-move="U" aria-label="U clockwise">U</button><button class="rc-face-button" data-rc-move="U'" aria-label="U counterclockwise">U′</button></div></div>
+                    <div class="rc-face-pair" data-rc-face="D"><div class="rc-face-label" data-rc-t="down">Baixo (D)</div><div class="rc-face-buttons"><button class="rc-face-button" data-rc-move="D" aria-label="D clockwise">D</button><button class="rc-face-button" data-rc-move="D'" aria-label="D counterclockwise">D′</button></div></div>
+                    <div class="rc-face-pair" data-rc-face="L"><div class="rc-face-label" data-rc-t="left">Esquerda (L)</div><div class="rc-face-buttons"><button class="rc-face-button" data-rc-move="L" aria-label="L clockwise">L</button><button class="rc-face-button" data-rc-move="L'" aria-label="L counterclockwise">L′</button></div></div>
+                    <div class="rc-face-pair" data-rc-face="R"><div class="rc-face-label" data-rc-t="right">Direita (R)</div><div class="rc-face-buttons"><button class="rc-face-button" data-rc-move="R" aria-label="R clockwise">R</button><button class="rc-face-button" data-rc-move="R'" aria-label="R counterclockwise">R′</button></div></div>
+                    <div class="rc-face-pair" data-rc-face="F"><div class="rc-face-label" data-rc-t="front">Frente (F)</div><div class="rc-face-buttons"><button class="rc-face-button" data-rc-move="F" aria-label="F clockwise">F</button><button class="rc-face-button" data-rc-move="F'" aria-label="F counterclockwise">F′</button></div></div>
+                    <div class="rc-face-pair" data-rc-face="B"><div class="rc-face-label" data-rc-t="back">Trás (B)</div><div class="rc-face-buttons"><button class="rc-face-button" data-rc-move="B" aria-label="B clockwise">B</button><button class="rc-face-button" data-rc-move="B'" aria-label="B counterclockwise">B′</button></div></div>
+                  </div>
+                  <div id="rc-inner-controls" class="rc-inner-controls" hidden>
+                    <h4 class="rc-inner-title" data-rc-t="innerTitle">Camada interna (4×4)</h4>
+                    <p class="rc-inner-description" data-rc-t="innerDesc">Gire a segunda camada a partir da face indicada.</p>
+                    <div class="rc-face-grid rc-inner-grid">
+                      <div class="rc-face-pair"><div class="rc-face-label">U</div><div class="rc-face-buttons"><button type="button" class="rc-face-button" data-rc-inner-move="U" aria-label="Upper inner slice clockwise">u</button><button type="button" class="rc-face-button" data-rc-inner-move="U'" aria-label="Upper inner slice counterclockwise">u′</button></div></div>
+                      <div class="rc-face-pair"><div class="rc-face-label">D</div><div class="rc-face-buttons"><button type="button" class="rc-face-button" data-rc-inner-move="D" aria-label="Lower inner slice clockwise">d</button><button type="button" class="rc-face-button" data-rc-inner-move="D'" aria-label="Lower inner slice counterclockwise">d′</button></div></div>
+                      <div class="rc-face-pair"><div class="rc-face-label">L</div><div class="rc-face-buttons"><button type="button" class="rc-face-button" data-rc-inner-move="L" aria-label="Left inner slice clockwise">l</button><button type="button" class="rc-face-button" data-rc-inner-move="L'" aria-label="Left inner slice counterclockwise">l′</button></div></div>
+                      <div class="rc-face-pair"><div class="rc-face-label">R</div><div class="rc-face-buttons"><button type="button" class="rc-face-button" data-rc-inner-move="R" aria-label="Right inner slice clockwise">r</button><button type="button" class="rc-face-button" data-rc-inner-move="R'" aria-label="Right inner slice counterclockwise">r′</button></div></div>
+                      <div class="rc-face-pair"><div class="rc-face-label">F</div><div class="rc-face-buttons"><button type="button" class="rc-face-button" data-rc-inner-move="F" aria-label="Front inner slice clockwise">f</button><button type="button" class="rc-face-button" data-rc-inner-move="F'" aria-label="Front inner slice counterclockwise">f′</button></div></div>
+                      <div class="rc-face-pair"><div class="rc-face-label">B</div><div class="rc-face-buttons"><button type="button" class="rc-face-button" data-rc-inner-move="B" aria-label="Back inner slice clockwise">b</button><button type="button" class="rc-face-button" data-rc-inner-move="B'" aria-label="Back inner slice counterclockwise">b′</button></div></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="rc-panel-box">
+                  <h3 class="rc-panel-title" data-rc-t="view">Mudar visão</h3>
+                  <div class="rc-view-grid">
+                    <button class="rc-button rc-secondary" data-rc-view="left" type="button" aria-label="Rotate view left">←</button>
+                    <button class="rc-button rc-secondary" data-rc-view="right" type="button" aria-label="Rotate view right">→</button>
+                    <button class="rc-button rc-secondary" data-rc-view="up" type="button" aria-label="Tilt view up">↑</button>
+                    <button class="rc-button rc-secondary" data-rc-view="down" type="button" aria-label="Tilt view down">↓</button>
+                  </div>
+                  <label class="rc-zoom"><span data-rc-t="zoom">Zoom</span><input id="rc-zoom" type="range" min="70" max="145" value="100" step="5" aria-label="Cube zoom"></label>
+                </div>
+                <p id="rc-message" class="rc-message" role="status" aria-live="polite">Escolha uma face para começar.</p>
+                <p class="rc-instructions" data-rc-t="instructions">Teclado: U, D, L, R, F, B. Segure Shift para inverter. Use as setas ou arraste para mudar a visão.</p>
+              </div>
+            </div>
+          </div>
+        </section>

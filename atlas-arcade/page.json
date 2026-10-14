@@ -1,0 +1,226 @@
+{
+  "mainFile": "../atlas_arcade_geography_clue_text_white_fixed.html",
+  "htmlAttributes": "lang=\"pt-BR\" class=\"h-full\"",
+  "bodyAttributes": "class=\"min-h-full flex flex-col justify-between selection:bg-rose-500 selection:text-white relative\"",
+  "head": "ui/head.html",
+  "styles": [
+    "styles/base.css",
+    "styles/postcard-edition-css.css",
+    "styles/pj-reference-style.css",
+    "styles/flap-bird-css.css",
+    "styles/tp-game-themes-css.css",
+    "styles/tp-deep-game-themes-css.css",
+    "styles/gg-restored-game-styles.css",
+    "styles/tp-game-text-palettes.css",
+    "styles/tp-heart-game-text-fixes.css",
+    "styles/atlas-arcade-ui-css.css",
+    "styles/atlas-arcade-lightmode-contrast-fixes.css",
+    "styles/atlas-letter-reference-update.css",
+    "styles/atlas-arcade-white-mode-readability-fixes.css",
+    "styles/atlas-arcade-crossword-border-themes.css",
+    "styles/atlas-arcade-geography-clue-readability-fix.css",
+    "styles/atlas-arcade-button-contrast-final.css",
+    "styles/atlas-arcade-game-specific-contrast-repair.css",
+    "styles/atlas-arcade-drawing-dark-mode-visibility.css",
+    "styles/tp-top-tools-style.css",
+    "styles/atlas-dark-text-contrast.css",
+    "styles/atlas-arcade-final-geography-hint-contrast-fix.css",
+    "styles/atlas-verified-surface-contrast.css",
+    "styles/pj-anniversary-redesign.css",
+    "styles/pj-opening-scene.css",
+    "styles/pj-pinball-style.css",
+    "styles/pj-breakout-style.css",
+    "styles/pj-skeeball-style.css",
+    "styles/pj-whackamole-style.css",
+    "styles/solar-embed.css",
+    "styles/static-ui.css"
+  ],
+  "ui": [
+    "ui/opening.html",
+    "ui/love-toast.html",
+    "ui/background.html",
+    "ui/site-tools.html",
+    "ui/main-open.html",
+    "ui/anniversary.html",
+    "ui/letter.html",
+    "ui/game-library.html",
+    "ui/wordle-section.html",
+    "ui/draw-game-section.html",
+    "ui/geography-game-section.html",
+    "ui/flag-game-section.html",
+    "ui/map-game-section.html",
+    "ui/literal-guess-section.html",
+    "ui/crossword-section.html",
+    "ui/wordsearch-section.html",
+    "ui/hanoi-section.html",
+    "ui/earth-game-section.html",
+    "ui/jigsaw-section.html",
+    "ui/parking-jam.html",
+    "ui/pour-sort.html",
+    "ui/block-blasters-section.html",
+    "ui/tetris-section.html",
+    "ui/solar-system-section.html",
+    "ui/nasa-eyes-section.html",
+    "ui/hill-climb-section.html",
+    "ui/astronomy-quiz-section.html",
+    "ui/space-memory-section.html",
+    "ui/rubiks-cube-section.html",
+    "ui/skeeball-section.html",
+    "ui/whack-a-mole-section.html",
+    "ui/breakout-section.html",
+    "ui/visual-pinball-section.html",
+    "ui/pinball-3d-section.html",
+    "ui/flap-bird-section.html",
+    "ui/main-close.html"
+  ],
+  "embeds": [
+    {
+      "name": "solar",
+      "path": "embeds/solar/index.html",
+      "frameId": "solar-remade-frame"
+    },
+    {
+      "name": "visualPinball",
+      "path": "embeds/visual-pinball/index.html"
+    }
+  ],
+  "scripts": [
+    {
+      "path": "scripts/ui/solar-resize.js"
+    },
+    {
+      "path": "scripts/games/nasa-eyes.js"
+    },
+    {
+      "path": "scripts/ui/game-picker.js"
+    },
+    {
+      "path": "scripts/core/audio.js"
+    },
+    {
+      "path": "scripts/core/countdown-and-letter.js"
+    },
+    {
+      "path": "scripts/core/particles.js"
+    },
+    {
+      "path": "scripts/core/wordle.js"
+    },
+    {
+      "path": "scripts/core/drawing.js"
+    },
+    {
+      "path": "scripts/core/love-interactions.js"
+    },
+    {
+      "path": "scripts/core/crossword.js"
+    },
+    {
+      "path": "scripts/core/hanoi.js"
+    },
+    {
+      "path": "data/countries.js"
+    },
+    {
+      "path": "scripts/games/geography.js"
+    },
+    {
+      "path": "scripts/games/flags.js"
+    },
+    {
+      "path": "scripts/games/country-map.js"
+    },
+    {
+      "external": "https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.7.3/maplibre-gl.js"
+    },
+    {
+      "path": "scripts/games/earth-explorer.js"
+    },
+    {
+      "path": "scripts/games/wordsearch.js"
+    },
+    {
+      "path": "scripts/games/jigsaw.js"
+    },
+    {
+      "path": "scripts/games/parking-jam.js"
+    },
+    {
+      "path": "scripts/games/pour-sort.js"
+    },
+    {
+      "path": "scripts/games/literal-guess.js"
+    },
+    {
+      "path": "scripts/games/block-blasters.js"
+    },
+    {
+      "path": "scripts/games/tetris.js"
+    },
+    {
+      "path": "scripts/games/hill-climb.js"
+    },
+    {
+      "path": "scripts/games/astronomy-quiz.js"
+    },
+    {
+      "path": "scripts/games/space-memory.js"
+    },
+    {
+      "path": "scripts/games/rubiks-cube.js"
+    },
+    {
+      "path": "scripts/games/pinball.js",
+      "id": "pj-pinball-controller"
+    },
+    {
+      "path": "scripts/games/breakout.js",
+      "id": "pj-breakout-controller"
+    },
+    {
+      "path": "scripts/games/skeeball.js",
+      "id": "pj-skeeball-controller"
+    },
+    {
+      "path": "scripts/games/whack-a-mole.js",
+      "id": "pj-whackamole-controller"
+    },
+    {
+      "path": "scripts/games/visual-pinball-bridge.js",
+      "id": "pj-vp-pinball-bridge"
+    },
+    {
+      "path": "scripts/ui/theme-controls.js",
+      "id": "tp-theme-controls"
+    },
+    {
+      "path": "scripts/ui/postcard-catalog.js",
+      "id": "postcard-edition-js"
+    },
+    {
+      "path": "scripts/ui/anniversary-countdowns.js",
+      "id": "pj-anniversary-countdowns"
+    },
+    {
+      "path": "scripts/ui/reference-helpers.js",
+      "id": "pj-reference-helpers"
+    },
+    {
+      "path": "scripts/games/flap-bird.js",
+      "id": "flap-bird-game-js"
+    },
+    {
+      "path": "scripts/ui/game-themes.js",
+      "id": "tp-game-themes-js"
+    },
+    {
+      "path": "scripts/ui/interface.js",
+      "id": "atlas-arcade-ui-js"
+    },
+    {
+      "path": "scripts/ui/opening.js",
+      "id": "pj-opening-controller"
+    }
+  ],
+  "entryAlias": "../index.html"
+}

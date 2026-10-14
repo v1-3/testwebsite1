@@ -1,0 +1,184 @@
+
+/* =======================================================================
+   Light-mode game UI repairs
+   - stronger text contrast
+   - light surfaces for game shells/panels when site is not in dark mode
+   - preserve playable boards/canvases where dark/colored rendering is useful
+   ======================================================================= */
+html[data-postcard-theme="light"]{
+  --game-ui-bg:#fbfdfd;
+  --game-ui-bg-soft:#f1f7f8;
+  --game-ui-bg-strong:#e8f1f4;
+  --game-ui-line:#bfd2da;
+  --game-ui-line-strong:#9fb8c5;
+  --game-ui-ink:#17324c;
+  --game-ui-ink-soft:#47617a;
+  --game-ui-accent:#b33b67;
+  --game-ui-accent-soft:#d96c95;
+  --game-ui-chip:#edf3f7;
+  --game-ui-success:#176a4d;
+  --game-ui-warn:#915f0a;
+}
+
+/* Base shell + global readability */
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section >
+:is(.gg-game-shell,.lg-shell,.pj-shell,.ps-shell,.tt-shell,.bb-shell,.rc-shell,
+.hc-shell,.aq-shell,.sm-shell,.fb-shell,.pbr-shell,.jig-studio,.ney-shell,.solar-new-embed,
+.glass-card:not(.jig-studio)){
+  color:var(--game-ui-ink)!important;
+  background:linear-gradient(180deg,var(--game-ui-bg),var(--game-ui-bg-soft))!important;
+  border-color:var(--game-ui-line)!important;
+  box-shadow:0 20px 50px -34px rgba(13,40,70,.22)!important;
+}
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section >
+:is(.gg-game-shell,.lg-shell,.pj-shell,.ps-shell,.tt-shell,.bb-shell,.rc-shell,
+.hc-shell,.aq-shell,.sm-shell,.fb-shell,.pbr-shell,.jig-studio,.ney-shell,.solar-new-embed,
+.glass-card:not(.jig-studio)) :is(h1,h2,h3,h4,h5,h6,strong,b,.text-white,.text-pink-100,.text-rose-100){
+  color:var(--game-ui-ink)!important;
+}
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage > section >
+:is(.gg-game-shell,.lg-shell,.pj-shell,.ps-shell,.tt-shell,.bb-shell,.rc-shell,
+.hc-shell,.aq-shell,.sm-shell,.fb-shell,.pbr-shell,.jig-studio,.ney-shell,.solar-new-embed,
+.glass-card:not(.jig-studio)) :is(p,small,span,label,legend,.gg-helper,.gg-status,.gg-score-strip,
+.text-rose-200,.text-rose-300,.text-roseGold,.text-pink-200){
+  color:var(--game-ui-ink-soft)!important;
+}
+
+/* Lighten game headers, control bars and side panels */
+html[data-postcard-theme="light"] #game-menu-stage > section :is(
+.gg-game-header,.lg-header,.pj-header,.ps-header,.tt-top,.bb-top,.rc-header,.hc-head,.aq-head,.sm-header,
+.fb-header,.pbr-head,.jig-studio-head,.ney-head,.solar-hero,
+.lg-controls,.gg-form-row,.pj-stats,.pj-header,.pj-shell>.pj-stats,
+.ps-top,.ps-help,.tt-stats,.bb-toolbar,.bb-side,.rc-toolbar,.hc-toolbar,.aq-toolbar,.sm-toolbar,.fb-toolbar,
+.pbr-brief,.jig-search-sidebar,.jig-gallery-side,.jig-game,.earth-map-panel,.earth-placeholder,
+.geo-hint-card,.geo-stat,.flag-row,.cw-clue,.cw-wrap,.ws-option,.ws-word,.jig-fieldset,.jig-disclosure,
+.jig-gallery-empty,.jig-status,.jig-play-panel,.jig-license,.pj-shell .pj-header p,.pj-shell .pj-header h2,
+.hanoi-tower,.hanoi-board,.earth-map-panel,.earth-local-map-tools,.earth-button,.earth-region-toggle,
+.ws-select,.jig-select,.jig-result,.jig-category-result,.jig-category-chip,.jig-example,.jig-light-button,
+.pj-difficulties,.pj-stat,.pj-game-layout+.pj-stats,.glass-purple,.glass-blue,.glass-red){
+  background:var(--game-ui-bg-soft)!important;
+  color:var(--game-ui-ink)!important;
+  border-color:var(--game-ui-line)!important;
+  box-shadow:none!important;
+}
+
+/* Secondary cards and stat boxes */
+html[data-postcard-theme="light"] #game-menu-stage > section :is(
+.lg-stat,.geo-action,.flag-region-toggle,.cw-zoom-tools button,.ws-zoom-tools button,
+.earth-button,.jig-toggle,.jig-action,.pj-difficulty,.pj-shell .pj-stat,
+.ps-tool,.ps-tool-primary,.aq-pill,.sm-chip,.fb-chip,.tp-header-pill,.game-theme-pill,
+button.gg-region,.gg-map-results,.earth-result-card,.jig-icon-button,.jig-toggle,
+.jig-type-choice button,.jig-chip-topline button,.jig-category-chip,.jig-category-result,
+.draw-color-button+.label){
+  border-color:var(--game-ui-line-strong)!important;
+}
+
+/* Inputs, selects and default buttons */
+html[data-postcard-theme="light"] #game-menu-stage > section :is(input,select,textarea){
+  background:#ffffff!important;
+  color:var(--game-ui-ink)!important;
+  border-color:var(--game-ui-line-strong)!important;
+}
+html[data-postcard-theme="light"] #game-menu-stage > section :is(input,select,textarea)::placeholder{
+  color:#6d8093!important;
+}
+html[data-postcard-theme="light"] #game-menu-stage > section :is(button,.earth-button,.jig-light-button,.jig-action,.pj-difficulty,.flag-region-toggle,.earth-region-toggle,.hanoi-size,.cw-zoom-tools button,.ws-zoom-tools button,.geo-action){
+  color:var(--game-ui-ink)!important;
+  background:var(--game-ui-chip)!important;
+  border-color:var(--game-ui-line-strong)!important;
+}
+html[data-postcard-theme="light"] #game-menu-stage > section :is(button:hover,.earth-button:hover,.jig-light-button:hover,.jig-action:hover,.pj-difficulty:hover,.flag-region-toggle:hover,.earth-region-toggle:hover,.geo-action:hover){
+  background:#e7f0f6!important;
+}
+html[data-postcard-theme="light"] #game-menu-stage > section :is(.gg-primary,.ps-tool-primary,.earth-button-primary,#jig-search,.jig-icon-button,.pj-difficulty[aria-pressed="true"],.flag-region-toggle[aria-pressed="true"],.earth-region-toggle[aria-pressed="true"],button.gg-region[aria-pressed="true"],.jig-toggle[aria-pressed=true],.hanoi-size[aria-pressed="true"]){
+  background:linear-gradient(180deg,#d34d7e,#b33963)!important;
+  color:#fff!important;
+  border-color:#b33963!important;
+}
+
+/* Known dark wrappers in individual games */
+html[data-postcard-theme="light"] #game-menu-stage > section :is(
+.lg-shell,.pj-shell,.ps-shell,.tt-shell,.bb-shell,.rc-shell,.hc-shell,.aq-shell,.sm-shell,.fb-shell,.pbr-shell,
+.jig-studio,.ney-shell,.earth-map-panel,.earth-panorama-shell,.hanoi-tower,.cw-cell input,.ws-cell,
+.jig-tray,.jig-board-cell,.jig-fieldset,.jig-disclosure,.pj-shell .pj-board-panel,.pj-shell .pj-game-layout,
+.rc-panel,.tt-panel,.bb-panel,.hc-panel,.aq-panel,.sm-panel,.fb-panel){
+  color:var(--game-ui-ink)!important;
+}
+
+/* Light surfaces for restored games */
+html[data-postcard-theme="light"] .gg-restored{
+  color:var(--game-ui-ink)!important;
+}
+html[data-postcard-theme="light"] .gg-game-shell{background:linear-gradient(180deg,var(--game-ui-bg),var(--game-ui-bg-soft))!important;border-color:var(--game-ui-line)!important}
+html[data-postcard-theme="light"] .gg-game-header{background:linear-gradient(180deg,#f9fcfd,var(--game-ui-bg-strong))!important;border-color:var(--game-ui-line)!important}
+html[data-postcard-theme="light"] .gg-eyebrow{color:var(--game-ui-accent)!important}
+html[data-postcard-theme="light"] .gg-restored :is(select,input){background:#fff!important;color:var(--game-ui-ink)!important;border-color:var(--game-ui-line-strong)!important}
+html[data-postcard-theme="light"] .gg-restored button{background:var(--game-ui-chip)!important;color:var(--game-ui-ink)!important;border-color:var(--game-ui-line-strong)!important}
+html[data-postcard-theme="light"] .gg-restored button.gg-primary{background:linear-gradient(180deg,#d34d7e,#b33963)!important;color:#fff!important;border-color:#b33963!important}
+html[data-postcard-theme="light"] .gg-progress{background:#d8e5ec!important}
+html[data-postcard-theme="light"] .gg-progress>span{background:linear-gradient(90deg,#d14d7c,#f4a6c4)!important}
+html[data-postcard-theme="light"] .gg-map-shell{background:#eef4f7!important;border-color:var(--game-ui-line)!important}
+html[data-postcard-theme="light"] .gg-map-results{background:#edf4f8!important}
+html[data-postcard-theme="light"] .gg-wordle-board>.grid>div{background:#ffffff!important;border-color:var(--game-ui-line-strong)!important;color:var(--game-ui-ink)!important}
+html[data-postcard-theme="light"] .gg-wordle-board>.grid>div.bg-emerald-700{background:#2d8d5b!important;color:#fff!important}
+html[data-postcard-theme="light"] .gg-wordle-board>.grid>div.bg-amber-600{background:#bf8420!important;color:#fff!important}
+html[data-postcard-theme="light"] .gg-wordle-board>.grid>div.bg-slate-700{background:#5e6b7a!important;color:#fff!important}
+
+/* Light-mode fixes for game boards that were forced dark by earlier redesign */
+html[data-postcard-theme="light"] #game-menu-stage[data-game-theme="original"] :is(.jig-board,.jig-tray,.ps-lab,.tt-board-wrap,.bb-board-frame,.rc-scene){
+  background:linear-gradient(180deg,#f7fbfd,#edf4f8)!important;
+  border-color:var(--game-ui-line)!important;
+}
+html[data-postcard-theme="light"] #game-menu-stage[data-game-theme="original"] .hanoi-tower,
+html[data-postcard-theme="light"] #game-menu-stage[data-game-theme="original"] .flag-row,
+html[data-postcard-theme="light"] #game-menu-stage[data-game-theme="original"] .geo-hint-card,
+html[data-postcard-theme="light"] #game-menu-stage[data-game-theme="original"] .geo-stat,
+html[data-postcard-theme="light"] #game-menu-stage[data-game-theme="original"] .jig-result,
+html[data-postcard-theme="light"] #game-menu-stage[data-game-theme="original"] .jig-fieldset,
+html[data-postcard-theme="light"] #game-menu-stage[data-game-theme="original"] .jig-disclosure,
+html[data-postcard-theme="light"] #game-menu-stage[data-game-theme="original"] .jig-gallery-empty,
+html[data-postcard-theme="light"] #game-menu-stage[data-game-theme="original"] .cw-clue,
+html[data-postcard-theme="light"] #game-menu-stage[data-game-theme="original"] .ws-option,
+html[data-postcard-theme="light"] #game-menu-stage[data-game-theme="original"] .earth-map-panel,
+html[data-postcard-theme="light"] #game-menu-stage[data-game-theme="original"] .earth-placeholder{
+  background:var(--game-ui-bg-soft)!important;
+  border-color:var(--game-ui-line)!important;
+  color:var(--game-ui-ink)!important;
+}
+
+/* Keep actively playable canvases/readability intact */
+html[data-postcard-theme="light"] #game-menu-stage > section :is(canvas,.maplibregl-canvas,#earth-panorama iframe,#nasa-eyes-embed iframe,.solar-new-embed iframe){
+  filter:none!important;
+}
+
+/* Stronger score/instruction contrast */
+html[data-postcard-theme="light"] #game-menu-stage > section :is(
+.pj-stat,.gg-score-strip,.gg-status,.gg-helper,.lg-header p,.ps-help,.hc-sub,.fb-instructions,
+.aq-copy,.sm-copy,.jig-license,.jig-gallery-description,.earth-status,.cw-def,.cw-clue-text,.ws-word,
+.geo-hint-text,.flag-result,.pj-header p,.pbr-brief,.pbr-foot,.tp-card-note){
+  color:var(--game-ui-ink-soft)!important;
+}
+html[data-postcard-theme="light"] #game-menu-stage > section :is(.cw-clue-hint,.jig-result-source,.jig-gallery-description,.pj-eyebrow,.gg-eyebrow,.lg-kicker,.jig-step,.jig-hero-label){
+  color:var(--game-ui-accent)!important;
+}
+
+/* Theme-based panels in light site mode should still be readable */
+html[data-postcard-theme="light"] #game-menu-stage[data-game-theme]:not([data-game-theme="original"]) {
+  --gt-type-heading:#fff8fe;
+  --gt-type-body:#f9eaf3;
+  --gt-type-accent:#ffe0f0;
+  --gt-paper-heading:var(--game-ui-ink);
+  --gt-paper-body:var(--game-ui-ink-soft);
+  --gt-paper-accent:var(--game-ui-accent);
+}
+html[data-postcard-theme="light"] #game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.gg-restored button.gg-primary,.ps-tool-primary){
+  color:var(--gg-dark,#15243a)!important;
+}
+html[data-postcard-theme="light"] #game-menu-stage[data-game-theme]:not([data-game-theme="original"]) :is(.jig-icon-button,#jig-search,.earth-button-primary,.fb-button-primary){
+  color:#fff!important;
+}
+
+/* Selection / active states remain distinct */
+html[data-postcard-theme="light"] #game-menu-stage > section :is(.cw-cell.active input,.ws-cell.ws-preview,.map-country.map-selected,.pj-car[aria-pressed="true"],.sm-card.selected){
+  box-shadow:0 0 0 3px rgba(77,132,177,.28)!important;
+}

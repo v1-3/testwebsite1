@@ -1,0 +1,42 @@
+
+
+        <!-- HILL CLIMB: JOGO DE DIREÇÃO EM COLINAS -->
+        <section id="hill-climb-section" class="w-full max-w-6xl" aria-labelledby="hc-title">
+          <div class="hc-shell">
+            <header class="hc-head">
+              <div><span class="hc-kicker" data-hc-i18n="eyebrow">CORRIDA DE COLINAS</span>
+                <h2 id="hc-title" data-hc-i18n="title">Hill Climb Racing</h2>
+                <p data-hc-i18n="intro">Dirija pelas colinas, recolha moedas e combustível e veja até onde consegue chegar.</p></div>
+              <label class="hc-language"><span data-hc-i18n="language">Idioma</span>
+                <select id="hc-language"><option value="pt">Português</option><option value="it">Italiano</option><option value="es">Español</option><option value="en">English</option><option value="de">Deutsch</option><option value="fr">Français</option><option value="nl">Nederlands</option><option value="sv">Svenska</option><option value="no">Norsk</option></select>
+              </label>
+            </header>
+            <div class="hc-stats" aria-live="polite">
+              <div class="hc-stat"><span data-hc-i18n="distance">Distância</span><strong id="hc-distance">0 m</strong></div>
+              <div class="hc-stat"><span data-hc-i18n="speed">Velocidade</span><strong id="hc-speed">0 km/h</strong></div>
+              <div class="hc-stat"><span data-hc-i18n="coins">Moedas</span><strong id="hc-coins">0</strong></div>
+              <div class="hc-stat"><span data-hc-i18n="best">Recorde</span><strong id="hc-best">0 m</strong></div>
+              <div class="hc-stat"><span data-hc-i18n="score">Pontuação</span><strong id="hc-score">0</strong></div>
+            </div>
+            <div class="hc-fuel-shell"><div class="hc-fuel-label"><span data-hc-i18n="fuel">Combustível</span><span id="hc-fuel-text">100%</span></div><div class="hc-fuel-track"><div id="hc-fuel-bar"></div></div></div>
+            <div class="hc-frame">
+              <canvas id="hc-canvas" aria-label="Jogo de condução pelas colinas"></canvas>
+              <div id="hc-overlay" class="hc-overlay" role="status" aria-live="polite"><strong id="hc-overlay-title">Pronto para a corrida?</strong><p id="hc-overlay-desc">Pressione Começar ou Acelerar.</p></div>
+            </div>
+            <div class="hc-actions">
+              <button type="button" class="hc-action" id="hc-play">Começar</button>
+              <button type="button" class="hc-action secondary" id="hc-reset" data-hc-i18n="restart">Reiniciar</button>
+            </div>
+            <div class="hc-touch" role="group" aria-label="Controlos de condução">
+              <div class="hc-touch-group">
+                <button type="button" class="hc-touch-btn brake" data-hc-control="brake" data-hc-label="brake" aria-pressed="false">◀<span data-hc-i18n="brake">Travão</span></button>
+                <button type="button" class="hc-touch-btn" data-hc-control="tiltBack" data-hc-label="tiltBack" aria-pressed="false">⟲<span data-hc-i18n="tiltBack">Inclinar para trás</span></button>
+                <button type="button" class="hc-touch-btn" data-hc-control="tiltFront" data-hc-label="tiltFront" aria-pressed="false">⟳<span data-hc-i18n="tiltFront">Inclinar para a frente</span></button>
+              </div>
+              <div class="hc-touch-group">
+                <button type="button" class="hc-touch-btn gas" data-hc-control="gas" data-hc-label="gas" aria-pressed="false">▶<span data-hc-i18n="gas">Acelerar</span></button>
+              </div>
+            </div>
+            <p class="hc-tip" data-hc-i18n="tip">Teclado: ←/A travar · →/D acelerar · ↑/W e ↓/S inclinar no ar · P pausar · R reiniciar.</p>
+          </div>
+        </section>

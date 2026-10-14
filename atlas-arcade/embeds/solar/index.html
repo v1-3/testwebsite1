@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Laboratório do Sistema Solar — Simulação Interativa</title>
+<link rel="stylesheet" href="styles/simulator.css">
+<link rel="stylesheet" id="solar-knowledge-style" href="styles/knowledge.css">
+<link rel="stylesheet" id="pj-magnetosphere-style" href="styles/magnetosphere.css">
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="titlewrap">
+      <div class="brandlabel"><span class="led"></span> EXPLORAÇÃO ESPACIAL / 3D</div><h1>Laboratório do Sistema Solar</h1>
+      <p>Simulação interativa: explore planetas, luas, atmosferas, órbitas e experimente novos mundos.</p>
+    </div>
+    <div class="btnrow">
+      <button id="overviewBtn" class="active">Sistema completo</button>
+      <button id="focusBtn" class="secondary">Aproximar</button>
+      <button id="playPauseBtn" class="secondary">Pausar</button>
+      <button id="resetBtn" class="secondary">Reiniciar</button>
+    </div>
+  </div>
+  <div class="layout">
+    <aside class="panel controls">
+      <div class="section">
+        <div class="label">Simulação</div>
+        <div class="texture-console" aria-live="polite">
+          <div class="texture-console-heading"><strong>Mapas planetários online</strong><span id="onlineTextureCount">0/11</span></div>
+          <p id="onlineTextureStatus">Mapas integrados ativos. A verificar versões online…</p>
+          <button id="retryOnlineTextures" class="secondary" type="button">Tentar carregar mapas online</button>
+        </div>
+        <div class="field">
+          <label for="timeSpeed">Velocidade do tempo</label>
+          <input id="timeSpeed" type="range" min="0" max="200" step="1" value="40" />
+          <div class="inline-note">Velocidade atual: <strong id="timeSpeedValue">40×</strong></div>
+        </div>
+        <div class="field">
+          <label for="systemPreset">Sistema estelar · laboratório de exoplanetas</label>
+          <select id="systemPreset">
+            <option value="solar">Sistema Solar</option>
+            <option value="trappist">TRAPPIST-1 e</option>
+            <option value="proxima">Próxima Centauri b</option>
+            <option value="trappist-f">TRAPPIST-1 f</option>
+          </select>
+          <div class="inline-note" id="systemHint">Escolha um sistema conhecido ou crie mundos para testar cenários.</div>
+        </div>
+        <div class="field">
+          <label for="objectSelect">Corpo selecionado</label>
+          <select id="objectSelect"></select>
+        </div>
+        <div class="grid2">
+          <div class="field"><label for="zoomRange">Zoom</label><input id="zoomRange" type="range" min="20" max="260" value="84" /></div>
+          <div class="field"><label for="tiltRange">Inclinação da câmera</label><input id="tiltRange" type="range" min="10" max="80" value="46" /></div>
+        </div>
+        <div class="grid2">
+          <button id="addPlanetBtn">Criar planeta</button>
+          <button id="removePlanetBtn" class="secondary">Excluir planeta</button>
+        </div>
+      </div>
+      <div class="section">
+        <div class="label">Visualização</div>
+        <div class="toggle"><span>Cinturão de asteroides</span><input id="toggleAsteroids" type="checkbox" checked /></div>
+        <div class="toggle"><span>Órbitas</span><input id="toggleOrbits" type="checkbox" checked /></div>
+        <div class="toggle"><span>Rótulos</span><input id="toggleLabels" type="checkbox" checked /></div>
+        <div class="toggle"><span>Distâncias compactadas</span><input id="toggleCompressed" type="checkbox" checked /></div>
+        <div class="toggle"><span>Zona habitável (gradiente)</span><input id="toggleHabitable" type="checkbox" checked /></div>
+        <div class="toggle"><span>Magnetosfera / heliosfera</span><input id="toggleMagnetosphere" type="checkbox" checked /></div>
+        <div class="toggle"><span>Mapa de temperatura</span><input id="toggleTemperature" type="checkbox" /></div>
+        <div class="toggle"><span>Corte interno 3D</span><input id="toggleCutaway" type="checkbox" /></div>
+        <div class="toggle"><span>Camadas da atmosfera</span><input id="toggleAtmosphereSlice" type="checkbox" checked /></div>
+        <div class="toggle"><span>Luas e órbitas</span><input id="toggleMoons" type="checkbox" checked /></div>
+        <div class="toggle"><span>Luzes noturnas da Terra</span><input id="toggleNightLights" type="checkbox" checked /></div>
+        <div class="earth-cycle-settings" id="earthCycleSettings">
+          <label class="toggle" for="toggleEarthCycle"><span>Animar ciclo dia/noite da Terra</span><input id="toggleEarthCycle" type="checkbox" checked /></label>
+          <label for="earthHourRange">Hora do ciclo (modelo visual): <strong id="earthHourText">08:00</strong></label>
+          <input id="earthHourRange" type="range" min="0" max="24" step="0.1" value="8" aria-label="Hora do dia na Terra" />
+          <small>Um dia de rotação visual dura 40 segundos. Arraste para escolher a fase; a iluminação e as luzes noturnas mudam no globo.</small>
+        </div>
+      </div>
+      <div class="section">
+        <div class="label">Editar propriedades físicas</div>
+        <div class="field"><label for="editName">Nome</label><input id="editName" type="text" /></div>
+        <div class="grid2">
+          <div class="field"><label for="editKind">Tipo</label>
+            <select id="editKind">
+              <option value="star" hidden>Estrela central</option>
+              <option value="rocky">Planeta rochoso</option>
+              <option value="ocean">Mundo oceânico</option>
+              <option value="desert">Mundo desértico</option>
+              <option value="ice">Mundo gelado</option>
+              <option value="gas">Gigante gasoso</option>
+              <option value="icegiant">Gigante de gelo</option>
+              <option value="star">Estrela</option>
+            </select>
+          </div>
+          <div class="field"><label for="editTexture">Textura</label>
+            <select id="editTexture">
+              <option value="mercury">Mercury</option><option value="venus">Venus</option>
+              <option value="earth">Earth</option><option value="mars">Mars</option>
+              <option value="jupiter">Jupiter</option><option value="saturn">Saturn</option>
+              <option value="uranus">Uranus</option><option value="neptune">Neptune</option>
+              <option value="sun">Sol</option><option value="moon">Lua</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="editMass">Massa (massas terrestres)</label><input id="editMass" type="range" min="0.05" max="500" step="0.05" value="1" /><div class="inline-note"><strong id="editMassValue">1.00</strong></div></div>
+        <div class="field"><label for="editDistance">Distância da estrela (UA)</label><input id="editDistance" type="range" min="0.2" max="40" step="0.01" value="1" /><div class="inline-note"><strong id="editDistanceValue">1.00 AU</strong></div></div>
+        <div class="field"><label for="editRotation">Rotação (horas; valores negativos = rotação retrógrada)</label><input id="editRotation" type="range" min="-3000" max="3000" step="1" value="24" /><div class="inline-note"><strong id="editRotationValue">24 h</strong></div></div>
+        <div class="field"><label for="editAtmosphere">Atmosfera (escala aproximada)</label><input id="editAtmosphere" type="range" min="0" max="120" step="1" value="1" /><div class="inline-note"><strong id="editAtmosphereValue">1.0 × Earth</strong></div></div>
+        <div class="field"><label for="editWater">Água superficial</label><input id="editWater" type="range" min="0" max="100" step="1" value="70" /><div class="inline-note"><strong id="editWaterValue">70%</strong></div></div>
+        <div class="grid2">
+          <button id="applyEditBtn">Aplicar mudanças</button>
+          <button id="restoreEditBtn" class="secondary">Restaurar original</button>
+        </div>
+        <p class="footer-note">Os modelos de clima e magnetismo são aproximações educativas. A edição recalcula gravidade, raio estimado, período orbital, insolação e temperatura.</p>
+      </div>
+    </aside>
+    <main class="viewer">
+      <div class="canvaswrap">
+        <canvas id="spaceCanvas"></canvas>
+        <div id="loading" class="loading">Carregando materiais incorporados…</div>
+        <div class="overlayinfo">
+          <div class="tag" id="overlayLeft">Overview · Drag to orbit camera, wheel to zoom, click a world to focus.</div>
+          <div class="tag" id="overlayRight">Day 0.0</div>
+        </div>
+      </div>
+      <div class="legendbar">
+        <div class="chip">Verde: faixa temperada</div>
+        <div class="chip">Azul: faixa externa fria</div>
+        <div class="chip">Vermelho: faixa interna quente</div>
+        <div class="chip">Aproxime para explorar superfícies e luas</div>
+      </div>
+      <div class="texture-credit">Mapas online: <a href="https://www.solarsystemscope.com/textures/" target="_blank" rel="noopener noreferrer">Solar System Scope</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>. Imagens baseadas em dados NASA, com cores e regiões adaptadas. Os mapas integrados funcionam sem internet.</div>
+    </main>
+    <aside class="panel info">
+      <div class="section">
+        <div class="selected-title">
+          <div>
+            <h2 id="infoName">Terra</h2>
+            <div class="inline-note" id="infoSubtitle">Mundo oceânico · 1,00 UA da estrela</div>
+          </div>
+          <span class="pill" id="infoStatus">Possível zona habitável</span>
+        </div>
+        <div class="statgrid" id="statsGrid"></div>
+      </div>
+      <div class="section">
+        <div class="label">Composição e materiais</div>
+        <div class="barset" id="compositionBars"></div>
+      </div>
+      <div class="section">
+        <div class="label">Ciclo de temperatura (dia/noite)</div>
+        <div class="miniwrap"><canvas id="tempCanvas" width="320" height="150"></canvas></div>
+        <p class="inline-note">Modelo educativo simplificado de luminosidade, refletividade, atmosfera e rotação. Vênus padrão usa a média de 737 K e variação diurna mínima da <a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html" target="_blank" rel="noopener noreferrer" class="solar-nasa-reference">referência NASA</a>; alterações dos controles são estimativas.</p>
+      </div>
+      <div class="section">
+        <div class="label">Estrutura interna</div>
+        <div class="miniwrap"><canvas id="cutCanvas" width="320" height="150"></canvas></div>
+        <p class="inline-note">Corte específico de cada corpo, com camadas internas e atmosfera ilustrativas.</p>
+      </div>
+      <div class="section">
+        <div class="label">Satélites naturais</div>
+        <div id="moonList" class="inline-note"></div>
+      </div>
+      <div class="section">
+        <div class="label">Curiosidades e estatísticas</div>
+        <ul class="facts" id="factList"></ul>
+      </div>
+    </aside>
+  </div>
+</div>
+<script src="data/textures.js"></script>
+<script src="scripts/simulation.js"></script>
+<script id="pj-solar-focus-and-diagnostics" src="scripts/focus-and-diagnostics.js"></script>
+<script id="solar-knowledge-controller" src="scripts/knowledge-controller.js"></script>
+<script id="pj-magnetosphere-profiles" src="scripts/magnetosphere-profiles.js"></script>
+<script id="pj-magnetosphere-controller" src="scripts/magnetosphere-controller.js"></script>
+</body>
+</html>

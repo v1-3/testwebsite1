@@ -1,0 +1,48 @@
+
+
+        <!-- JOGO DA MEMÓRIA ESPACIAL: original, offline SVG illustrations -->
+        <section id="space-memory-section" class="w-full max-w-6xl" aria-labelledby="sm-title">
+          <div class="sm-shell">
+            <div class="sm-header">
+              <div>
+                <span class="sm-kicker" data-sm-t="eyebrow">OBSERVATÓRIO · JOGO DA MEMÓRIA</span>
+                <h2 id="sm-title" data-sm-t="title">Memória Espacial</h2>
+                <p data-sm-t="intro">Encontre os pares de ilustrações do universo. Vire duas cartas por vez.</p>
+              </div>
+              <div class="sm-header-icon" aria-hidden="true"><i class="fa-solid fa-meteor"></i></div>
+            </div>
+            <div class="sm-toolbar">
+              <div class="sm-tool-group">
+                <label class="sm-field"><span data-sm-t="language">Idioma</span>
+                  <select id="sm-language" class="sm-select">
+                    <option value="pt">Português</option><option value="it">Italiano</option><option value="es">Español</option><option value="en">English</option><option value="de">Deutsch</option><option value="fr">Français</option><option value="nl">Nederlands</option><option value="sv">Svenska</option><option value="no">Norsk</option>
+                  </select>
+                </label>
+                <label class="sm-field"><span data-sm-t="difficulty">Dificuldade</span>
+                  <select id="sm-difficulty" class="sm-select">
+                    <option value="easy" data-sm-t="easy">Fácil · 6 pares</option>
+                    <option value="medium" data-sm-t="medium" selected>Médio · 10 pares</option>
+                    <option value="hard" data-sm-t="hard">Difícil · 15 pares</option>
+                  </select>
+                </label>
+              </div>
+              <button id="sm-new" class="sm-action" type="button"><i class="fa-solid fa-rotate-right" aria-hidden="true"></i> <span data-sm-t="new">Novo jogo</span></button>
+            </div>
+            <div class="sm-stats" aria-live="polite">
+              <div class="sm-stat"><span data-sm-t="moves">Tentativas</span><strong id="sm-moves">0</strong></div>
+              <div class="sm-stat"><span data-sm-t="matched">Pares</span><strong id="sm-matched">0/10</strong></div>
+              <div class="sm-stat"><span data-sm-t="time">Tempo</span><strong id="sm-time">00:00</strong></div>
+              <div class="sm-stat"><span data-sm-t="best">Recorde</span><strong id="sm-best">—</strong></div>
+            </div>
+            <div class="sm-main">
+              <p id="sm-status" class="sm-status" role="status" aria-live="polite">Vire duas cartas para encontrar um par.</p>
+              <div id="sm-grid" class="sm-grid" data-level="medium" role="group" aria-label="Cartas de memória espacial"></div>
+              <div id="sm-win" class="sm-win" hidden>
+                <h3 data-sm-t="winTitle">Missão concluída!</h3>
+                <p id="sm-win-detail"></p>
+                <button id="sm-replay" type="button" class="sm-action" data-sm-t="playAgain">Jogar novamente</button>
+              </div>
+            </div>
+            <div class="sm-hint" data-sm-t="tip">Toque ou clique nas cartas. Cada ilustração aparece duas vezes.</div>
+          </div>
+        </section>

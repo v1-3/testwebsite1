@@ -1,0 +1,93 @@
+
+/* The playing surface has its own paired colors in both page themes. */
+#pinball-3d-section{--pn-accent:#74d7c1;--pn-paper:#f4f0e7;--pn-ink:#253939;--pn-soft:#52665d;width:100%;max-width:1150px;margin-inline:auto;text-align:left;font-family:Inter,system-ui,sans-serif;color:var(--pn-ink)}
+#pinball-3d-section[hidden]{display:none!important}
+#pinball-3d-section *{box-sizing:border-box}
+#pinball-3d-section .pbn-shell{background:var(--pn-paper);border:1px solid #afbeb5;border-radius:24px;overflow:hidden;box-shadow:0 16px 35px #182c311c}
+#pinball-3d-section .pbn-header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 28px 22px;border-bottom:1px solid #ccd3c9}
+#pinball-3d-section .pbn-kicker{font-size:10px;letter-spacing:.23em;font-weight:850;color:var(--pn-soft);margin:0 0 7px}
+#pinball-3d-section .pbn-header h2{color:var(--pn-ink);font-size:clamp(32px,5vw,50px);letter-spacing:-.06em;line-height:1.1;margin:0}
+#pinball-3d-section .pbn-header h2 span{color:#3d7868}
+#pinball-3d-section .pbn-subtitle{font-size:13px;line-height:1.5;color:var(--pn-soft);margin:10px 0 0}
+#pinball-3d-section .pbn-mark{color:#3d7868;border:1px solid #b6c6bb;border-radius:50%;font-size:38px;display:grid;place-items:center;flex-shrink:0;width:74px;height:74px}
+#pinball-3d-section .pbn-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:13px 22px;border-bottom:1px solid #ccd3c9;color:var(--pn-ink)}
+#pinball-3d-section .pbn-toolbar label{display:flex;align-items:center;gap:8px;color:var(--pn-ink);font-size:12px;font-weight:650}
+#pinball-3d-section select{font:inherit;background:#fffdf6;color:#253939;border:1px solid #a9bbb0;padding:9px 12px;border-radius:9px;max-width:180px;min-width:0}
+#pinball-3d-section select option{background:#fffdf6;color:#253939}
+#pinball-3d-section input{accent-color:#30715f}
+#pinball-3d-section .pbn-actions{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+#pinball-3d-section .pbn-btn{font:inherit;font-size:12px;font-weight:750;border:1px solid #a8bcb0;border-radius:10px;background:#e2ebe0;color:#253939;min-height:40px;padding:9px 14px;cursor:pointer;touch-action:manipulation}
+#pinball-3d-section .pbn-btn:hover{background:#d3e1d0}
+#pinball-3d-section .pbn-btn:focus-visible,#pinball-3d-section select:focus-visible{outline:3px solid #27786b;outline-offset:3px}
+#pinball-3d-section .pbn-btn:disabled{cursor:default;opacity:.5}
+#pinball-3d-section .pbn-new{background:#245b4e;color:#fffdf4;border-color:#245b4e}
+#pinball-3d-section .pbn-new:hover{background:#174d41}
+#pinball-3d-section .pbn-layout{display:grid;grid-template-columns:minmax(0,600px) minmax(190px,1fr);gap:24px;padding:22px;align-items:start}
+#pinball-3d-section .pbn-play{min-width:0;max-width:600px;width:100%;margin-inline:auto}
+#pinball-3d-section .pbn-scoreboard{display:grid;grid-template-columns:1.3fr .7fr 1fr;background:#14272b;border:1px solid #4b655e;border-radius:13px 13px 0 0;padding:12px 15px;gap:8px}
+#pinball-3d-section .pbn-scoreboard div:not(:first-child){border-left:1px solid #3b514e;padding-left:14px}
+#pinball-3d-section .pbn-scoreboard span{color:#acc3b9;letter-spacing:.14em;font-size:9px;font-weight:750;display:block}
+#pinball-3d-section .pbn-scoreboard strong{color:#fff5cf;font-size:clamp(19px,3vw,31px);font-variant-numeric:tabular-nums;display:block;line-height:1.25;margin-top:3px;overflow-wrap:anywhere}
+#pinball-3d-section .pbn-stage{position:relative;aspect-ratio:480/800;background:#12272b;overflow:hidden;border:1px solid #4b655e;border-top:0;border-radius:0 0 14px 14px;max-height:1000px}
+#pinball-3d-section #pb-canvas{display:block;width:100%;height:100%;touch-action:pan-y}
+#pinball-3d-section .pbn-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:13px;padding:30px;background:#11272be8;color:#fff5cf;backdrop-filter:blur(3px)}
+#pinball-3d-section .pbn-overlay[hidden]{display:none}
+#pinball-3d-section .pbn-overlay strong{color:#fff5cf;font-size:30px}
+#pinball-3d-section .pbn-overlay span{color:#c1d4c9;font-size:14px;max-width:260px;line-height:1.6}
+#pinball-3d-section .pbn-overlay .pbn-new{background:#e9dfb4;color:#193b35;border-color:#e9dfb4}
+#pinball-3d-section .pbn-launch-meter{display:flex;align-items:center;gap:9px;margin:12px 1px;color:var(--pn-soft)}
+#pinball-3d-section .pbn-launch-meter>span{font-size:9px;font-weight:750;letter-spacing:.1em;min-width:38px}
+#pinball-3d-section #pb-power{flex:1;height:7px;border-radius:9px;background:#b8c9bd;overflow:hidden}
+#pinball-3d-section #pb-chargebar{height:100%;width:0;background:#377c65;border-radius:9px;transition:none;box-shadow:none}
+#pinball-3d-section .pbn-controls{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:9px}
+#pinball-3d-section .pbn-controls .pbn-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80px;gap:3px;padding:7px 3px;touch-action:none;user-select:none;-webkit-user-select:none;box-shadow:0 4px 0 #aebbad;font-size:10px;letter-spacing:.035em}
+#pinball-3d-section .pbn-controls .pbn-btn>span:first-child{font-size:22px;line-height:1}
+#pinball-3d-section .pbn-controls kbd{font:inherit;font-size:9px;opacity:.75}
+#pinball-3d-section .pbn-controls .pbn-launch{background:#ecddae;border-color:#c5ae67;box-shadow:0 4px 0 #baaa76;color:#4b411f}
+#pinball-3d-section .pbn-controls .pbn-held{transform:translateY(3px);box-shadow:0 1px 0 #aebbad;background:#b9d1b8}
+#pinball-3d-section .pbn-controls .pbn-launch.pbn-held{background:#e3c76d}
+#pinball-3d-section .pbn-key-tip{font-size:11px;color:var(--pn-soft);line-height:1.7;margin:14px 0 0;text-align:center}
+#pinball-3d-section .pbn-aside{display:flex;flex-direction:column;gap:17px;min-width:0}
+#pinball-3d-section .pbn-status{color:#214e44;background:#dfebde;border:1px solid #b0c9b0;border-radius:12px;padding:14px;font-size:13px;line-height:1.55;min-height:51px}
+#pinball-3d-section .pbn-mission{padding:20px 17px;border:1px solid #c2ccc0;border-radius:14px;background:#ebeade;color:var(--pn-ink)}
+#pinball-3d-section .pbn-small{font-size:9px;letter-spacing:.17em;font-weight:750;color:var(--pn-soft)}
+#pinball-3d-section .pbn-aside h3{font-size:17px;color:var(--pn-ink);line-height:1.35;letter-spacing:-.03em;margin:7px 0 14px}
+#pinball-3d-section .pbn-targets{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:13px}
+#pinball-3d-section .pbn-targets span{border:1px solid #bcc9b8;border-radius:9px;color:#788d78;background:#e0e3d4;text-align:center;font-size:25px;padding:7px 0}
+#pinball-3d-section .pbn-targets span.pbn-lit{background:#295f4d;color:#ffe7a1;border-color:#295f4d}
+#pinball-3d-section .pbn-mission p,#pinball-3d-section .pbn-guide,#pinball-3d-section .pbn-table-note p{font-size:12px;line-height:1.7;color:var(--pn-soft)}
+#pinball-3d-section #pb-multiplier{display:block;font-size:36px;color:#3a7563;margin-top:15px;letter-spacing:-.06em}
+#pinball-3d-section .pbn-guide{padding:2px 3px}
+#pinball-3d-section .pbn-guide ol{padding-left:19px;margin:0}
+#pinball-3d-section .pbn-guide li{padding-left:4px;margin:9px 0}
+#pinball-3d-section .pbn-table-note{border-top:1px solid #c2ccc0;padding:20px 2px;display:flex;align-items:center;gap:15px}
+#pinball-3d-section .pbn-table-note>span{font-size:36px;color:#759e8b}
+html[data-postcard-theme="dark"] #pinball-3d-section{--pn-paper:#162b2e;--pn-ink:#e4e9df;--pn-soft:#b5c9be}
+html[data-postcard-theme="dark"] #pinball-3d-section .pbn-shell{border-color:#456159;box-shadow:0 16px 35px #0002}
+html[data-postcard-theme="dark"] #pinball-3d-section :is(.pbn-header,.pbn-toolbar,.pbn-table-note){border-color:#41594f}
+html[data-postcard-theme="dark"] #pinball-3d-section .pbn-header h2 span,html[data-postcard-theme="dark"] #pinball-3d-section .pbn-mark,html[data-postcard-theme="dark"] #pinball-3d-section #pb-multiplier{color:#89c6ae}
+html[data-postcard-theme="dark"] #pinball-3d-section .pbn-mark{border-color:#527866}
+html[data-postcard-theme="dark"] #pinball-3d-section :is(select,select option){color:#e4e9df;background:#233d39;border-color:#607c68}
+html[data-postcard-theme="dark"] #pinball-3d-section .pbn-btn{color:#e4e9df;background:#2c4c40;border-color:#71917a}
+html[data-postcard-theme="dark"] #pinball-3d-section .pbn-btn:hover{background:#3d6251}
+html[data-postcard-theme="dark"] #pinball-3d-section .pbn-new{background:#bed1a8;color:#203c2d;border-color:#bed1a8}
+html[data-postcard-theme="dark"] #pinball-3d-section .pbn-new:hover{background:#d0e1bb}
+html[data-postcard-theme="dark"] #pinball-3d-section .pbn-controls .pbn-launch{color:#342e19;background:#e7d4a1;border-color:#e7d4a1;box-shadow:0 4px 0 #8b7a4c}
+html[data-postcard-theme="dark"] #pinball-3d-section .pbn-controls .pbn-held{background:#496d53}
+html[data-postcard-theme="dark"] #pinball-3d-section .pbn-controls .pbn-launch.pbn-held{background:#dcc175}
+html[data-postcard-theme="dark"] #pinball-3d-section .pbn-status{color:#d2e8cf;background:#254538;border-color:#5b7960}
+html[data-postcard-theme="dark"] #pinball-3d-section .pbn-mission{background:#203b36;border-color:#4d6556}
+html[data-postcard-theme="dark"] #pinball-3d-section .pbn-targets span{background:#294638;color:#afc2a3;border-color:#61785b}
+html[data-postcard-theme="dark"] #pinball-3d-section .pbn-targets span.pbn-lit{background:#d2c58e;color:#263d2b;border-color:#d2c58e}
+/* Keep paired component text above the site's inherited game palette rules. */
+html[data-postcard-theme] #game-library #game-menu-stage #pinball-3d-section :is(.pbn-kicker,.pbn-subtitle,.pbn-key-tip,.pbn-small,.pbn-mission p,.pbn-guide,.pbn-guide li,.pbn-guide p,.pbn-table-note p,.pbn-launch-meter>span){color:var(--pn-soft)!important;-webkit-text-fill-color:var(--pn-soft)!important}
+html[data-postcard-theme] #game-library #game-menu-stage #pinball-3d-section :is(.pbn-header h2,.pbn-aside h3,.pbn-toolbar label){color:var(--pn-ink)!important;-webkit-text-fill-color:var(--pn-ink)!important}
+html[data-postcard-theme="light"] #game-library #game-menu-stage #pinball-3d-section .pbn-header h2 span{color:#3d7868!important;-webkit-text-fill-color:#3d7868!important}
+html[data-postcard-theme="dark"] #game-library #game-menu-stage #pinball-3d-section .pbn-header h2 span{color:#89c6ae!important;-webkit-text-fill-color:#89c6ae!important}
+html[data-postcard-theme] #game-library #game-menu-stage #pinball-3d-section .pbn-scoreboard strong{color:#fff5cf!important;-webkit-text-fill-color:#fff5cf!important}
+html[data-postcard-theme] #game-library #game-menu-stage #pinball-3d-section .pbn-scoreboard span{color:#acc3b9!important;-webkit-text-fill-color:#acc3b9!important}
+html[data-postcard-theme] #game-library #game-menu-stage #pinball-3d-section .pbn-overlay strong{color:#fff5cf!important;-webkit-text-fill-color:#fff5cf!important}
+html[data-postcard-theme] #game-library #game-menu-stage #pinball-3d-section .pbn-overlay>span{color:#c1d4c9!important;-webkit-text-fill-color:#c1d4c9!important}
+@media(max-width:780px){#pinball-3d-section .pbn-layout{grid-template-columns:minmax(0,1fr);gap:20px}#pinball-3d-section .pbn-aside{display:grid;grid-template-columns:1fr 1fr}#pinball-3d-section .pbn-status,#pinball-3d-section .pbn-table-note{grid-column:1/-1}#pinball-3d-section .pbn-stage{max-width:480px;margin-inline:auto}#pinball-3d-section .pbn-scoreboard{max-width:480px;margin-inline:auto}}
+@media(max-width:480px){#pinball-3d-section .pbn-header{padding:20px 16px}#pinball-3d-section .pbn-mark{width:52px;height:52px;font-size:28px}#pinball-3d-section .pbn-toolbar{padding:12px;gap:11px}#pinball-3d-section .pbn-actions{width:100%;margin-left:0}#pinball-3d-section .pbn-actions button{flex:1}#pinball-3d-section .pbn-layout{padding:11px;gap:17px}#pinball-3d-section .pbn-aside{grid-template-columns:1fr}#pinball-3d-section .pbn-controls{gap:6px}#pinball-3d-section .pbn-controls .pbn-btn{min-height:72px;font-size:9px}#pinball-3d-section .pbn-scoreboard{padding:11px}#pinball-3d-section .pbn-mission{padding:16px}#pinball-3d-section .pbn-header h2{font-size:37px}}
+

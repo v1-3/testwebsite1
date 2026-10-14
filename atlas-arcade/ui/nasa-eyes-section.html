@@ -1,0 +1,85 @@
+
+
+
+        <!-- NASA EYES: APLICATIVOS OFICIAIS INCORPORADOS COM GUIA EM PORTUGUÊS -->
+        <section id="nasa-eyes-section" class="w-full max-w-6xl mx-auto" aria-labelledby="ney-title">
+          <div class="ney-shell">
+            <div class="ney-header">
+              <div class="ney-heading">
+                <span class="ney-kicker"><span class="ney-live-dot" aria-hidden="true"></span> NASA EYES · EXPLORAÇÃO CIENTÍFICA</span>
+                <h2 id="ney-title">NASA Eyes</h2>
+                <p>Explore a Terra e o Sistema Solar com os aplicativos interativos oficiais da NASA. Consulte traduções e explicações em português ao lado da experiência; o simulador próprio continua no menu.</p>
+              </div>
+              <div class="ney-source"><span aria-hidden="true">✧</span> Integração dos aplicativos NASA/JPL</div>
+            </div>
+            <div class="ney-tabs" role="tablist" aria-label="Escolher experiência NASA Eyes">
+              <button type="button" role="tab" class="ney-tab ney-tab-active" id="ney-tab-solar" aria-controls="ney-panel" aria-selected="true" data-ney-mode="solar"><span aria-hidden="true">☉</span> Eyes on the Solar System</button>
+              <button type="button" role="tab" class="ney-tab" id="ney-tab-earth" aria-controls="ney-panel" aria-selected="false" data-ney-mode="earth"><span aria-hidden="true">◉</span> Eyes on the Earth</button>
+            </div>
+            <div class="ney-content" id="ney-panel" role="tabpanel" aria-labelledby="ney-tab-solar">
+              <div class="ney-primary">
+                <div class="ney-viewbar">
+                  <div>
+                    <div class="ney-viewname" id="ney-viewname">Sistema Solar em 3D</div>
+                    <div class="ney-viewdesc" id="ney-viewdesc">Planetas, luas, asteroides, sondas e trajetórias de missões com controle de tempo.</div>
+                  </div>
+                  <div class="ney-online"><span class="ney-live-dot" aria-hidden="true"></span> Requer internet</div>
+                </div>
+
+                <div class="ney-translation-summary" id="ney-translation-summary" role="note">
+                  <span class="ney-summary-icon" aria-hidden="true">PT</span>
+                  <div><strong>Guia em português</strong><p id="ney-translation-tip">Referência de termos e controles comuns do NASA Eyes; a tradução não altera o aplicativo incorporado.</p></div>
+                  <a href="#ney-translation-guide" id="ney-guide-jump">Ver glossário ↓</a>
+                </div>
+                <div class="ney-framebox" id="ney-framebox">
+                  <div class="ney-frame-poster" id="ney-poster">
+                    <div class="ney-orbit-art" aria-hidden="true"><div class="ney-art-core"></div><div class="ney-art-ring ney-art-ring-1"></div><div class="ney-art-ring ney-art-ring-2"></div><div class="ney-art-ring ney-art-ring-3"></div></div>
+                    <strong>Experiência 3D oficial da NASA</strong>
+                    <p>Selecione “Iniciar visualização” para carregar o aplicativo original aqui.</p>
+                    <button type="button" id="ney-start" class="ney-main-button">Iniciar visualização</button>
+                  </div>
+                  <iframe id="ney-iframe" title="NASA Eyes on the Solar System — experiência oficial" allow="fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
+                </div>
+                <div class="ney-actionbar">
+                  <a id="ney-official" class="ney-action ney-action-main" href="https://eyes.nasa.gov/apps/solar-system/#/" target="_blank" rel="noopener noreferrer">Abrir no site oficial da NASA <span aria-hidden="true">↗</span></a>
+                  <button type="button" id="ney-reload" class="ney-action">Recarregar experiência</button>
+                  <button type="button" id="ney-fullscreen" class="ney-action">Tela cheia</button>
+                </div>
+                <p class="ney-status" id="ney-status" role="status">A experiência oficial será carregada quando você clicar em “Iniciar visualização”. Se não aparecer no quadro, use “Abrir no site oficial da NASA”.</p>
+              </div>
+              <aside class="ney-aside">
+                <div class="ney-aside-eyebrow">O QUE EXPLORAR</div>
+                <h3 id="ney-aside-title">O Sistema Solar com dados da NASA</h3>
+                <p id="ney-aside-intro">No aplicativo original, navegue por planetas, luas e missões da NASA. É possível avançar e retroceder no tempo.</p>
+                <div class="ney-feature-list" id="ney-features">
+                  <div class="ney-feature"><span class="ney-feature-mark">01</span><div><strong>Planetas e luas</strong><small>Exploração do Sistema Solar em 3D</small></div></div>
+                  <div class="ney-feature"><span class="ney-feature-mark">02</span><div><strong>Missões espaciais</strong><small>Sondas e trajetórias de exploração</small></div></div>
+                  <div class="ney-feature"><span class="ney-feature-mark">03</span><div><strong>Viagem no tempo</strong><small>Avanço e retrocesso da simulação</small></div></div>
+                  <div class="ney-feature"><span class="ney-feature-mark">04</span><div><strong>Corpos menores</strong><small>Asteroides, cometas e outros destinos</small></div></div>
+                </div>
+
+                <div class="ney-translations" id="ney-translation-guide">
+                  <div class="ney-translations-head"><span class="ney-aside-eyebrow">TRADUÇÃO DE REFERÊNCIA · EN → PT-BR</span><span class="ney-translations-label">Português</span></div>
+                  <h4 id="ney-glossary-title">Glossário do Sistema Solar</h4>
+                  <p id="ney-glossary-intro">Tradução de termos comuns que você pode encontrar nos aplicativos NASA Eyes. Os menus internos podem mudar.</p>
+                  <label class="ney-search-label" for="ney-glossary-search">Pesquisar termo em inglês ou português</label>
+                  <input id="ney-glossary-search" type="search" placeholder="Ex.: orbit, spacecraft, órbita..." autocomplete="off" aria-controls="ney-glossary-results">
+                  <div id="ney-glossary-count" class="ney-glossary-count" aria-live="polite"></div>
+                  <div id="ney-glossary-results" class="ney-glossary-results"></div>
+                  <div class="ney-browser-translate">
+                    <strong>Como traduzir a página da NASA</strong>
+                    <ol>
+                      <li>Abra a experiência pelo botão <strong>“Abrir no site oficial da NASA”</strong>.</li>
+                      <li>No Chrome ou Edge, clique com o botão direito na página e escolha <strong>“Traduzir para português”</strong> (se disponível).</li>
+                      <li>Use este glossário caso textos e controles dentro do gráfico 3D continuem em inglês.</li>
+                    </ol>
+                    <p>Não é possível traduzir o conteúdo do iframe diretamente a partir deste site. A tradução automática pode não alcançar textos desenhados dentro do 3D.</p>
+                  </div>
+                </div>
+                <div class="ney-note" id="ney-note"><strong>Sobre a integração</strong><p>O conteúdo interativo vem diretamente da NASA e não é armazenado neste HTML. A exibição no quadro depende das permissões do navegador; o link externo oferece acesso direto a todos os recursos disponíveis.</p></div>
+                <div class="ney-links"><a href="https://science.nasa.gov/eyes/" target="_blank" rel="noopener noreferrer">Conhecer a coleção NASA Eyes ↗</a><a href="https://science.nasa.gov/learn/learn-nasa-science/" target="_blank" rel="noopener noreferrer">Mais sobre as experiências ↗</a></div>
+              </aside>
+            </div>
+          </div>
+          
+        </section>

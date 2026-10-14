@@ -1,0 +1,59 @@
+{
+  "mainFile": "atlas_arcade_geography_clue_text_white_fixed.html",
+  "originalBytes": 3115720,
+  "mainBytes": 7422,
+  "uiComponents": 36,
+  "stylesheets": 30,
+  "scriptSyntax": {
+    "passed": 90,
+    "failures": 0
+  },
+  "staticAudit": {
+    "missingAssets": 0,
+    "inlineMainScripts": 0,
+    "inlineMainStyles": 0,
+    "uiMarkupPreserved": true,
+    "originalCssPreserved": true,
+    "classicScriptOrderPreserved": true
+  },
+  "browser": {
+    "catalog": {
+      "checks": 94,
+      "entriesOpened": 28,
+      "runtimeErrors": 0,
+      "beforeAfterLayoutReviewed": true
+    },
+    "solarAndOriginalPinball": {
+      "solarChecks": 54,
+      "pinballChecks": 25,
+      "widths": [
+        1440,
+        390
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "nativeControlsPassed": true,
+      "runtimeErrors": 0
+    },
+    "visualPinball": {
+      "railChecks": 14,
+      "gameplayChecks": 29,
+      "widths": [
+        1440,
+        390
+      ],
+      "themePairs": 14,
+      "nativeKeyboardMouseTouch": true,
+      "standaloneExportBoots": true,
+      "runtimeErrors": 0
+    }
+  },
+  "historicalIntroCheck": {
+    "status": "existing failure reproduced on original backup and modular site",
+    "message": "Julia message must match the requested text exactly",
+    "note": "The historical check stops on an earlier text expectation. No page text was changed by this refactor. Dialog initialization/focus and catalog entry dismissal succeeded."
+  },
+  "backup": "backup/original.html"
+}

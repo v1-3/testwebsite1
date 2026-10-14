@@ -1,0 +1,95 @@
+<!-- MAIN COUNTDOWN SECTION -->
+        <section class="w-full pj-pass-wrap" aria-labelledby="pj-pass-title">
+          <div class="pj-pass">
+            <div class="pj-pass-main">
+              <div class="pj-pass-head">
+                <span class="pj-pass-title" id="pj-pass-title">Cartão de embarque</span>
+                <div class="pj-route"><span>Julia</span><span class="plane" aria-hidden="true">✈️</span><span>Victor</span></div>
+              </div>
+              <p class="pj-pass-wait">Esperando por você, Julia...</p>
+              <div class="pj-clock" id="pj-clock" role="timer" aria-label="Tempo restante até o reencontro">
+                <div class="pj-time"><div class="pj-time-box"><span id="years">00</span></div><small>anos</small></div>
+                <div class="pj-time"><div class="pj-time-box"><span id="months">00</span></div><small>meses</small></div>
+                <div class="pj-time"><div class="pj-time-box"><span id="days">00</span></div><small>dias</small></div>
+                <div class="pj-time"><div class="pj-time-box"><span id="hours">00</span></div><small>horas</small></div>
+                <div class="pj-time"><div class="pj-time-box"><span id="minutes">00</span></div><small>min</small></div>
+                <div class="pj-time"><div class="pj-time-box is-red"><span id="seconds">00</span></div><small>seg</small></div>
+              </div>
+              <div class="pj-flight" aria-label="Trajeto de viagem de hoje até o reencontro">
+                <svg viewBox="0 0 600 120" aria-hidden="true">
+                  <path id="pj-arc" class="dash" d="M24 96 Q300 -34 576 96" fill="none" stroke-width="3" stroke-dasharray="3 9" stroke-linecap="round"/>
+                  <path id="pj-arcDone" class="done" d="M24 96 Q300 -34 576 96" fill="none" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="0 2000"/>
+                  <circle cx="24" cy="96" r="7" fill="var(--pj-ink)"/>
+                  <circle class="end-dot" cx="576" cy="96" r="7"/>
+                  <g id="pj-planeG"><circle class="plane-ring" r="19"/><path class="plane-icon" d="M0 -13 L5 -3 L14 1 L14 5 L3 4 L2 11 L6 13 L6 16 L0 14 L-6 16 L-6 13 L-2 11 L-3 4 L-14 5 L-14 1 L-5 -3 Z" transform="rotate(90)"/></g>
+                </svg>
+                <div class="pj-flight-legend">
+                  <span><b>Decolagem</b> · 1 jun 2024</span>
+                  <span id="progress-percentage"><b>0%</b> do caminho</span>
+                  <span><b>Pouso</b> · 27 jan 2028</span>
+                </div>
+                <div id="progress-bar" hidden></div>
+              </div>
+            </div>
+            <aside class="pj-pass-stub" aria-label="Detalhes do voo">
+              <div class="pj-stub-row"><small>Passageira</small><b>Julia</b></div>
+              <div class="pj-stub-row"><small>Destino</small><b>Meu abraço</b></div>
+              <div class="pj-stub-row"><small>Chegada</small><b class="big">27 jan 2028</b></div>
+              <div class="pj-stub-row"><small>Faltam</small><b id="stubDays">0 dias</b></div>
+            </aside>
+          </div>
+
+          <div class="pj-anniversaries" aria-label="Contagem regressiva para as três datas especiais">
+            <article class="pj-anniversary-card" data-anniversary="anniv" aria-labelledby="sub-anniv-title">
+              <div class="pj-anniversary-heading">
+                <span class="pj-anniversary-icon" aria-hidden="true">♥</span>
+                <div><h3 class="pj-anniversary-title" id="sub-anniv-title">Aniversário de namoro</h3><time class="pj-anniversary-date" id="sub-anniv-date">13 de setembro</time></div>
+              </div>
+              <p class="pj-anniversary-status" id="sub-anniv-status">Próxima comemoração</p>
+              <div class="pj-anniversary-timer" id="sub-anniv-timer" role="timer" aria-live="off" aria-label="Tempo até o aniversário de namoro">
+                <div class="pj-anniversary-days"><strong id="sub-anniv-days">0</strong><div class="pj-anniversary-days-label"><span id="sub-anniv-day-label">dias</span><small>para comemorar</small></div></div>
+                <div class="pj-anniversary-clock">
+                  <div class="pj-anniversary-unit"><b id="sub-anniv-hours">00</b><span>horas</span></div>
+                  <div class="pj-anniversary-unit"><b id="sub-anniv-minutes">00</b><span>minutos</span></div>
+                  <div class="pj-anniversary-unit"><b id="sub-anniv-secs">00</b><span>segundos</span></div>
+                </div>
+              </div>
+              <div class="pj-anniversary-celebration" id="sub-anniv-celebration" hidden><strong>É hoje!</strong><p>Mais um ano da nossa história. ♥</p></div>
+              <p class="pj-anniversary-message">O dia em que você aceitou ser minha e fez de “nós” uma realidade.</p>
+            </article>
+            <article class="pj-anniversary-card" data-anniversary="victor" aria-labelledby="sub-victor-title">
+              <div class="pj-anniversary-heading">
+                <span class="pj-anniversary-icon" aria-hidden="true">✦</span>
+                <div><h3 class="pj-anniversary-title" id="sub-victor-title">Aniversário do Victor</h3><time class="pj-anniversary-date" id="sub-victor-date">17 de abril</time></div>
+              </div>
+              <p class="pj-anniversary-status" id="sub-victor-status">Próxima comemoração</p>
+              <div class="pj-anniversary-timer" id="sub-victor-timer" role="timer" aria-live="off" aria-label="Tempo até o aniversário do Victor">
+                <div class="pj-anniversary-days"><strong id="sub-victor-days">0</strong><div class="pj-anniversary-days-label"><span id="sub-victor-day-label">dias</span><small>para comemorar</small></div></div>
+                <div class="pj-anniversary-clock">
+                  <div class="pj-anniversary-unit"><b id="sub-victor-hours">00</b><span>horas</span></div>
+                  <div class="pj-anniversary-unit"><b id="sub-victor-minutes">00</b><span>minutos</span></div>
+                  <div class="pj-anniversary-unit"><b id="sub-victor-secs">00</b><span>segundos</span></div>
+                </div>
+              </div>
+              <div class="pj-anniversary-celebration" id="sub-victor-celebration" hidden><strong>É hoje!</strong><p>Feliz aniversário, Victor! ✦</p></div>
+              <p class="pj-anniversary-message">O terceiro dia mais importante da minha vida, logo depois do dia em que te conheci e do dia em que você me aceitou.</p>
+            </article>
+            <article class="pj-anniversary-card" data-anniversary="julia" aria-labelledby="sub-julia-title">
+              <div class="pj-anniversary-heading">
+                <span class="pj-anniversary-icon" aria-hidden="true">✦</span>
+                <div><h3 class="pj-anniversary-title" id="sub-julia-title">Aniversário da Julia</h3><time class="pj-anniversary-date" id="sub-julia-date">27 de janeiro</time></div>
+              </div>
+              <p class="pj-anniversary-status" id="sub-julia-status">Próxima comemoração</p>
+              <div class="pj-anniversary-timer" id="sub-julia-timer" role="timer" aria-live="off" aria-label="Tempo até o aniversário da Julia">
+                <div class="pj-anniversary-days"><strong id="sub-julia-days">0</strong><div class="pj-anniversary-days-label"><span id="sub-julia-day-label">dias</span><small>para comemorar</small></div></div>
+                <div class="pj-anniversary-clock">
+                  <div class="pj-anniversary-unit"><b id="sub-julia-hours">00</b><span>horas</span></div>
+                  <div class="pj-anniversary-unit"><b id="sub-julia-minutes">00</b><span>minutos</span></div>
+                  <div class="pj-anniversary-unit"><b id="sub-julia-secs">00</b><span>segundos</span></div>
+                </div>
+              </div>
+              <div class="pj-anniversary-celebration" id="sub-julia-celebration" hidden><strong>É hoje!</strong><p>Feliz aniversário, Julia! ✦</p></div>
+              <p class="pj-anniversary-message">A data mais importante do calendário. Sem você, eu não seria tão feliz quanto sou hoje nem teria a certeza de que amanhã será ainda melhor com você ao meu lado.</p>
+            </article>
+          </div>
+        </section>

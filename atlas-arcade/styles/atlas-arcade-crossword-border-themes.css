@@ -1,0 +1,76 @@
+
+/* Themed crosswords: tint the edges, never the letter-writing surfaces.
+   Give these rules more specificity than legacy game-theme rules, including
+   the light mode's generic input styling. Works in light and dark website modes. */
+#game-menu-stage #crossword-section {
+  --cw-theme-edge:#91abba;
+  --cw-theme-strong:#295e80;
+}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) #crossword-section {
+  --cw-theme-edge:var(--gt-accent,#286cad);
+  --cw-theme-strong:var(--gt-accent,#286cad);
+}
+#game-menu-stage #crossword-section .cw-grid .cw-cell input,
+html[data-postcard-theme="light"] #game-menu-stage #crossword-section .cw-grid .cw-cell input,
+html[data-postcard-theme="dark"] #game-menu-stage #crossword-section .cw-grid .cw-cell input {
+  box-sizing:border-box!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  padding:0!important;
+  background:#ffffff!important;
+  background-image:none!important;
+  color:#182b3e!important;
+  -webkit-text-fill-color:#182b3e!important;
+  border:2px solid var(--cw-theme-edge)!important;
+  border-radius:6px!important;
+  box-shadow:none!important;
+  font-size:calc(var(--cw) * .5)!important;
+  font-weight:800!important;
+  opacity:1!important;
+}
+/* The outer boundary of a crossing/selected word identifies its state. */
+#game-menu-stage #crossword-section .cw-grid .cw-cell.cross input {
+  border-style:double!important;
+  border-width:3px!important;
+}
+#game-menu-stage #crossword-section .cw-grid .cw-cell.in-word input {
+  border-width:3px!important;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--cw-theme-edge) 32%,transparent)!important;
+}
+#game-menu-stage #crossword-section .cw-grid .cw-cell.active input,
+html[data-postcard-theme="light"] #game-menu-stage #crossword-section .cw-grid .cw-cell.active input {
+  background:#fff!important;
+  border:3px solid var(--cw-theme-strong)!important;
+  box-shadow:0 0 0 2px var(--cw-theme-strong)!important;
+  outline:none!important;
+}
+/* Status feedback uses the edge only; solved and wrong letters stay readable. */
+#game-menu-stage #crossword-section .cw-grid .cw-cell.locked input,
+html[data-postcard-theme="light"] #game-menu-stage #crossword-section .cw-grid .cw-cell.locked input {
+  background:#fff!important;
+  border:3px solid #278455!important;
+  color:#17482f!important;
+  -webkit-text-fill-color:#17482f!important;
+  box-shadow:none!important;
+}
+#game-menu-stage #crossword-section .cw-grid .cw-cell.wrong input,
+html[data-postcard-theme="light"] #game-menu-stage #crossword-section .cw-grid .cw-cell.wrong input {
+  background:#fff!important;
+  border:3px solid #c03c4d!important;
+  color:#7f2030!important;
+  -webkit-text-fill-color:#7f2030!important;
+  box-shadow:none!important;
+}
+#game-menu-stage #crossword-section .cw-grid .cw-cell .cw-num {
+  color:#162c42!important;
+  text-shadow:0 1px 0 #fff!important;
+}
+/* Conserve minimal space at small cell sizes in fit-to-screen mode. */
+@media(max-width:450px) {
+  #game-menu-stage #crossword-section .cw-grid .cw-cell.cross input,
+  #game-menu-stage #crossword-section .cw-grid .cw-cell.in-word input,
+  #game-menu-stage #crossword-section .cw-grid .cw-cell.active input {
+    border-width:2px!important;
+  }
+}

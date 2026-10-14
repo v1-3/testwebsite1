@@ -1,0 +1,258 @@
+
+/* Accessibility repair: actual game UI light/dark contrast. Specific game elements,
+   not a blanket recolor of the playable canvases and puzzle tiles. */
+html[data-postcard-theme="light"] #game-menu-stage{
+  --repair-ink:#183348;--repair-copy:#425b72;--repair-muted:#536c82;
+  --repair-panel:#fff;--repair-panel-alt:#edf5fa;--repair-line:#a8bfce;
+  --repair-active:#b23561;--repair-active-ink:#fff;--repair-disabled:#e1e9ee;
+}
+html[data-postcard-theme="dark"] #game-menu-stage{
+  --repair-ink:#f5f8ff;--repair-copy:#d8e5f2;--repair-muted:#bed1e2;
+  --repair-panel:#1e3149;--repair-panel-alt:#2a415b;--repair-line:#7893ae;
+  --repair-active:#c04877;--repair-active-ink:#fff;--repair-disabled:#384f68;
+}
+
+/* The map + flag region filters: never use white lettering on pale button fills. */
+html[data-postcard-theme] body>main.content-layer #game-menu-stage > section:is(#map-game-section,#flag-game-section) .gg-regions button.gg-region:not([aria-pressed="true"]),
+html[data-postcard-theme] body>main.content-layer #game-menu-stage > section:is(#map-game-section,#flag-game-section) .gg-regions button.gg-region[aria-pressed="false"] {
+  background:var(--repair-panel-alt)!important;
+  background-image:none!important;
+  color:var(--repair-ink)!important;-webkit-text-fill-color:var(--repair-ink)!important;
+  border:1.5px solid var(--repair-line)!important;
+  opacity:1!important;text-shadow:none!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage > section:is(#map-game-section,#flag-game-section) .gg-regions button.gg-region[aria-pressed="true"]{
+  background:var(--repair-active)!important;background-image:none!important;
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+  border:1.5px solid var(--repair-active)!important;opacity:1!important;
+}
+html[data-postcard-theme] #game-menu-stage > section:is(#map-game-section,#flag-game-section) :is(.gg-form-row,.gg-score-strip,.gg-helper,.gg-status){color:var(--repair-copy)!important}
+html[data-postcard-theme] #game-menu-stage > section:is(#map-game-section,#flag-game-section) .gg-score-strip b{color:var(--repair-ink)!important}
+html[data-postcard-theme] #game-menu-stage > section:is(#map-game-section,#flag-game-section) :is(.gg-actions,.gg-form-row,.gg-inline-form) button:not(.gg-region):not(:disabled){
+  background:var(--repair-panel-alt)!important;color:var(--repair-ink)!important;-webkit-text-fill-color:var(--repair-ink)!important;
+  border:1.5px solid var(--repair-line)!important;opacity:1!important;
+}
+html[data-postcard-theme] #game-menu-stage > section:is(#map-game-section,#flag-game-section) :is(.gg-actions,.gg-form-row,.gg-inline-form) button.gg-primary:not(:disabled){
+  background:var(--repair-active)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border-color:var(--repair-active)!important;
+}
+html[data-postcard-theme] #game-menu-stage > section:is(#map-game-section,#flag-game-section) :is(.gg-actions,.gg-form-row,.gg-inline-form) button:disabled{
+  background:var(--repair-disabled)!important;color:var(--repair-muted)!important;-webkit-text-fill-color:var(--repair-muted)!important;
+  border:1px dashed var(--repair-line)!important;opacity:1!important;
+}
+/* Flag answer cards should be light with dark labels, even when the selected
+   game theme happens to be dark blue. Theme still colors the edges. */
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage[data-game-theme] #flag-game-section .flag-row {
+  background:#f7fbfd!important;color:#183348!important;border:2px solid var(--gg-line,#9bb9cd)!important;
+}
+html[data-postcard-theme="dark"] body>main.content-layer #game-menu-stage[data-game-theme] #flag-game-section .flag-row{
+  background:#203950!important;color:#f5f8ff!important;border:2px solid var(--gg-line,#7492ad)!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #flag-game-section .flag-row :is(span,small,p,label,.gg-helper){
+  color:var(--repair-copy)!important;-webkit-text-fill-color:var(--repair-copy)!important;opacity:1!important;
+}
+html[data-postcard-theme] #game-menu-stage #flag-game-section .flag-row.flag-correct{border-color:#26a269!important}
+html[data-postcard-theme] #game-menu-stage #flag-game-section .flag-row.flag-wrong{border-color:#d65a71!important}
+
+/* Drawing game: keep the labels dark in light mode. Preserve actual swatch hues. */
+html[data-postcard-theme] #game-menu-stage #draw-game-section :is(.gg-draw-prompt,.gg-status,.gg-helper,.gg-form-row>label){
+  color:var(--repair-copy)!important;
+}
+html[data-postcard-theme] #game-menu-stage #draw-game-section .gg-draw-prompt strong{
+  color:var(--repair-ink)!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #draw-game-section .gg-draw-tools button:not(.draw-color-button):not(:disabled){
+  background:var(--repair-panel-alt)!important;color:var(--repair-ink)!important;-webkit-text-fill-color:var(--repair-ink)!important;border:1.5px solid var(--repair-line)!important;opacity:1!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #draw-game-section .gg-draw-tools button:not(.draw-color-button):disabled{
+  background:var(--repair-disabled)!important;color:var(--repair-muted)!important;-webkit-text-fill-color:var(--repair-muted)!important;border:1.5px dashed var(--repair-line)!important;opacity:1!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #draw-game-section button.draw-color-button{
+  background:var(--swatch)!important;box-shadow:0 0 0 1px var(--repair-line)!important;opacity:1!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #draw-game-section button.gg-primary:not(:disabled){
+  background:var(--repair-active)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border-color:var(--repair-active)!important;
+}
+
+/* Parking: cars must show their actual paint color, not button backgrounds.
+   Restore the game's linear highlight over the per-car --car-color value. */
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #parking-jam .pj-car {
+  background:linear-gradient(145deg,rgba(255,255,255,.32),transparent 45%,rgba(0,0,0,.27)),var(--car-color,#64748b)!important;
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+  border:2px solid rgba(255,255,255,.65)!important;opacity:1!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #parking-jam .pj-car.pj-target{
+  --car-color:#cf3157;border-color:#ffe0e7!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #parking-jam .pj-car :is(.pj-car-code,.pj-car-window){
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+}
+html[data-postcard-theme] #game-menu-stage #parking-jam :is(.pj-info,.pj-keyboard-note,.pj-stat,.pj-side){color:var(--repair-copy)!important}
+html[data-postcard-theme] #game-menu-stage #parking-jam :is(.pj-side h3,.pj-header h2,.pj-stat strong){color:var(--repair-ink)!important}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #parking-jam :is(.pj-difficulty,.pj-tool,.pj-arrow):not(:disabled):not([aria-pressed="true"]){
+  background:var(--repair-panel-alt)!important;color:var(--repair-ink)!important;-webkit-text-fill-color:var(--repair-ink)!important;
+  border:1.5px solid var(--repair-line)!important;opacity:1!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #parking-jam :is(.pj-difficulty,.pj-tool,.pj-arrow):disabled{
+  background:var(--repair-disabled)!important;color:var(--repair-muted)!important;-webkit-text-fill-color:var(--repair-muted)!important;
+  border:1.5px dashed var(--repair-line)!important;opacity:1!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #parking-jam :is(.pj-difficulty[aria-pressed="true"],.pj-tool-primary:not(:disabled)){
+  background:var(--repair-active)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border-color:var(--repair-active)!important;opacity:1!important;
+}
+html[data-postcard-theme="light"] #game-menu-stage #parking-jam .pj-side{
+  background:#f7fbfe!important;border-color:#d1e0e9!important;
+}
+
+/* Tetris: overlay lies on a very dark playfield, so its ink must always be light.
+   In contrast the control panel is an ordinary UI surface. */
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #tetris-section .tt-overlay,
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #tetris-section .tt-overlay :is(h1,h2,h3,h4,p,span,strong,small){
+  color:#fff6ff!important;-webkit-text-fill-color:#fff6ff!important;text-shadow:0 1px 3px #0008!important;
+}
+html[data-postcard-theme] #game-menu-stage #tetris-section .tt-overlay :is(button,.tt-button){
+  background:#2f6b9e!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border-color:#a8d4ee!important;text-shadow:none!important;
+}
+html[data-postcard-theme] #game-menu-stage #tetris-section .tt-status{
+  color:var(--repair-copy)!important;
+}
+html[data-postcard-theme] #game-menu-stage #tetris-section :is(.tt-preview,.tt-guide){
+  background:var(--repair-panel-alt)!important;border-color:var(--repair-line)!important;color:var(--repair-ink)!important;
+}
+html[data-postcard-theme] #game-menu-stage #tetris-section :is(.tt-preview strong,.tt-preview span,.tt-guide summary,.tt-guide p,.tt-guide li){
+  color:var(--repair-ink)!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #tetris-section :is(.tt-control,.tt-button):not(:disabled){
+  background:var(--repair-panel-alt)!important;color:var(--repair-ink)!important;-webkit-text-fill-color:var(--repair-ink)!important;
+  border:1.5px solid var(--repair-line)!important;opacity:1!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #tetris-section :is(.tt-control,.tt-button):disabled{
+  background:var(--repair-disabled)!important;color:var(--repair-muted)!important;-webkit-text-fill-color:var(--repair-muted)!important;
+  border:1.5px dashed var(--repair-line)!important;opacity:1!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #tetris-section :is(.tt-button-primary,.tt-button:not(.tt-button-muted):not(:disabled)){
+  background:var(--repair-active)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border-color:var(--repair-active)!important;
+}
+
+/* Rubik: bright labels on dark HUD, normal contrast elsewhere. */
+html[data-postcard-theme] #game-menu-stage #rubiks-cube-section :is(.rc-panel-title,.rc-inner-title,.rc-toolbar,.rc-message,.rc-instructions,.rc-inner-description){
+  color:var(--repair-ink)!important;
+}
+html[data-postcard-theme] #game-menu-stage #rubiks-cube-section .rc-face-label{
+  color:var(--repair-ink)!important;
+}
+html[data-postcard-theme="light"] #game-menu-stage #rubiks-cube-section :is(.rc-panel-box,.rc-message){
+  background:#f5f9fc!important;border-color:#d3e1e9!important;
+}
+html[data-postcard-theme="dark"] #game-menu-stage #rubiks-cube-section :is(.rc-panel-box,.rc-message){
+  background:#203950!important;border-color:#7893ae!important;
+}
+html[data-postcard-theme] #game-menu-stage #rubiks-cube-section .rc-pill,
+html[data-postcard-theme] #game-menu-stage #rubiks-cube-section .rc-pill :is(strong,span,b){
+  color:#f5f8ff!important;-webkit-text-fill-color:#f5f8ff!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #rubiks-cube-section :is(.rc-face-button,.rc-button):not(:disabled){
+  background:var(--repair-panel-alt)!important;color:var(--repair-ink)!important;-webkit-text-fill-color:var(--repair-ink)!important;
+  border:1.5px solid var(--repair-line)!important;opacity:1!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #rubiks-cube-section :is(.rc-face-button,.rc-button):disabled{
+  background:var(--repair-disabled)!important;color:var(--repair-muted)!important;-webkit-text-fill-color:var(--repair-muted)!important;border:1.5px dashed var(--repair-line)!important;opacity:1!important;
+}
+
+/* Pinball: keep the 3D table/canvas dark (game artwork) but make the chrome
+   follow the website mode. No dark-on-dark scores or unreadable status banners. */
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage #pinball-3d-section :is(
+.pbr-header,.pbr-toolbar,.pbr-side,.pbr-primary,.pbr-mini-scores,.pbr-score,.pbr-mission,.pbr-brief,.pbr-foot){
+  background:#f5f9fc!important;background-image:none!important;color:#183348!important;
+  border-color:#cadce8!important;
+}
+html[data-postcard-theme="light"] body>main.content-layer #game-menu-stage #pinball-3d-section .pbr-primary{
+  background:#eef5fb!important;
+}
+html[data-postcard-theme="dark"] body>main.content-layer #game-menu-stage #pinball-3d-section :is(
+.pbr-header,.pbr-toolbar,.pbr-side,.pbr-primary,.pbr-mini-scores,.pbr-score,.pbr-mission,.pbr-brief,.pbr-foot){
+  background:#1b2e45!important;background-image:none!important;color:#f3f8ff!important;border-color:#496986!important;
+}
+html[data-postcard-theme] #game-menu-stage #pinball-3d-section :is(
+.pbr-primary,.pbr-score,.pbr-mission,.pbr-toolbar,.pbr-brief,.pbr-foot) :is(span,small,strong,b,p,div:not(.pbr-dots):not(.pbr-btn):not(.pbr-charge)){
+  color:var(--repair-ink)!important;-webkit-text-fill-color:var(--repair-ink)!important;opacity:1!important;
+}
+html[data-postcard-theme] #game-menu-stage #pinball-3d-section :is(.pbr-score strong,.pbr-mission strong,.pbr-mission-title,.pbr-score-value){
+  color:var(--repair-ink)!important;-webkit-text-fill-color:var(--repair-ink)!important;opacity:1!important;
+}
+html[data-postcard-theme] #game-menu-stage #pinball-3d-section :is(.pbr-hud-tag,.pbr-stage-hud,.pbr-center-hud,.pbr-howto){
+  color:#f1f8ff!important;
+}
+html[data-postcard-theme] #game-menu-stage #pinball-3d-section .pbr-status{
+  background:var(--repair-panel-alt)!important;color:var(--repair-ink)!important;-webkit-text-fill-color:var(--repair-ink)!important;border:1px solid var(--repair-line)!important;
+}
+html[data-postcard-theme] #game-menu-stage #pinball-3d-section .pbr-foot{
+  color:var(--repair-copy)!important;-webkit-text-fill-color:var(--repair-copy)!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #pinball-3d-section .pbr-btn:not(:disabled){
+  color:var(--repair-ink)!important;-webkit-text-fill-color:var(--repair-ink)!important;
+  background:var(--repair-panel-alt)!important;border:1.5px solid var(--repair-line)!important;opacity:1!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #pinball-3d-section .pbr-btn:disabled{
+  color:var(--repair-muted)!important;-webkit-text-fill-color:var(--repair-muted)!important;
+  background:var(--repair-disabled)!important;border:1.5px dashed var(--repair-line)!important;opacity:1!important;
+}
+html[data-postcard-theme] #game-menu-stage #pinball-3d-section :is(select,option,label){
+  color:var(--repair-ink)!important;
+}
+
+/* Flap Bird: explicitly contrast themed selectors, action controls and stats. */
+html[data-postcard-theme] #game-menu-stage #flap-bird-section :is(.fb-stat,.fb-help,.fb-settings){
+  color:var(--repair-copy)!important;
+}
+html[data-postcard-theme] #game-menu-stage #flap-bird-section :is(.fb-stat strong,.fb-stat b,.fb-stat span,.fb-group-title){
+  color:var(--repair-ink)!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #flap-bird-section :is(.fb-theme,.fb-level,.fb-action):not([aria-pressed="true"]):not(:disabled){
+  background:var(--repair-panel-alt)!important;color:var(--repair-ink)!important;-webkit-text-fill-color:var(--repair-ink)!important;border:1.5px solid var(--repair-line)!important;opacity:1!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #flap-bird-section :is(.fb-theme,.fb-level)[aria-pressed="true"],
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #flap-bird-section :is(.fb-action-main,.fb-start):not(:disabled){
+  background:var(--repair-active)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border:1.5px solid var(--repair-active)!important;opacity:1!important;
+}
+html[data-postcard-theme] #game-menu-stage #flap-bird-section :is(.fb-theme,.fb-level)[aria-pressed="true"] :is(.fb-theme-name,.fb-theme-sub,span,strong){
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+}
+html[data-postcard-theme] #game-menu-stage #flap-bird-section .fb-theme:not([aria-pressed="true"]) :is(.fb-theme-name,.fb-theme-sub,span,strong){
+  color:var(--repair-ink)!important;-webkit-text-fill-color:var(--repair-ink)!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #flap-bird-section :is(.fb-action,.fb-level,.fb-theme):disabled{
+  background:var(--repair-disabled)!important;color:var(--repair-muted)!important;-webkit-text-fill-color:var(--repair-muted)!important;border:1.5px dashed var(--repair-line)!important;opacity:1!important;
+}
+
+/* The Flap Bird modal intentionally stays parchment-white even in dark site mode.
+   Do not inherit pink/white dark-mode copy onto the white modal. */
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #flap-bird-section .fb-overlay-card{
+  background:#fffdf6!important;color:#183348!important;border-color:#cbdde5!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #flap-bird-section .fb-overlay-card :is(h1,h2,h3,strong,b){
+  color:#183348!important;-webkit-text-fill-color:#183348!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #flap-bird-section .fb-overlay-card :is(p,small,span):not(.fb-overlay-icon){
+  color:#455c70!important;-webkit-text-fill-color:#455c70!important;
+}
+/* Final small-type legibility adjustments. */
+html[data-postcard-theme="light"] #game-menu-stage #tetris-section .tt-eyebrow{
+  color:#a62a5a!important;-webkit-text-fill-color:#a62a5a!important;
+}
+html[data-postcard-theme="dark"] #game-menu-stage #tetris-section .tt-eyebrow{
+  color:#ffc1dc!important;-webkit-text-fill-color:#ffc1dc!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #tetris-section .tt-control span{
+  color:var(--repair-ink)!important;-webkit-text-fill-color:var(--repair-ink)!important;
+  font-size:clamp(.67rem,.85vw,.76rem)!important;line-height:1.3!important;font-weight:700!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #tetris-section .tt-control:disabled span{
+  color:var(--repair-muted)!important;-webkit-text-fill-color:var(--repair-muted)!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #parking-jam .pj-keyboard-note{
+  font-size:.78rem!important;line-height:1.55!important;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #pinball-3d-section .pbr-foot{
+  font-size:.72rem!important;line-height:1.5!important;
+}
+

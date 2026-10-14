@@ -1,0 +1,35 @@
+
+/* Drawing paper is intentionally light in every site/game theme. The dark-mode
+   palette belongs around the canvas, never on top of its painted pixels. */
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #draw-game-section .gg-draw-shell {
+  background:#fff!important;
+  background-image:none!important;
+  border:2px solid #8faec4!important;
+  color:#192d3c!important;
+  isolation:isolate;
+  overflow:hidden;
+}
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #draw-game-section :is(#draw-canvas,#draw-view-canvas) {
+  display:block!important;
+  position:relative!important;
+  z-index:1!important;
+  background:#fff!important;
+  background-image:none!important;
+  opacity:1!important;
+  visibility:visible!important;
+  mix-blend-mode:normal!important;
+  filter:none!important;
+  -webkit-filter:none!important;
+  transform:none!important;
+  color-scheme:light;
+}
+/* Keep the eraser cursor above paper, without intercepting drawing gestures. */
+html[data-postcard-theme] #draw-eraser-preview {
+  z-index:2!important;
+  pointer-events:none!important;
+}
+/* Preserve the actual palette hues regardless of dark/light UI button rules. */
+html[data-postcard-theme] body>main.content-layer #game-menu-stage #draw-game-section .gg-draw-tools button.draw-color-button {
+  background:var(--swatch)!important;
+  border-color:#90a9bd!important;
+}

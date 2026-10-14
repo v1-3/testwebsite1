@@ -1,0 +1,118 @@
+
+/* Stationery-style quote card and a more spacious companion card.
+   Both follow the website's existing light/dark design tokens. */
+.pj-letter-layout {
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr);
+  gap: clamp(18px, 2.65vw, 32px);
+  align-items: start;
+}
+.pj-letter-card {
+  box-sizing: border-box;
+  padding: clamp(22px, 2.7vw, 37px) !important;
+  border-radius: 25px !important;
+}
+.pj-letter {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+  background: transparent !important;
+  min-height: clamp(310px, 32vw, 420px);
+  border-radius: 0;
+}
+.pj-letter-message {
+  --letter-line-gap: 45px;
+  --letter-rule: color-mix(in srgb, var(--ux-border) 80%, var(--ux-primary) 20%);
+  position: relative;
+  flex: 1 0 auto;
+  min-width: 0;
+  padding: 4px clamp(4px, 1vw, 12px) 28px;
+  background-image: linear-gradient(to bottom,
+    transparent calc(100% - 1px), var(--letter-rule) calc(100% - 1px));
+  background-size: 100% var(--letter-line-gap);
+  background-repeat: repeat-y;
+  background-position: 0 0;
+  background-clip: padding-box;
+}
+.pj-letter-message blockquote {
+  font-size: clamp(1.7rem, 2.3vw, 2.1rem) !important;
+  line-height: var(--letter-line-gap) !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  color: var(--ux-ink) !important;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.pj-letter-message cite {
+  display: block;
+  margin-top: clamp(18px, 2vw, 26px) !important;
+  font-size: 1rem;
+  line-height: var(--letter-line-gap);
+  color: var(--ux-primary) !important;
+}
+.pj-letter-ctl {
+  margin-top: auto !important;
+  padding: clamp(16px, 2vw, 25px) clamp(4px, 1vw, 12px) 0;
+  gap: 11px;
+}
+/* Letter lines remain visible but subdued in night mode. */
+html[data-postcard-theme="dark"] .pj-letter-message {
+  --letter-rule: color-mix(in srgb, var(--ux-border) 66%, transparent);
+}
+.pj-letter-side {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: clamp(28px, 3.9vw, 52px) !important;
+  border-radius: 25px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.pj-letter-side .pj-side-title {
+  width: 100%;
+  max-width: 12ch;
+  font-size: clamp(2.65rem, 4.15vw, 4rem) !important;
+  line-height: .99 !important;
+  margin: 0 0 20px !important;
+  overflow-wrap: normal;
+}
+.pj-letter-side .pj-side-text {
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 1.72;
+  max-width: 48ch;
+  margin: 0 0 27px !important;
+}
+.pj-letter-side .pj-pill-btn {
+  margin-bottom: 11px;
+  max-width: 100%;
+}
+.pj-letter-side .pj-spotify-shell {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin-top: 14px !important;
+  box-sizing: border-box;
+}
+/* Tablet and mobile: preserve handwriting rhythm and accessible controls. */
+@media (max-width: 900px) {
+  .pj-letter-layout { grid-template-columns: 1fr !important; }
+  .pj-letter-side .pj-side-title { max-width: 16ch; }
+}
+@media (max-width: 640px) {
+  .pj-letter-card { padding: 20px !important; }
+  .pj-letter { min-height: 280px; }
+  .pj-letter-message { --letter-line-gap: 39px; padding: 3px 3px 14px; }
+  .pj-letter-message blockquote { font-size: 1.7rem !important; }
+  .pj-letter-message cite { margin-top: 12px !important; font-size: .95rem; }
+  .pj-letter-ctl { padding: 19px 0 0; gap: 6px; flex-wrap: nowrap; }
+  .pj-letter-ctl .pj-icon-btn { width: 36px; min-width: 36px; padding: 0; }
+  .pj-letter-ctl .pj-love-btn { padding-inline: 10px; gap: 6px; font-size: .88rem; white-space: nowrap; }
+  .pj-letter-side { padding: clamp(24px, 5.5vw, 34px) !important; }
+  .pj-letter-side .pj-side-title { font-size: clamp(2.45rem, 10vw, 3.45rem) !important; }
+  .pj-letter-side .pj-side-text { font-size: 1rem; }
+}
+@media (max-width: 360px) {
+  .pj-letter-message blockquote { font-size: 1.47rem !important; }
+  .pj-letter-ctl { gap: 6px; }
+  .pj-letter-ctl .pj-love-btn { padding-inline: 10px; font-size: .87rem; }
+}

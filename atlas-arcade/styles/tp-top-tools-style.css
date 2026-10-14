@@ -1,0 +1,37 @@
+
+/* Compact utility row at the top, without reinstating the brand masthead. */
+.tp-top-tools{
+  position:relative; z-index:15; flex-shrink:0;
+  width:100%; padding:23px 16px 15px;
+  margin:0 auto; text-align:center;
+  border-top:2px solid transparent;
+  border-image:var(--tp-stripe,linear-gradient(90deg,#e95761 50%,#3268a3 50%)) 2;
+  background:var(--ux-bg,var(--tp-bg,#f4f8f9));
+}
+.tp-top-actions{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+  gap:10px; margin:0 auto 12px; max-width:800px;
+}
+.tp-top-actions .tp-header-pill{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  gap:8px!important;min-height:40px!important;padding:9px 14px!important;
+  min-width:0!important;font-size:12px!important;line-height:1.2;
+  white-space:normal;
+}
+.tp-top-actions .tp-theme-label,
+.tp-top-actions #audio-text,
+.tp-top-actions a[href*="spotify"] span{display:inline!important;font-size:12px!important}
+.tp-top-actions .tp-sound i,
+.tp-top-actions a[href*="spotify"] i{display:inline!important;font-size:14px!important}
+.tp-top-tools .tp-top-credit{
+  display:flex;align-items:center;justify-content:center;gap:5px;
+  margin:0;color:var(--ux-muted,var(--tp-muted,#647789));
+  font-size:11px;line-height:1.5;
+}
+.tp-top-tools .tp-top-credit i{color:#ef4369}
+@media(max-width:480px){
+  .tp-top-tools{padding:15px 11px 10px}
+  .tp-top-actions{gap:7px;margin-bottom:9px}
+  .tp-top-actions .tp-header-pill{padding:8px 10px!important;font-size:11px!important;min-height:38px!important}
+  .tp-top-actions .tp-theme-label,.tp-top-actions #audio-text,.tp-top-actions a[href*="spotify"] span{font-size:11px!important}
+}

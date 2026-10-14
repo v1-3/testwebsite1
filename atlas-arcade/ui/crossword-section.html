@@ -1,0 +1,75 @@
+
+
+        <!-- PALAVRAS CRUZADAS -->
+        <section id="crossword-section" class="w-full max-w-5xl min-w-0">
+            <div class="glass-card rounded-3xl p-6 sm:p-8 space-y-5">
+                <div class="space-y-2">
+                    <div class="w-12 h-12 mx-auto bg-rose-600/20 rounded-full flex items-center justify-center text-rose-300 text-2xl"><i class="fa-solid fa-table-cells"></i></div>
+                    <h3 class="font-serifHeader text-2xl sm:text-3xl text-white font-bold">Palavras Cruzadas do Amor</h3>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto text-left">
+                    <label class="text-xs text-roseGold/80 space-y-1.5">
+                        <span class="block">Idioma</span>
+                        <select id="cw-language" class="w-full rounded-xl bg-[#1b0b17] border border-roseGold/30 px-3 py-3 text-sm text-white outline-none focus:border-rose-300">
+                            <option value="pt">Português</option>
+                            <option value="it">Italiano</option>
+                            <option value="es">Espanhol</option>
+                            <option value="en">Inglês</option>
+                            <option value="de">Alemão</option>
+                            <option value="fr">Francês</option>
+                            <option value="nl">Holandês</option>
+                            <option value="sv">Sueco</option>
+                            <option value="no">Norueguês (bokmål)</option>
+                        </select>
+                    </label>
+                    <label class="text-xs text-roseGold/80 space-y-1.5">
+                        <span class="block">Número de palavras</span>
+                        <select id="cw-count" class="w-full rounded-xl bg-[#1b0b17] border border-roseGold/30 px-3 py-3 text-sm text-white outline-none focus:border-rose-300">
+                            <option value="3">3 palavras</option><option value="4">4 palavras</option><option value="5">5 palavras</option><option value="6">6 palavras</option><option value="8" selected>8 palavras</option><option value="10">10 palavras</option><option value="12">12 palavras</option><option value="15">15 palavras</option><option value="20">20 palavras</option>
+                        </select>
+                    </label>
+                    <label class="text-xs text-roseGold/80 space-y-1.5">
+                        <span class="block">Tamanho das palavras</span>
+                        <select id="cw-size" class="w-full rounded-xl bg-[#1b0b17] border border-roseGold/30 px-3 py-3 text-sm text-white outline-none focus:border-rose-300">
+                            <option value="3-5">Curtas (3 a 5 letras)</option>
+                            <option value="5-7" selected>Médias (5 a 7 letras)</option>
+                            <option value="7-10">Longas (7 a 10 letras)</option>
+                            <option value="3-10">Variadas (3 a 10 letras)</option>
+                        </select>
+                    </label>
+                </div>
+
+                <p id="cw-dictionary-sources" class="text-xs text-rose-200/75" aria-live="polite"></p>
+                <p id="cw-status" class="text-sm text-rose-200 min-h-5" role="status" aria-live="polite">Carregando palavras…</p>
+
+                <div id="cw-current" class="glass-card rounded-2xl px-4 py-3 text-left max-w-xl mx-auto min-h-[3.75rem]"></div>
+
+                <div class="cw-zoom-tools" role="group" aria-label="Controles de zoom das palavras cruzadas">
+                    <button id="cw-fit" type="button" title="Mostrar a grade inteira">Ajustar à tela</button>
+                    <button id="cw-zoom-out" type="button" aria-label="Diminuir a grade" title="Diminuir zoom">−</button>
+                    <button id="cw-zoom-in" type="button" aria-label="Ampliar a grade" title="Ampliar zoom">+</button>
+                    <span id="cw-zoom-status" role="status" aria-live="polite">Grade ajustada à tela</span>
+                </div>
+                <div id="cw-wrap" class="cw-wrap" tabindex="0" aria-label="Grade de palavras cruzadas; deslize horizontalmente após ampliar"><div id="cw-grid" class="cw-grid" aria-label="Grade de palavras cruzadas"></div></div>
+
+                <div class="flex justify-center flex-wrap gap-3">
+                    <button id="cw-hint" type="button" class="rounded-full px-5 py-2 text-xs bg-rose-700 hover:bg-rose-600 text-white font-semibold transition"><i class="fa-regular fa-lightbulb mr-1"></i> Dica (revelar letra)</button>
+                    <button id="cw-check" type="button" class="glass-card rounded-full px-4 py-2 text-xs text-roseGold hover:text-white">Verificar</button>
+                    <button id="cw-reveal" type="button" class="glass-card rounded-full px-4 py-2 text-xs text-roseGold hover:text-white">Revelar palavra</button>
+                    <button id="cw-new" type="button" class="glass-card rounded-full px-4 py-2 text-xs text-roseGold hover:text-white">Nova partida</button>
+                </div>
+                <p id="cw-stats" class="text-xs text-roseGold/70"></p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+                    <div>
+                        <h4 class="font-serifHeader text-lg text-white mb-2">Horizontais <span class="text-rose-300">→</span></h4>
+                        <ul id="cw-across" class="space-y-1 text-sm text-pink-100/90"></ul>
+                    </div>
+                    <div>
+                        <h4 class="font-serifHeader text-lg text-white mb-2">Verticais <span class="text-rose-300">↓</span></h4>
+                        <ul id="cw-down" class="space-y-1 text-sm text-pink-100/90"></ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>

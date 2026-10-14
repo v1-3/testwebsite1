@@ -1,0 +1,12 @@
+
+
+
+
+<!-- Restored game interfaces: scripts for these five games were present but their sections were missing. -->
+<section id="wordle-section" class="w-full max-w-4xl gg-restored" aria-labelledby="gg-wordle-title">
+  <div class="gg-game-shell">
+    <div class="gg-game-header"><span class="gg-eyebrow">DESAFIO DE PALAVRAS</span><h2 id="gg-wordle-title">Termo multilíngue</h2><p>Descubra a palavra secreta em até seis tentativas. Verde indica letra certa; dourado indica letra na posição errada.</p></div>
+    <div class="gg-form-row"><label>Idioma<select id="wordle-language"><option value="pt">Português</option><option value="it">Italiano</option><option value="es">Espanhol</option><option value="en">Inglês</option><option value="de">Alemão</option><option value="fr">Francês</option><option value="nl">Holandês</option><option value="sv">Sueco</option><option value="no">Norueguês</option></select></label><label>Letras<select id="wordle-length"><option value="3" >3</option><option value="4" >4</option><option value="5" selected>5</option><option value="6" >6</option><option value="7" >7</option><option value="8" >8</option><option value="9" >9</option></select></label><label>Tentativas<select id="wordle-attempts"><option>5</option><option selected>6</option><option>7</option><option>8</option></select></label></div>
+    <div class="gg-body"><div id="wordle-board" class="gg-wordle-board" aria-label="Tabuleiro de palavras"></div><p id="wordle-status" class="gg-status" role="status"></p><form id="wordle-form" class="gg-inline-form"><input id="wordle-input" type="text" autocomplete="off" spellcheck="false" aria-label="Digite seu palpite" placeholder="Digite a palavra"><button id="wordle-submit" class="gg-primary" type="submit">Responder</button></form><div class="gg-actions"><button type="button" id="wordle-new">Nova palavra</button><button type="button" id="wordle-share">Compartilhar resultado</button></div><p id="wordle-dictionary-sources" class="gg-helper">Dicionários online com lista local de reserva.</p></div>
+  </div>
+</section>

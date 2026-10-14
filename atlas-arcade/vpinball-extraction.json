@@ -1,0 +1,14 @@
+{
+  "scriptId": "pj-vp-pinball-bridge",
+  "bridge": "scripts/games/visual-pinball-bridge.js",
+  "ui": "embeds/visual-pinball/index.html",
+  "styles": "embeds/visual-pinball/styles.css",
+  "physics": "embeds/visual-pinball/physics.js",
+  "controller": "embeds/visual-pinball/controller.js",
+  "completeSource": "embeds/visual-pinball/complete-source.html",
+  "license": "embeds/visual-pinball/COPYING-GPL-3.0.txt",
+  "sourceCommit": "90d94e9f16d40f593c1d78e0549e6a1148078e81",
+  "registryKey": "AtlasArcadeEmbeds.visualPinball",
+  "note": "The iframe must keep srcdoc and inject an absolute base URL targeting embeds/visual-pinball/. This keeps the iframe same-origin when the main page is opened locally.",
+  "downloadSource": "embeds/visual-pinball/download-source.js"
+}

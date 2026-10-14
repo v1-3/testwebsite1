@@ -1,0 +1,110 @@
+{
+  "sourceFile": "atlas_arcade_geography_clue_text_white_fixed.html",
+  "iframeId": "solar-remade-frame",
+  "canonical": "embeds/solar/index.html",
+  "sourceDecodedSha256": "e24ace66f31b780777674ad6dc77199fa68ac2ed69bb5af1200dc7cab176f826",
+  "encoding": "UTF-8 without BOM",
+  "decoder": ".NET System.Net.WebUtility.HtmlDecode",
+  "files": [
+    {
+      "path": "index.html",
+      "type": "html",
+      "sha256": "a510a2aa1d895a47a820e459bdd9a0ef66d7c2c7aad8f52fc1bd72c3d9709faa"
+    },
+    {
+      "path": "styles/simulator.css",
+      "type": "stylesheet",
+      "sourceSha256": "791b93aa98f1f2638eb59aa5a7e2975eb5d4026ac4b5fb51c9e87fc604f73507",
+      "sha256": "f473fe137addda171a79f6ec1e7df6db8a48820fed6d14c7064e95824d17dc31"
+    },
+    {
+      "path": "styles/knowledge.css",
+      "type": "stylesheet",
+      "sourceSha256": "2e631d9b456dc9156731c4a1c3013522c223c2f7633e7b936d7c3c060f55b910",
+      "sha256": "2e631d9b456dc9156731c4a1c3013522c223c2f7633e7b936d7c3c060f55b910"
+    },
+    {
+      "path": "styles/magnetosphere.css",
+      "type": "stylesheet",
+      "sourceSha256": "91d8c3e116433663cb7ca3de4b6b52dea857c58d5bb769e667124944e39948cf",
+      "sha256": "91d8c3e116433663cb7ca3de4b6b52dea857c58d5bb769e667124944e39948cf"
+    },
+    {
+      "path": "data/textures.js",
+      "type": "texture-data",
+      "sha256": "36276727756d7981a4a1e94cb44db39f90109604daf75bce5e73d3707a4a86d9",
+      "textureNames": [
+        "sun",
+        "mercury",
+        "venus",
+        "earth",
+        "earthNight",
+        "mars",
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune",
+        "moon"
+      ]
+    },
+    {
+      "path": "scripts/simulation.js",
+      "type": "classic-script",
+      "sourceSha256": "4144e6c6e6ac9032bb95057ccd27aabc803ecffe185ff519301f246eeba3e534",
+      "sha256": "1f6e550af0a12cb0e15a7ac1f78cb8ab4f20c5f8b96f8fbff25d61da7272c157"
+    },
+    {
+      "path": "scripts/focus-and-diagnostics.js",
+      "type": "classic-script",
+      "sourceSha256": "fb7fde39cf6183d0e243ec4041992a9ec6904ab7b5ef82672680474708673a29",
+      "sha256": "fb7fde39cf6183d0e243ec4041992a9ec6904ab7b5ef82672680474708673a29"
+    },
+    {
+      "path": "scripts/knowledge-controller.js",
+      "type": "classic-script",
+      "sourceSha256": "4586d1f465cbe044d24e09334ebeedfde8fa7372d1971e86c4d6f96614ad964f",
+      "sha256": "4586d1f465cbe044d24e09334ebeedfde8fa7372d1971e86c4d6f96614ad964f"
+    },
+    {
+      "path": "scripts/magnetosphere-profiles.js",
+      "type": "classic-script",
+      "sourceSha256": "599854a3f06709c05945c889a2eb3bac56866b68299556ff1df57e4c32b33c0e",
+      "sha256": "599854a3f06709c05945c889a2eb3bac56866b68299556ff1df57e4c32b33c0e"
+    },
+    {
+      "path": "scripts/magnetosphere-controller.js",
+      "type": "classic-script",
+      "sourceSha256": "09526ce1cbf24e2dac4d041e6363c869c1003e402932b28517ebf7625f5480f8",
+      "sha256": "09526ce1cbf24e2dac4d041e6363c869c1003e402932b28517ebf7625f5480f8"
+    }
+  ],
+  "scriptOrder": [
+    "data/textures.js",
+    "scripts/simulation.js",
+    "scripts/focus-and-diagnostics.js",
+    "scripts/knowledge-controller.js",
+    "scripts/magnetosphere-profiles.js",
+    "scripts/magnetosphere-controller.js"
+  ],
+  "preservation": {
+    "scriptBodies": "Exact original bodies except moving the texture declaration into data/textures.js",
+    "stylesheetBodies": "Exact originals with one class rule replacing the source link inline color",
+    "textures": "Exact data URLs in external catalog; keeps canvas pixel reads untainted when opened using file://",
+    "translationsAndScience": "Unchanged",
+    "dynamicStyles": "Generated values including fill widths remain runtime behavior"
+  },
+  "integration": {
+    "iframe": "Parent must use srcdoc plus a base URL pointing to embeds/solar/ to retain parent contentDocument access under file://",
+    "requiredReason": "Parent solar resize controller reads frame.contentDocument"
+  },
+  "verification": {
+    "allScriptsCompile": true,
+    "inlineScriptBlocks": 0,
+    "inlineStylesheetBlocks": 0,
+    "inlineMarkupStyleAttributes": 0,
+    "resourceFilesExist": true,
+    "roundTripToOriginalDecodedDocument": true,
+    "compiledClassicScriptFiles": 6,
+    "resourceFilesCount": 9
+  }
+}

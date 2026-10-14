@@ -1,0 +1,62 @@
+
+
+
+        <!-- TETRIS: BLOCOS EM QUEDA -->
+        <section id="tetris-section" class="w-full max-w-5xl" aria-labelledby="tt-title">
+          <div class="tt-shell">
+            <header class="tt-head">
+              <div>
+                <div class="tt-eyebrow" data-tt-i18n="eyebrow">JOGO DE BLOCOS EM QUEDA</div>
+                <h2 id="tt-title">Tetris</h2>
+                <p data-tt-i18n="intro">Encaixe os blocos e complete linhas para marcar pontos.</p>
+              </div>
+              <label class="tt-lang"><span data-tt-i18n="language">Idioma</span>
+                <select id="tt-language" aria-label="Idioma do Tetris">
+                  <option value="pt">Português</option><option value="it">Italiano</option><option value="es">Español</option>
+                  <option value="en">English</option><option value="de">Deutsch</option><option value="fr">Français</option>
+                  <option value="nl">Nederlands</option><option value="sv">Svenska</option><option value="no">Norsk</option>
+                </select>
+              </label>
+            </header>
+            <div class="tt-stats" aria-live="polite">
+              <div class="tt-stat"><strong id="tt-score">0</strong><span data-tt-i18n="score">Pontos</span></div>
+              <div class="tt-stat"><strong id="tt-best">0</strong><span data-tt-i18n="best">Recorde</span></div>
+              <div class="tt-stat"><strong id="tt-lines">0</strong><span data-tt-i18n="lines">Linhas</span></div>
+              <div class="tt-stat"><strong id="tt-level">1</strong><span data-tt-i18n="level">Nível</span></div>
+            </div>
+            <div class="tt-layout">
+              <div class="tt-board-wrap">
+                <canvas class="tt-board" id="tt-board" width="300" height="600" role="img" aria-label="Tabuleiro de Tetris de 10 colunas e 20 linhas"></canvas>
+                <div id="tt-overlay" class="tt-overlay">
+                  <strong id="tt-overlay-title">Tetris</strong>
+                  <p id="tt-overlay-text">Pressione Jogar para começar.</p>
+                  <button type="button" id="tt-overlay-button" class="tt-button" data-tt-i18n="play">Jogar</button>
+                </div>
+              </div>
+              <div class="tt-panel">
+                <div class="tt-previews">
+                  <div class="tt-preview"><strong data-tt-i18n="next">Próxima peça</strong><canvas id="tt-next" width="120" height="90" role="img" aria-label="Próxima peça"></canvas></div>
+                  <div class="tt-preview"><strong data-tt-i18n="hold">Guardar</strong><canvas id="tt-hold" width="120" height="90" role="img" aria-label="Peça guardada"></canvas></div>
+                </div>
+                <div class="tt-action-row">
+                  <button type="button" class="tt-button" id="tt-pause" data-tt-i18n="play">Jogar</button>
+                  <button type="button" class="tt-button tt-button-muted" id="tt-new" data-tt-i18n="new">Novo jogo</button>
+                </div>
+                <div class="tt-controls" role="group" aria-label="Controles do jogo">
+                  <button class="tt-control" type="button" data-tt-action="left" aria-label="Esquerda">◀<span data-tt-i18n="left">Esquerda</span></button>
+                  <button class="tt-control" type="button" data-tt-action="rotate" aria-label="Girar">↻<span data-tt-i18n="rotate">Girar</span></button>
+                  <button class="tt-control" type="button" data-tt-action="right" aria-label="Direita">▶<span data-tt-i18n="right">Direita</span></button>
+                  <button class="tt-control" type="button" data-tt-action="down" aria-label="Descer">▼<span data-tt-i18n="down">Descer</span></button>
+                  <button class="tt-control" type="button" data-tt-action="drop" aria-label="Soltar">⤓<span data-tt-i18n="drop">Soltar</span></button>
+                </div>
+                <div class="tt-action-row">
+                  <button class="tt-button tt-button-muted" type="button" id="tt-hold-button" data-tt-i18n="holdButton">Guardar peça (C)</button>
+                </div>
+                <p class="tt-status" id="tt-status" role="status" aria-live="polite"></p>
+                <details class="tt-guide"><summary data-tt-i18n="how">Como jogar</summary>
+                  <p data-tt-i18n="help">← → movem; ↑ ou X giram; ↓ acelera; espaço solta; C guarda a peça; P pausa. No celular, use os botões ou deslize no tabuleiro. Complete linhas horizontais para ganhar pontos.</p>
+                </details>
+              </div>
+            </div>
+          </div>
+        </section>

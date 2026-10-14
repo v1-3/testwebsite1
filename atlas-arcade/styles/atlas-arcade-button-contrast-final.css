@@ -1,0 +1,96 @@
+
+/* Make the text of game controls readable without recoloring tiles or playfields.
+   Earlier universal rules reduced disabled button opacity to 0.43, which also
+   faded the foreground until labels virtually disappeared on white mode. */
+
+/* Restored game controls (geography, flags, map, Termo and drawing). */
+html[data-postcard-theme="light"] body>main.content-layer
+#game-menu-stage > section.gg-restored :is(.gg-actions,.gg-inline-form,.gg-form-row,.gg-regions) button:not(:disabled),
+html[data-postcard-theme="light"] body>main.content-layer
+#game-menu-stage > section.gg-restored button.gg-region:not(:disabled) {
+  background:#e7f0f6!important;
+  color:#19364f!important;
+  -webkit-text-fill-color:#19364f!important;
+  border:1px solid #9fb9c9!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+html[data-postcard-theme="light"] body>main.content-layer
+#game-menu-stage > section.gg-restored :is(.gg-actions,.gg-inline-form,.gg-form-row) button.gg-primary:not(:disabled) {
+  background:#b33561!important;
+  color:#ffffff!important;
+  -webkit-text-fill-color:#ffffff!important;
+  border-color:#9b2850!important;
+}
+html[data-postcard-theme="light"] body>main.content-layer
+#game-menu-stage > section.gg-restored :is(.gg-actions,.gg-inline-form,.gg-form-row,.gg-regions) button:not(:disabled):hover {
+  background:#d3e6f0!important;
+  border-color:#5b8ba6!important;
+}
+html[data-postcard-theme="light"] body>main.content-layer
+#game-menu-stage > section.gg-restored :is(.gg-actions,.gg-inline-form,.gg-form-row) button.gg-primary:not(:disabled):hover {
+  background:#992950!important;
+  border-color:#852144!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+
+/* Disabled actions stay identifiable and visibly disabled, never faded away. */
+html[data-postcard-theme="light"] body>main.content-layer
+#game-menu-stage > section.gg-restored :is(.gg-actions,.gg-inline-form,.gg-form-row,.gg-regions) button:disabled,
+html[data-postcard-theme="light"] body>main.content-layer
+#game-menu-stage > section.gg-restored button.gg-primary:disabled {
+  background:#e0e9ef!important;
+  color:#435a71!important;
+  -webkit-text-fill-color:#435a71!important;
+  border:1px dashed #9baebd!important;
+  opacity:1!important;
+  filter:none!important;
+  box-shadow:none!important;
+  text-shadow:none!important;
+  cursor:not-allowed!important;
+}
+html[data-postcard-theme="dark"] body>main.content-layer
+#game-menu-stage > section.gg-restored :is(.gg-actions,.gg-inline-form,.gg-form-row,.gg-regions) button:disabled,
+html[data-postcard-theme="dark"] body>main.content-layer
+#game-menu-stage > section.gg-restored button.gg-primary:disabled {
+  background:#334457!important;
+  color:#e5ecf4!important;
+  -webkit-text-fill-color:#e5ecf4!important;
+  border:1px dashed #839ab2!important;
+  opacity:1!important;
+  filter:none!important;
+  box-shadow:none!important;
+  cursor:not-allowed!important;
+}
+
+/* Other game menus and secondary buttons have the same disabled readability
+   problem; exclude letter cells and any graphical, playable button. */
+html[data-postcard-theme="light"] body>main.content-layer
+#game-menu-stage>section :is(.lg-button,.pj-difficulty,.ps-tool,.bb-btn,.tt-button,.rc-button,.fb-action,.fb-start,.aq-button,.sm-action,.jig-action,.jig-light-button,.earth-button,.geo-action,.cw-zoom-tools button,.ws-zoom-tools button):disabled {
+  background:#e0e9ef!important;
+  color:#435a71!important;
+  -webkit-text-fill-color:#435a71!important;
+  border-color:#a5bbc9!important;
+  opacity:1!important;
+  filter:none!important;
+  text-shadow:none!important;
+}
+html[data-postcard-theme="dark"] body>main.content-layer
+#game-menu-stage>section :is(.lg-button,.pj-difficulty,.ps-tool,.bb-btn,.tt-button,.rc-button,.fb-action,.fb-start,.aq-button,.sm-action,.jig-action,.jig-light-button,.earth-button,.geo-action,.cw-zoom-tools button,.ws-zoom-tools button):disabled {
+  background:#334457!important;
+  color:#e5ecf4!important;
+  -webkit-text-fill-color:#e5ecf4!important;
+  border-color:#839ab2!important;
+  opacity:1!important;
+  filter:none!important;
+}
+
+/* Keep selected region buttons discernible from unselected ones. */
+html[data-postcard-theme="light"] body>main.content-layer
+#game-menu-stage > section.gg-restored button.gg-region[aria-pressed="true"]:not(:disabled) {
+  background:#2d6184!important;
+  border-color:#23516f!important;
+  color:#ffffff!important;
+  -webkit-text-fill-color:#ffffff!important;
+}

@@ -1,0 +1,53 @@
+
+/* Three date cards, with steady digits and foregrounds paired to each mode. */
+#postcard-top .pj-anniversaries {
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:20px;text-align:left;
+}
+#postcard-top .pj-anniversary-card {
+  --anniversary-accent:#2854a1;
+  position:relative;display:flex;flex-direction:column;min-width:0;padding:24px;
+  background:var(--ux-surface);color:var(--ux-ink);border:1px solid var(--ux-border);
+  border-top:4px solid var(--anniversary-accent);border-radius:20px;
+  box-shadow:0 14px 32px -25px rgba(16,40,62,.25);font-family:var(--ux-font);
+}
+#postcard-top .pj-anniversary-card[data-anniversary="victor"] {--anniversary-accent:#a72c58;}
+#postcard-top .pj-anniversary-card[data-anniversary="julia"] {--anniversary-accent:#94620f;}
+html[data-postcard-theme="dark"] #postcard-top .pj-anniversary-card {--anniversary-accent:#9bbdff;box-shadow:none;}
+html[data-postcard-theme="dark"] #postcard-top .pj-anniversary-card[data-anniversary="victor"] {--anniversary-accent:#ffb3c8;}
+html[data-postcard-theme="dark"] #postcard-top .pj-anniversary-card[data-anniversary="julia"] {--anniversary-accent:#f1cf83;}
+#postcard-top .pj-anniversary-heading {display:flex;gap:12px;align-items:flex-start;min-height:78px;}
+#postcard-top .pj-anniversary-icon {
+  flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:12px;
+  background:var(--ux-surface-alt);color:var(--anniversary-accent);font-size:20px;
+}
+#postcard-top .pj-anniversary-title {margin:0;font:850 19px/1.25 var(--ux-font);color:var(--ux-ink);letter-spacing:-.025em;}
+#postcard-top .pj-anniversary-date {display:block;margin-top:6px;font-size:12px;line-height:1.5;color:var(--ux-ink-sub);}
+#postcard-top .pj-anniversary-status {margin:16px 0 10px;font-size:10px;line-height:1.5;font-weight:850;letter-spacing:.09em;text-transform:uppercase;color:var(--anniversary-accent);}
+#postcard-top .pj-anniversary-days {display:flex;align-items:center;gap:12px;margin-bottom:20px;min-height:75px;}
+#postcard-top .pj-anniversary-days > strong {
+  font:850 clamp(60px,6vw,80px)/.95 var(--ux-display);letter-spacing:-.035em;
+  color:var(--ux-ink);font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+#postcard-top .pj-anniversary-days-label {display:flex;flex-direction:column;gap:2px;}
+#postcard-top .pj-anniversary-days-label > span {font-size:18px;font-weight:800;color:var(--ux-ink);}
+#postcard-top .pj-anniversary-days-label > small {font-size:11px;color:var(--ux-ink-sub);}
+#postcard-top .pj-anniversary-clock {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+#postcard-top .pj-anniversary-unit {
+  display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 4px;
+  border:1px solid var(--ux-border);border-radius:12px;background:var(--ux-surface-alt);
+}
+#postcard-top .pj-anniversary-unit > b {font:850 30px/1 var(--ux-display);color:var(--ux-ink);font-variant-numeric:tabular-nums;}
+#postcard-top .pj-anniversary-unit > span {font-size:10px;line-height:1.5;font-weight:650;color:var(--ux-ink-sub);}
+#postcard-top .pj-anniversary-message {margin:20px 0 0;padding-top:16px;border-top:1px solid var(--ux-border);font-size:12px;line-height:1.65;color:var(--ux-ink-sub);}
+#postcard-top .pj-anniversary-celebration {padding:20px 0 30px;min-height:175px;}
+#postcard-top .pj-anniversary-celebration > strong {display:block;font:850 52px/1.1 var(--ux-display);color:var(--anniversary-accent);}
+#postcard-top .pj-anniversary-celebration > p {margin-top:14px;font-size:15px;line-height:1.5;color:var(--ux-ink);}
+#postcard-top .pj-anniversary-card [hidden] {display:none!important;}
+#postcard-top .pj-anniversary-timer :is(strong,b) {animation:none!important;transition:none!important;opacity:1!important;}
+@media(max-width:900px) {
+  #postcard-top .pj-anniversaries {grid-template-columns:1fr;}
+  #postcard-top .pj-anniversary-card {padding:22px;}
+  #postcard-top .pj-anniversary-heading {min-height:0;}
+  #postcard-top .pj-anniversary-days > strong {font-size:72px;}
+}
+

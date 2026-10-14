@@ -1,0 +1,70 @@
+
+/* Hearts appear above solid postcard/game cards without capturing mouse or touch input. */
+html[data-postcard-theme="light"] #particle-canvas {
+  position:fixed; z-index:35; opacity:.65!important;
+  pointer-events:none!important; mix-blend-mode:multiply;
+}
+html[data-postcard-theme="dark"] #particle-canvas {
+  position:fixed; z-index:35; opacity:.7!important;
+  pointer-events:none!important; mix-blend-mode:screen;
+}
+@media(prefers-reduced-motion:reduce){#particle-canvas{opacity:.24!important}}
+
+/* The light website's global .text-white override must not make dark game text dark. */
+body>main.content-layer #game-menu-stage > section >
+:is(.gg-game-shell,.lg-shell,.pj-shell,.ps-shell,.tt-shell,.bb-shell,.rc-shell,
+.hc-shell,.aq-shell,.sm-shell,.fb-shell,.pbr-shell,.jig-studio,.ney-shell,
+.solar-new-embed) :is(.text-white,.text-pink-100,.text-rose-100) {
+  color:var(--gt-type-heading,#fff4fb)!important;
+}
+/* Default (Original) mode also needs readable text in restored game shells. */
+body>main.content-layer #game-menu-stage:not([data-game-theme]),
+body>main.content-layer #game-menu-stage[data-game-theme="original"] {
+  --gt-type-heading:#fff5fa;
+  --gt-type-body:#f5dce9;
+  --gt-type-muted:#e5bcd1;
+  --gt-type-accent:#ffa6cf;
+  --gt-type-highlight:#fff0b1;
+}
+body>main.content-layer #game-menu-stage[data-game-theme="original"] > section >
+:is(.gg-game-shell,.lg-shell,.pj-shell,.ps-shell,.tt-shell,.bb-shell,.rc-shell,
+.hc-shell,.aq-shell,.sm-shell,.fb-shell,.pbr-shell,.ney-shell)
+:is(h1,h2,h3,h4,h5,h6,.text-white){color:var(--gt-type-heading)!important}
+body>main.content-layer #game-menu-stage[data-game-theme="original"] > section >
+:is(.gg-game-shell,.lg-shell,.pj-shell,.ps-shell,.tt-shell,.bb-shell,.rc-shell,
+.hc-shell,.aq-shell,.sm-shell,.fb-shell,.pbr-shell,.ney-shell)
+:is(p,small,label,.gg-helper,.gg-status,.gg-score-strip,.text-rose-200){color:var(--gt-type-body)!important}
+
+/* White postcard panels: use dark ink, while the playable colored tiles keep
+   their existing high-contrast foreground colors. */
+html[data-postcard-theme="light"] body>main.content-layer
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) > section >
+.glass-card:not(.jig-studio) :is(.text-white,.text-pink-100,.text-rose-100,
+.text-rose-200,.text-rose-300,.text-roseGold) {
+  color:var(--gt-paper-heading,#182f54)!important;
+}
+html[data-postcard-theme="light"] body>main.content-layer
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) > section >
+.glass-card:not(.jig-studio) :is(.text-white,.text-pink-100,.text-rose-100,
+.text-rose-200,.text-rose-300,.text-roseGold) :is(svg,i){color:inherit!important}
+/* Buttons / controls on dark themed panels use light ink; special buttons that
+   use pastel fills instead receive dark ink. */
+body>main.content-layer #game-menu-stage[data-game-theme]:not([data-game-theme="original"]) > section >
+:is(.gg-game-shell,.lg-shell,.pj-shell,.ps-shell,.tt-shell,.bb-shell,.rc-shell,
+.hc-shell,.aq-shell,.sm-shell,.fb-shell,.pbr-shell,.jig-studio,.ney-shell)
+:is(button,input,select,textarea){color:var(--gt-type-heading)!important}
+body>main.content-layer #game-menu-stage[data-game-theme]:not([data-game-theme="original"]) > section >
+:is(.gg-game-shell,.lg-shell,.pj-shell,.ps-shell,.tt-shell,.bb-shell,.rc-shell,
+.hc-shell,.aq-shell,.sm-shell,.fb-shell,.pbr-shell,.jig-studio,.ney-shell)
+:is(.gg-primary,.gg-restored button.gg-primary,.ps-tool-primary,.jig-icon-button){color:var(--gg-dark,#15243a)!important}
+/* Do not recolor the drawing palette's actual color swatches. */
+#game-menu-stage .gg-restored button.draw-color-button{color:transparent!important}
+/* Crossword / word-search light panels must not lose input/selected-cell ink. */
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .cw-cell input,
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .ws-cell {color:var(--gg-ink,#ffffff)!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .cw-cell:is(.cross,.in-word,.active) input,
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .ws-cell.ws-preview {color:#18122d!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .cw-cell.locked input{color:#0c5131!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .cw-cell.wrong input{color:#792926!important}
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .ws-cell.ws-found,
+#game-menu-stage[data-game-theme]:not([data-game-theme="original"]) .ws-cell.ws-revealed{color:#fff!important}

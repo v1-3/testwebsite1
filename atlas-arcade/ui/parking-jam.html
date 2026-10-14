@@ -1,0 +1,52 @@
+
+
+
+        <!-- JOGO: ESTACIONAMENTO ENGARRAFADO -->
+        <section id="parking-jam" class="w-full" aria-labelledby="pj-heading">
+          <div class="pj-shell">
+            <div class="pj-header">
+              <div>
+                <span class="pj-eyebrow"><i class="fa-solid fa-car-side" aria-hidden="true"></i> DESAFIO DE LÓGICA</span>
+                <h2 id="pj-heading">Estacionamento Engarrafado</h2>
+                <p>Leve o carro vermelho à saída.</p>
+              </div>
+              <div class="pj-difficulties" role="group" aria-label="Escolher dificuldade">
+                <button type="button" class="pj-difficulty" data-level="easy" aria-pressed="true">Fácil</button>
+                <button type="button" class="pj-difficulty" data-level="medium" aria-pressed="false">Médio</button>
+                <button type="button" class="pj-difficulty" data-level="hard" aria-pressed="false">Difícil</button>
+              </div>
+            </div>
+            <div class="pj-stats">
+              <span class="pj-stat">Movimentos <strong id="pj-moves">0</strong></span>
+              <span class="pj-stat">Fase <strong id="pj-level-label">1 / 3</strong></span>
+              <span class="pj-stat">Selecionado <strong id="pj-selected">Nenhum</strong></span>
+            </div>
+            <div class="pj-game-layout">
+              <div class="pj-board-panel">
+                <div class="pj-board-wrap">
+                  <div id="pj-board" class="pj-board" role="group" aria-label="Estacionamento com 6 linhas e 6 colunas; selecione um carro" tabindex="0">
+                    <div class="pj-exit" aria-hidden="true"><span aria-hidden="true">→</span>SAÍDA</div>
+                  </div>
+                </div>
+              </div>
+              <div class="pj-side">
+                <h3><i class="fa-solid fa-arrows-up-down-left-right mr-1" aria-hidden="true"></i> Controle seu carro</h3>
+                <p id="pj-info" class="pj-info" aria-live="polite">Selecione um carro.</p>
+                <div class="pj-arrows" aria-label="Botões de direção">
+                  <button type="button" class="pj-arrow" data-dir="up" aria-label="Mover para cima" title="Cima (↑)"><span aria-hidden="true">↑</span></button>
+                  <button type="button" class="pj-arrow" data-dir="left" aria-label="Mover para a esquerda" title="Esquerda (←)"><span aria-hidden="true">←</span></button>
+                  <button type="button" class="pj-arrow" data-dir="down" aria-label="Mover para baixo" title="Baixo (↓)"><span aria-hidden="true">↓</span></button>
+                  <button type="button" class="pj-arrow" data-dir="right" aria-label="Mover para a direita" title="Direita (→)"><span aria-hidden="true">→</span></button>
+                </div>
+                <p class="pj-keyboard-note">Use as setas ou deslize o carro.</p>
+                <div class="pj-actions">
+                  <button type="button" id="pj-undo" class="pj-tool"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Desfazer</button>
+                  <button type="button" id="pj-reset" class="pj-tool"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Reiniciar</button>
+                  <button type="button" id="pj-next" class="pj-tool pj-tool-primary"><i class="fa-solid fa-shuffle" aria-hidden="true"></i> Nova fase</button>
+                </div>
+              </div>
+            </div>
+            <p id="pj-result" class="pj-result" role="status" hidden><i class="fa-solid fa-circle-check mr-2" aria-hidden="true"></i> Saída liberada!</p>
+            
+          </div>
+        </section>

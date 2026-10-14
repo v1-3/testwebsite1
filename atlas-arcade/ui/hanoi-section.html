@@ -1,0 +1,32 @@
+
+
+        <!-- TORRES DE HANÓI -->
+        <section id="hanoi-section" class="w-full max-w-3xl">
+            <div class="glass-card rounded-3xl p-6 sm:p-8 space-y-5">
+                <div class="space-y-2">
+                    <div class="w-12 h-12 mx-auto bg-rose-600/20 rounded-full flex items-center justify-center text-rose-300 text-2xl"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3 class="font-serifHeader text-2xl sm:text-3xl text-white font-bold">Torres de Hanói</h3>
+                    <p class="text-xs sm:text-sm text-roseGold/70">Selecione origem e destino. Nunca coloque um disco maior sobre um menor.</p>
+                </div>
+
+                <div class="space-y-2">
+                    <p class="text-xs text-roseGold/80">Quantos discos?</p>
+                    <div id="hanoi-size-controls" class="flex flex-wrap justify-center gap-2" role="group" aria-label="Escolher número de discos">
+                        <button type="button" class="hanoi-size glass-card rounded-full px-4 py-2 text-xs text-roseGold hover:text-white" data-disks="3" aria-pressed="true">3 discos</button>
+                        <button type="button" class="hanoi-size glass-card rounded-full px-4 py-2 text-xs text-roseGold hover:text-white" data-disks="4" aria-pressed="false">4 discos</button>
+                        <button type="button" class="hanoi-size glass-card rounded-full px-4 py-2 text-xs text-roseGold hover:text-white" data-disks="5" aria-pressed="false">5 discos</button>
+                        <button type="button" class="hanoi-size glass-card rounded-full px-4 py-2 text-xs text-roseGold hover:text-white" data-disks="6" aria-pressed="false">6 discos</button>
+                        <button type="button" class="hanoi-size glass-card rounded-full px-4 py-2 text-xs text-roseGold hover:text-white" data-disks="7" aria-pressed="false">7 discos</button>
+                        <button type="button" class="hanoi-size glass-card rounded-full px-4 py-2 text-xs text-roseGold hover:text-white" data-disks="8" aria-pressed="false">8 discos</button>
+                    </div>
+                </div>
+
+                <div id="hanoi-board" class="hanoi-board" role="group" aria-label="Tabuleiro das Torres de Hanói"></div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <p id="hanoi-stats" class="text-xs text-roseGold/80" aria-live="polite"></p>
+                    <button id="hanoi-restart" type="button" class="glass-card rounded-full px-4 py-2 text-xs text-roseGold hover:text-white"><i class="fa-solid fa-rotate-right mr-1"></i>Recomeçar</button>
+                </div>
+                <p id="hanoi-status" class="text-sm text-rose-200 min-h-5" role="status" aria-live="polite"></p>
+            </div>
+        </section>

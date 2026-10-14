@@ -1,0 +1,38 @@
+
+
+
+        <!-- JOGO: LABORATÓRIO DE CORES -->
+        <section id="pour-sort" class="w-full" aria-labelledby="ps-heading">
+          <div class="ps-shell">
+            <div class="ps-header">
+              <div>
+                <span class="ps-eyebrow"><i class="fa-solid fa-flask" aria-hidden="true"></i> QUEBRA-CABEÇA DE CORES</span>
+                <h2 id="ps-heading">Laboratório de Cores</h2>
+                <p>Separe cada cor em um frasco.</p>
+              </div>
+              <div class="ps-difficulties" role="group" aria-label="Dificuldade do jogo de líquidos">
+                <button type="button" class="ps-difficulty" data-ps-difficulty="easy" aria-pressed="true">Fácil · 3 cores</button>
+                <button type="button" class="ps-difficulty" data-ps-difficulty="medium" aria-pressed="false">Médio · 5 cores</button>
+                <button type="button" class="ps-difficulty" data-ps-difficulty="hard" aria-pressed="false">Difícil · 7 cores</button>
+              </div>
+            </div>
+            <div class="ps-stats" aria-label="Estatísticas do jogo">
+              <span class="ps-stat">Movimentos <strong id="ps-moves">0</strong></span>
+              <span class="ps-stat">Frascos organizados <strong id="ps-sorted">0 / 3</strong></span>
+              <span class="ps-stat">Fase <strong id="ps-level">1 / 4</strong></span>
+            </div>
+            <div class="ps-lab">
+              <div id="ps-board" class="ps-board" role="group" aria-label="Frascos para organizar líquidos por cor"></div>
+              <p class="ps-success" id="ps-success" role="status" hidden><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Cores separadas!</p>
+              <div class="ps-bottom">
+                <p id="ps-message" class="ps-message" role="status" aria-live="polite">Selecione a origem e o destino.</p>
+                <div class="ps-actions">
+                  <button type="button" id="ps-undo" class="ps-tool"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Desfazer</button>
+                  <button type="button" id="ps-reset" class="ps-tool"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Reiniciar</button>
+                  <button type="button" id="ps-next" class="ps-tool ps-tool-primary"><i class="fa-solid fa-shuffle" aria-hidden="true"></i> Nova fase</button>
+                </div>
+              </div>
+            </div>
+            <p class="ps-help">Despeje apenas em um frasco vazio ou sobre a mesma cor.</p>
+          </div>
+        </section>

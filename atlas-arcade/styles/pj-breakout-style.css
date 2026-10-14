@@ -1,0 +1,73 @@
+
+/* Breakout uses paired surface/text colors independent of the page palette. */
+#breakout-section{--bo-paper:#f4f0e7;--bo-ink:#253939;--bo-soft:#52665d;--bo-accent:#397563;--bo-line:#b9c7b9;--bo-card:#e6ebde;--bo-btn:#dde8d9;width:100%;max-width:1180px;margin-inline:auto;text-align:left;font-family:Inter,system-ui,sans-serif;color:var(--bo-ink)}
+#breakout-section[hidden]{display:none!important}#breakout-section *{box-sizing:border-box}
+#breakout-section .bo-shell{background:var(--bo-paper);border:1px solid var(--bo-line);border-radius:24px;overflow:hidden;box-shadow:0 16px 35px #182c311c}
+#breakout-section .bo-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:25px 28px 22px;border-bottom:1px solid var(--bo-line)}
+#breakout-section .bo-kicker{font-size:10px;letter-spacing:.22em;font-weight:850;color:var(--bo-soft);margin:0 0 8px}
+#breakout-section .bo-header h2{font-size:clamp(32px,5vw,49px);letter-spacing:-.06em;line-height:1.1;color:var(--bo-ink);margin:0}#breakout-section .bo-header h2 span{color:var(--bo-accent)}
+#breakout-section .bo-subtitle{font-size:13px;line-height:1.6;color:var(--bo-soft);margin:9px 0 0}
+#breakout-section .bo-mark{color:var(--bo-accent);border:1px solid var(--bo-line);border-radius:17px;font-size:44px;display:grid;place-items:center;flex-shrink:0;width:72px;height:72px;transform:rotate(-5deg)}
+#breakout-section .bo-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:16px;padding:13px 22px;border-bottom:1px solid var(--bo-line)}
+#breakout-section .bo-toolbar label{display:flex;gap:8px;align-items:center;color:var(--bo-ink);font-size:12px;font-weight:650}
+#breakout-section select{font:inherit;background:#fffdf6;color:#253939;border:1px solid #a9bbb0;padding:9px 12px;border-radius:9px;min-width:0;max-width:180px}#breakout-section option{background:#fffdf6;color:#253939}
+#breakout-section input{accent-color:var(--bo-accent)}#breakout-section .bo-actions{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap}
+#breakout-section .bo-btn{font:inherit;font-size:12px;font-weight:750;background:var(--bo-btn);color:var(--bo-ink);border:1px solid var(--bo-line);border-radius:10px;min-height:40px;padding:9px 14px;cursor:pointer;touch-action:manipulation}
+#breakout-section .bo-btn:hover{filter:brightness(.96)}#breakout-section .bo-btn:disabled{cursor:default;opacity:.5}#breakout-section .bo-btn:focus-visible,#breakout-section select:focus-visible,#breakout-section canvas:focus-visible{outline:3px solid var(--bo-accent);outline-offset:3px}
+#breakout-section .bo-primary{background:#245b4e;color:#fffdf4;border-color:#245b4e}
+#breakout-section .bo-layout{display:grid;grid-template-columns:minmax(0,650px) minmax(205px,1fr);gap:24px;padding:22px;align-items:start}
+#breakout-section .bo-play{min-width:0;max-width:650px;width:100%;margin-inline:auto}
+#breakout-section .bo-scoreboard{display:grid;grid-template-columns:1.2fr .65fr .65fr 1.2fr;gap:10px;background:#14272b;border:1px solid #4b655e;border-radius:13px 13px 0 0;padding:12px 15px}
+#breakout-section .bo-scoreboard div{min-width:0}#breakout-section .bo-scoreboard div:not(:first-child){border-left:1px solid #3b514e;padding-left:11px}
+#breakout-section .bo-scoreboard span{color:#acc3b9;letter-spacing:.1em;font-size:9px;font-weight:750;display:block}#breakout-section .bo-scoreboard strong{color:#fff5cf;font-size:clamp(19px,3vw,29px);font-variant-numeric:tabular-nums;display:block;line-height:1.25;margin-top:3px;overflow-wrap:anywhere}
+#breakout-section .bo-stage{position:relative;aspect-ratio:600/660;background:#11282b;overflow:hidden;border:1px solid #4b655e;border-top:0;border-radius:0 0 14px 14px}
+#breakout-section #bo-canvas{display:block;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none;cursor:crosshair;box-shadow:none!important}
+#breakout-section .bo-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:15px;padding:25px;background:#10272bef;color:#fff5cf;backdrop-filter:blur(3px)}
+#breakout-section .bo-overlay[hidden]{display:none!important}#breakout-section .bo-overlay strong{color:#fff5cf;font-size:clamp(25px,4vw,36px);line-height:1.2}#breakout-section .bo-overlay>span{color:#c1d4c9;font-size:14px;max-width:290px;line-height:1.6;white-space:pre-line}#breakout-section .bo-overlay .bo-primary{background:#e9dfb4;color:#193b35;border-color:#e9dfb4}
+#breakout-section .bo-controls{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:9px;margin-top:13px}
+#breakout-section .bo-controls .bo-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:75px;padding:7px 3px;touch-action:none;user-select:none;-webkit-user-select:none;box-shadow:0 4px 0 #aebbad;font-size:10px;letter-spacing:.025em}
+#breakout-section .bo-controls .bo-btn>span:first-child{font-size:23px;line-height:1}#breakout-section .bo-controls kbd{font:inherit;font-size:9px;opacity:.75}
+#breakout-section .bo-controls .bo-launch{color:#4b411f;background:#ecddae;border-color:#c5ae67;box-shadow:0 4px 0 #baaa76}
+#breakout-section .bo-controls .bo-held{transform:translateY(3px);box-shadow:0 1px 0 #aebbad;background:#b9d1b8}
+#breakout-section .bo-key-tip{font-size:11px;color:var(--bo-soft);line-height:1.7;text-align:center;margin:14px 0 0}
+#breakout-section .bo-aside{display:flex;flex-direction:column;gap:19px;min-width:0}
+#breakout-section .bo-status{color:#214e44;background:#dfebde;border:1px solid #b0c9b0;border-radius:12px;padding:15px;font-size:13px;line-height:1.6;min-height:54px}
+#breakout-section .bo-progress-card{padding:20px 18px;border:1px solid var(--bo-line);border-radius:14px;background:var(--bo-card)}
+#breakout-section .bo-small{font-size:9px;letter-spacing:.15em;font-weight:750;color:var(--bo-soft)}#breakout-section .bo-aside h3{font-size:18px;color:var(--bo-ink);line-height:1.4;letter-spacing:-.03em;margin:7px 0 15px}
+#breakout-section .bo-brick-count{display:flex;align-items:baseline;gap:9px;margin-bottom:14px;flex-wrap:wrap}#breakout-section .bo-brick-count strong{font-size:41px;line-height:1;color:var(--bo-accent);font-variant-numeric:tabular-nums}#breakout-section .bo-brick-count span{font-size:11px;color:var(--bo-soft)}
+#breakout-section .bo-progress{height:7px;border-radius:8px;overflow:hidden;background:#b8c9bd}#breakout-section #bo-progress-bar{display:block;height:100%;width:0;background:var(--bo-accent);box-shadow:none!important}
+#breakout-section .bo-progress-card p,#breakout-section .bo-guide,#breakout-section .bo-note p{font-size:12px;line-height:1.7;color:var(--bo-soft)}#breakout-section .bo-progress-card p{margin:15px 0 0}
+#breakout-section .bo-guide{padding:0 3px}#breakout-section .bo-guide ol{padding-left:20px;margin:0}#breakout-section .bo-guide li{padding-left:3px;margin:10px 0}
+#breakout-section .bo-note{border-top:1px solid var(--bo-line);display:flex;align-items:center;gap:15px;padding:19px 2px}#breakout-section .bo-note>span{font-size:37px;color:var(--bo-accent)}
+html[data-postcard-theme="dark"] #breakout-section{--bo-paper:#162b2e;--bo-ink:#e4e9df;--bo-soft:#b5c9be;--bo-accent:#89c6ae;--bo-line:#4d6556;--bo-card:#203b36;--bo-btn:#2c4c40}
+html[data-postcard-theme="dark"] #breakout-section :is(select,option){color:#e4e9df;background:#233d39;border-color:#607c68}html[data-postcard-theme="dark"] #breakout-section .bo-primary{background:#bed1a8;color:#203c2d;border-color:#bed1a8}
+html[data-postcard-theme="dark"] #breakout-section .bo-controls .bo-launch{color:#342e19;background:#e7d4a1;border-color:#e7d4a1;box-shadow:0 4px 0 #8b7a4c}html[data-postcard-theme="dark"] #breakout-section .bo-controls .bo-held{background:#496d53}html[data-postcard-theme="dark"] #breakout-section .bo-status{color:#d2e8cf;background:#254538;border-color:#5b7960}
+html[data-postcard-theme] #game-library #game-menu-stage #breakout-section :is(.bo-kicker,.bo-subtitle,.bo-key-tip,.bo-small,.bo-progress-card p,.bo-brick-count span,.bo-guide,.bo-guide li,.bo-note p){color:var(--bo-soft)!important;-webkit-text-fill-color:var(--bo-soft)!important}
+html[data-postcard-theme] #game-library #game-menu-stage #breakout-section :is(.bo-header h2,.bo-aside h3,.bo-toolbar label,.bo-btn){color:var(--bo-ink)!important;-webkit-text-fill-color:var(--bo-ink)!important}
+html[data-postcard-theme] #game-library #game-menu-stage #breakout-section :is(.bo-header h2 span,.bo-brick-count strong){color:var(--bo-accent)!important;-webkit-text-fill-color:var(--bo-accent)!important}
+html[data-postcard-theme] #game-library #game-menu-stage #breakout-section .bo-scoreboard strong,html[data-postcard-theme] #game-library #game-menu-stage #breakout-section .bo-overlay strong{color:#fff5cf!important;-webkit-text-fill-color:#fff5cf!important}
+html[data-postcard-theme] #game-library #game-menu-stage #breakout-section .bo-scoreboard span{color:#acc3b9!important;-webkit-text-fill-color:#acc3b9!important}html[data-postcard-theme] #game-library #game-menu-stage #breakout-section .bo-overlay>span{color:#c1d4c9!important;-webkit-text-fill-color:#c1d4c9!important}
+html[data-postcard-theme="light"] #game-library #game-menu-stage #breakout-section .bo-primary{color:#fffdf4!important;-webkit-text-fill-color:#fffdf4!important}html[data-postcard-theme="dark"] #game-library #game-menu-stage #breakout-section .bo-primary{color:#203c2d!important;-webkit-text-fill-color:#203c2d!important}
+html[data-postcard-theme] #game-library #game-menu-stage #breakout-section .bo-overlay .bo-primary{color:#193b35!important;-webkit-text-fill-color:#193b35!important}html[data-postcard-theme] #game-library #game-menu-stage #breakout-section .bo-controls .bo-launch{color:#4b411f!important;-webkit-text-fill-color:#4b411f!important}
+html[data-postcard-theme="light"] #game-library #game-menu-stage #breakout-section .bo-status{color:#214e44!important;-webkit-text-fill-color:#214e44!important}html[data-postcard-theme="dark"] #game-library #game-menu-stage #breakout-section .bo-status{color:#d2e8cf!important;-webkit-text-fill-color:#d2e8cf!important}
+html[data-postcard-theme] #game-library #game-menu-stage #breakout-section .bo-btn :is(span,kbd){color:var(--bo-ink)!important;-webkit-text-fill-color:var(--bo-ink)!important}
+html[data-postcard-theme] #game-library #game-menu-stage #breakout-section .bo-controls .bo-launch :is(span,kbd){color:#4b411f!important;-webkit-text-fill-color:#4b411f!important}
+html[data-postcard-theme] #game-library #game-menu-stage #breakout-section :is(.bo-mark,.bo-note>span){color:var(--bo-accent)!important;-webkit-text-fill-color:var(--bo-accent)!important}
+html[data-postcard-theme] #game-library #game-menu-stage #breakout-section .bo-btn{background:var(--bo-btn)!important;border-color:var(--bo-line)!important;text-shadow:none!important}
+html[data-postcard-theme="light"] #game-library #game-menu-stage #breakout-section :is(select,option){background:#fffdf6!important;color:#253939!important;-webkit-text-fill-color:#253939!important;border-color:#a9bbb0!important}
+html[data-postcard-theme="dark"] #game-library #game-menu-stage #breakout-section :is(select,option){background:#233d39!important;color:#e4e9df!important;-webkit-text-fill-color:#e4e9df!important;border-color:#607c68!important}
+html[data-postcard-theme="light"] #game-library #game-menu-stage #breakout-section .bo-primary{background:#245b4e!important;border-color:#245b4e!important}
+html[data-postcard-theme="dark"] #game-library #game-menu-stage #breakout-section .bo-primary{background:#bed1a8!important;border-color:#bed1a8!important}
+html[data-postcard-theme] #game-library #game-menu-stage #breakout-section .bo-overlay .bo-primary{background:#e9dfb4!important;border-color:#e9dfb4!important}
+html[data-postcard-theme] #game-library #game-menu-stage #breakout-section .bo-controls .bo-launch{background:#ecddae!important;border-color:#c5ae67!important}
+html[data-postcard-theme="dark"] #game-library #game-menu-stage #breakout-section .bo-controls .bo-launch{background:#e7d4a1!important;border-color:#e7d4a1!important}
+html[data-postcard-theme="light"] #game-library #game-menu-stage #breakout-section .bo-controls .bo-held{background:#b9d1b8!important}
+html[data-postcard-theme="dark"] #game-library #game-menu-stage #breakout-section .bo-controls .bo-held{background:#496d53!important}
+@media(max-width:800px){#breakout-section .bo-layout{grid-template-columns:minmax(0,1fr);gap:20px}#breakout-section .bo-play{max-width:600px}#breakout-section .bo-aside{display:grid;grid-template-columns:1fr 1fr}#breakout-section .bo-status,#breakout-section .bo-note{grid-column:1/-1}}
+@media(max-width:480px){#breakout-section .bo-header{padding:20px 16px}#breakout-section .bo-header h2{font-size:35px}#breakout-section .bo-mark{width:48px;height:48px;font-size:30px}#breakout-section .bo-toolbar{padding:12px;gap:12px}#breakout-section .bo-actions{width:100%;margin:0}#breakout-section .bo-actions button{flex:1}#breakout-section .bo-layout{padding:11px;gap:18px}#breakout-section .bo-aside{grid-template-columns:1fr}#breakout-section .bo-scoreboard{gap:6px;padding:10px}#breakout-section .bo-scoreboard div:not(:first-child){padding-left:7px}#breakout-section .bo-scoreboard span{font-size:8px;letter-spacing:.04em}#breakout-section .bo-scoreboard strong{font-size:20px}#breakout-section .bo-controls{gap:6px}#breakout-section .bo-controls .bo-btn{font-size:9px;min-height:69px}#breakout-section .bo-progress-card{padding:17px}}
+@media(prefers-reduced-motion:reduce){#breakout-section .bo-btn{transition:none}}
+
+html[data-postcard-theme="light"] #game-library #game-menu-stage #breakout-section #bo-restart{color:#fffdf4!important;-webkit-text-fill-color:#fffdf4!important}
+html[data-postcard-theme="dark"] #game-library #game-menu-stage #breakout-section #bo-restart{color:#203c2d!important;-webkit-text-fill-color:#203c2d!important}
+html[data-postcard-theme] #game-library #game-menu-stage #breakout-section .bo-controls kbd{opacity:1!important}
+

@@ -1,0 +1,101 @@
+
+
+        <!-- NOVO JOGO: EXPLORAÇÃO 360° (STREET VIEW + MAPA DE PALPITES) -->
+        <section id="earth-game-section" class="w-full max-w-5xl">
+          <div class="glass-card rounded-3xl p-5 sm:p-8 space-y-5">
+            <div class="space-y-2">
+              <div class="w-12 h-12 mx-auto bg-rose-600/20 rounded-full flex items-center justify-center text-rose-300 text-2xl"><i class="fa-solid fa-earth-americas"></i></div>
+              <h3 class="font-serifHeader text-2xl sm:text-3xl text-white font-bold">Exploração 360° — Adivinhe Onde Você Está</h3>
+              <p class="text-xs sm:text-sm text-roseGold/75 max-w-3xl mx-auto">Explore o Street View e marque seu palpite no mapa.</p>
+            </div>
+            <div class="text-left space-y-3" id="earth-setup">
+              <p class="text-xs text-roseGold/75 rounded-xl border border-roseGold/20 bg-white/5 p-3">O Street View abre em outra aba.</p>
+
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wider text-roseGold/80 mb-2">Regiões — selecione uma ou mais</p>
+                <div id="earth-regions" class="flex flex-wrap gap-2" role="group" aria-label="Regiões para explorar">
+                  <button type="button" class="earth-region-toggle" data-region="all" aria-pressed="true">Mundo inteiro</button>
+                  <button type="button" class="earth-region-toggle" data-region="europe" aria-pressed="false">Europa</button>
+                  <button type="button" class="earth-region-toggle" data-region="north-america" aria-pressed="false">América do Norte</button>
+                  <button type="button" class="earth-region-toggle" data-region="central-america" aria-pressed="false">América Central</button>
+                  <button type="button" class="earth-region-toggle" data-region="south-america" aria-pressed="false">América do Sul</button>
+                  <button type="button" class="earth-region-toggle" data-region="caribbean" aria-pressed="false">Caribe</button>
+                  <button type="button" class="earth-region-toggle" data-region="africa" aria-pressed="false">África</button>
+                  <button type="button" class="earth-region-toggle" data-region="middle-east" aria-pressed="false">Oriente Médio</button>
+                  <button type="button" class="earth-region-toggle" data-region="asia" aria-pressed="false">Ásia</button>
+                  <button type="button" class="earth-region-toggle" data-region="oceania" aria-pressed="false">Oceania</button>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <label class="block text-xs text-roseGold/80 space-y-1.5">Tempo por rodada
+                  <select id="earth-duration" class="w-full rounded-xl bg-[#1b0b17] border border-roseGold/30 px-3 py-3 text-sm text-white">
+                    <option value="60">1 minuto</option><option value="120">2 minutos</option>
+                    <option value="180" selected>3 minutos</option><option value="300">5 minutos</option>
+                    <option value="600">10 minutos</option><option value="0">Sem limite</option>
+                  </select>
+                </label>
+                <label class="block text-xs text-roseGold/80 space-y-1.5">Rodadas
+                  <select id="earth-round-count" class="w-full rounded-xl bg-[#1b0b17] border border-roseGold/30 px-3 py-3 text-sm text-white">
+                    <option value="3">3 rodadas</option><option value="5" selected>5 rodadas</option><option value="10">10 rodadas</option>
+                  </select>
+                </label>
+              </div>
+              <button id="earth-start" type="button" class="earth-button earth-button-primary w-full sm:w-auto"><i class="fa-solid fa-play mr-2"></i>Começar partida</button>
+            </div>
+            <div class="grid grid-cols-3 gap-2 max-w-xl mx-auto">
+              <div class="geo-stat"><span id="earth-round-label" class="block font-serifHeader text-xl sm:text-2xl font-bold text-rose-200">0 / 5</span><span class="text-[10px] uppercase tracking-wide text-roseGold/70">Rodada</span></div>
+              <div class="geo-stat"><span id="earth-timer" class="block font-serifHeader text-xl sm:text-2xl font-bold text-rose-200 tabular-nums">03:00</span><span class="text-[10px] uppercase tracking-wide text-roseGold/70">Tempo restante</span></div>
+              <div class="geo-stat"><span id="earth-total" class="block font-serifHeader text-xl sm:text-2xl font-bold text-rose-200">0</span><span class="text-[10px] uppercase tracking-wide text-roseGold/70">Pontos</span></div>
+            </div>
+            <div class="earth-timer-track" role="progressbar" aria-label="Tempo restante" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" id="earth-time-track"><div id="earth-timer-progress"></div></div>
+            <div class="flex flex-wrap justify-between items-center gap-2">
+              <p id="earth-status" class="text-xs sm:text-sm text-rose-200 text-left" role="status" aria-live="polite">Configure e comece.</p>
+              <button id="earth-map-toggle" type="button" class="earth-button" disabled><i class="fa-solid fa-map-location-dot mr-1"></i><span>Ocultar mapa</span></button>
+            </div>
+            <div class="earth-stage" id="earth-stage">
+              <div class="earth-panorama-shell">
+                <div class="earth-placeholder" id="earth-placeholder">
+                  <i class="fa-solid fa-street-view text-5xl text-rose-300" aria-hidden="true"></i>
+                  <p id="earth-view-title" class="text-lg font-semibold text-center">Localização surpresa</p>
+                  <p id="earth-view-instructions" class="text-xs sm:text-sm text-roseGold/80 max-w-sm text-center">Comece para explorar.</p>
+                  <a id="earth-open-view" class="earth-button earth-button-primary hidden text-center" href="#"
+                     target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>Abrir Google Street View em nova aba
+                  </a>
+                  
+                </div>
+              </div>
+              <div class="earth-map-panel" id="earth-map-panel">
+                <div class="px-3 py-3 text-left border-b border-roseGold/20">
+                  <p class="text-sm font-semibold text-rose-100">Onde fica este lugar?</p>
+                  <p class="text-xs text-roseGold/70 mt-1">Clique para marcar; arraste para mover; +/− para zoom.</p>
+                </div>
+                <div class="earth-local-map-tools" role="group" aria-label="Controles de zoom do mapa">
+                  <button id="earth-zoom-out" type="button" title="Reduzir mapa" aria-label="Reduzir mapa" disabled>−</button>
+                  <button id="earth-zoom-in" type="button" title="Ampliar mapa" aria-label="Ampliar mapa" disabled>+</button>
+                  <button id="earth-zoom-home" type="button" title="Ver o mundo todo" disabled>Mundo</button>
+                </div>
+                <div id="earth-guess-map" aria-label="Mapa interativo OpenStreetMap para marcar seu palpite"></div>
+                <div class="p-3 flex gap-2">
+                  <button id="earth-clear-guess" type="button" class="earth-button flex-none" disabled>Limpar</button>
+                  <button id="earth-submit" type="button" class="earth-button earth-button-primary flex-1" disabled>Confirmar palpite</button>
+                </div>
+              </div>
+            </div>
+            <div id="earth-result" class="hidden rounded-2xl border border-roseGold/25 bg-white/5 p-4 space-y-3" aria-live="polite">
+              <p id="earth-result-heading" class="font-semibold text-rose-100">Resultado</p>
+              <div class="grid grid-cols-2 gap-2 max-w-lg mx-auto">
+                <div><span id="earth-distance" class="earth-result-value">—</span><p class="text-[10px] text-roseGold/70 uppercase">Distância</p></div>
+                <div><span id="earth-points" class="earth-result-value">—</span><p class="text-[10px] text-roseGold/70 uppercase">Pontos nesta rodada</p></div>
+              </div>
+              <button id="earth-next" type="button" class="earth-button earth-button-primary">Próxima rodada</button>
+            </div>
+            <div id="earth-final" class="hidden space-y-2 rounded-2xl bg-white/5 p-5 border border-roseGold/20" aria-live="polite">
+              <p class="font-serifHeader text-2xl text-rose-100 font-bold">Partida concluída!</p>
+              <p id="earth-final-score" class="text-sm text-rose-200"></p>
+              <p id="earth-final-detail" class="text-xs text-roseGold/70"></p>
+            </div>
+            <div class="flex justify-center"><button id="earth-restart" type="button" class="earth-button" disabled><i class="fa-solid fa-rotate-right mr-1"></i>Nova partida / Alterar configurações</button></div>
+            <p class="text-[10px] text-roseGold/55">Mapa: © OpenStreetMap (OpenFreeMap). Imagens do Street View: © Google.</p>
+          </div>
+        </section>

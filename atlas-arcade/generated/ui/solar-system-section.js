@@ -1,0 +1,3 @@
+// Generated from ui/solar-system-section.html; edit that HTML file and run build.ps1.
+// Parser-time insertion preserves classic-script order and works with file://.
+document.write("\n\n\n        \u003c!-- SIMULAÇÃO SOLAR 3D / LABORATÓRIO --\u003e\n        \u003csection id=\"solar-system-section\" class=\"w-full max-w-6xl mx-auto\" aria-label=\"Laboratório do Sistema Solar 3D\"\u003e\n \u003cdiv class=\"solar-new-embed\"\u003e\n  \u003ciframe id=\"solar-remade-frame\" title=\"Laboratório Solar — Simulação Interativa\" loading=\"lazy\" referrerpolicy=\"no-referrer\" data-atlas-embed=\"solar\" allow=\"fullscreen\" sandbox=\"allow-scripts allow-same-origin\"\u003e\u003c/iframe\u003e\n \u003c/div\u003e\n \n \n\u003c/section\u003e");

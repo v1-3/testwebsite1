@@ -1,0 +1,15 @@
+/* Former static inline declarations. ID specificity preserves their precedence
+   while existing !important theme overrides continue to win. */
+:is(#atlas-static-specificity, .atlas-static-1):is(#atlas-static-specificity, .atlas-static-1):is(#atlas-static-specificity, .atlas-static-1) { display:block;margin-bottom:8px;font-weight:700; }
+:is(#atlas-static-specificity, .atlas-static-2):is(#atlas-static-specificity, .atlas-static-2):is(#atlas-static-specificity, .atlas-static-2) { appearance:auto;-webkit-appearance:auto; }
+:is(#atlas-static-specificity, .atlas-static-3):is(#atlas-static-specificity, .atlas-static-3):is(#atlas-static-specificity, .atlas-static-3) { display:none!important; }
+:is(#atlas-static-specificity, .atlas-static-4):is(#atlas-static-specificity, .atlas-static-4):is(#atlas-static-specificity, .atlas-static-4) { --swatch:#23121d; }
+:is(#atlas-static-specificity, .atlas-static-5):is(#atlas-static-specificity, .atlas-static-5):is(#atlas-static-specificity, .atlas-static-5) { --swatch:#e11d48; }
+:is(#atlas-static-specificity, .atlas-static-6):is(#atlas-static-specificity, .atlas-static-6):is(#atlas-static-specificity, .atlas-static-6) { --swatch:#2563eb; }
+:is(#atlas-static-specificity, .atlas-static-7):is(#atlas-static-specificity, .atlas-static-7):is(#atlas-static-specificity, .atlas-static-7) { --swatch:#16a34a; }
+:is(#atlas-static-specificity, .atlas-static-8):is(#atlas-static-specificity, .atlas-static-8):is(#atlas-static-specificity, .atlas-static-8) { --swatch:#eab308; }
+:is(#atlas-static-specificity, .atlas-static-9):is(#atlas-static-specificity, .atlas-static-9):is(#atlas-static-specificity, .atlas-static-9) { --swatch:#9333ea; }
+:is(#atlas-static-specificity, .atlas-static-10):is(#atlas-static-specificity, .atlas-static-10):is(#atlas-static-specificity, .atlas-static-10) { width:33%; }
+:is(#atlas-static-specificity, .atlas-static-11):is(#atlas-static-specificity, .atlas-static-11):is(#atlas-static-specificity, .atlas-static-11) { width:100%; }
+:is(#atlas-static-specificity, .atlas-static-12):is(#atlas-static-specificity, .atlas-static-12):is(#atlas-static-specificity, .atlas-static-12) { width:100%; }
+:is(#atlas-static-specificity, .atlas-static-13):is(#atlas-static-specificity, .atlas-static-13):is(#atlas-static-specificity, .atlas-static-13) { width:100%;height:1450px;border:0;display:block;background:transparent; }

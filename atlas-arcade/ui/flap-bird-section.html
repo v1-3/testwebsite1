@@ -1,0 +1,73 @@
+
+
+
+
+
+
+<!-- JOGO: FLAP BIRD / VOO POSTAL (6 THEMES) -->
+<section id="flap-bird-section" class="fb-section" aria-labelledby="fb-title">
+  <div class="fb-shell">
+    <div class="fb-airmail" aria-hidden="true"></div>
+    <header class="fb-header">
+      <div>
+        <div class="fb-eyebrow">NOVA PARADA · ARCADE DE HABILIDADE · 07 DESTINOS</div>
+        <h2 id="fb-title">FLAP <em>BIRD</em></h2>
+        <p>Correio aéreo: bata as asas, atravesse os portais e colecione milhas.</p>
+      </div>
+      <div class="fb-postmark" aria-hidden="true">AIR MAIL<small>✦ VOE ALTO ✦</small></div>
+    </header>
+    <div class="fb-layout">
+      <aside class="fb-settings">
+        <div>
+          <p class="fb-group-title">01 / Escolha seu destino</p>
+          <div class="fb-themes" role="group" aria-label="Temas de Flap Bird">
+            <button type="button" class="fb-theme" data-fb-theme="postcard" aria-pressed="true"><span class="fb-theme-icon" aria-hidden="true">✉️</span><span><span class="fb-theme-name">Correio Aéreo</span><span class="fb-theme-sub">Cartões-postais</span></span></button>
+            <button type="button" class="fb-theme" data-fb-theme="world" aria-pressed="false"><span class="fb-theme-icon" aria-hidden="true">🌍</span><span><span class="fb-theme-name">Volta ao Mundo</span><span class="fb-theme-sub">Geografia</span></span></button>
+            <button type="button" class="fb-theme" data-fb-theme="ocean" aria-pressed="false"><span class="fb-theme-icon" aria-hidden="true">🌊</span><span><span class="fb-theme-name">Costa Azul</span><span class="fb-theme-sub">Exploração</span></span></button>
+            <button type="button" class="fb-theme" data-fb-theme="forest" aria-pressed="false"><span class="fb-theme-icon" aria-hidden="true">🌲</span><span><span class="fb-theme-name">Bosque Verde</span><span class="fb-theme-sub">Natureza</span></span></button>
+            <button type="button" class="fb-theme" data-fb-theme="sunset" aria-pressed="false"><span class="fb-theme-icon" aria-hidden="true">☀️</span><span><span class="fb-theme-name">Pôr do Sol</span><span class="fb-theme-sub">Horizonte coral</span></span></button>
+            <button type="button" class="fb-theme" data-fb-theme="space" aria-pressed="false"><span class="fb-theme-icon" aria-hidden="true">🪐</span><span><span class="fb-theme-name">Órbita Lunar</span><span class="fb-theme-sub">Astronomia</span></span></button>
+            <button type="button" class="fb-theme" data-fb-theme="neon" aria-pressed="false"><span class="fb-theme-icon" aria-hidden="true">✦</span><span><span class="fb-theme-name">Arcade Neon</span><span class="fb-theme-sub">Fliperama</span></span></button>
+          </div>
+        </div>
+        <div>
+          <p class="fb-group-title">02 / Nível do voo</p>
+          <div class="fb-levels" role="group" aria-label="Dificuldade">
+            <button type="button" class="fb-level" data-fb-level="easy" aria-pressed="true">Passeio</button>
+            <button type="button" class="fb-level" data-fb-level="normal" aria-pressed="false">Clássico</button>
+            <button type="button" class="fb-level" data-fb-level="hard" aria-pressed="false">Desafio</button>
+          </div>
+        </div>
+        <div>
+          <p class="fb-group-title">03 / Passaporte de voo</p>
+          <div class="fb-stats" aria-live="polite" aria-atomic="true">
+            <div class="fb-stat"><span>MILHAS</span><strong id="fb-score">0</strong></div>
+            <div class="fb-stat"><span>RECORDE</span><strong id="fb-best">0</strong></div>
+            <div class="fb-stat"><span>VOO</span><strong id="fb-state-label">—</strong></div>
+          </div>
+        </div>
+        <div class="fb-actions">
+          <button type="button" class="fb-action fb-action-main" id="fb-restart">↻ Novo voo</button>
+          <button type="button" class="fb-action" id="fb-pause" disabled>Ⅱ Pausar</button>
+          <button type="button" class="fb-action" id="fb-sound" aria-pressed="false">♪ Som: não</button>
+        </div>
+        <p class="fb-help"><strong>Como jogar:</strong> toque ou clique na tela, ou pressione <strong>Espaço / ↑</strong> para bater asas. Passe entre os obstáculos sem encostar. Cada portal vale 1 milha. <strong>P</strong> pausa o voo.</p>
+      </aside>
+      <div class="fb-player">
+        <div class="fb-flightline"><span>✦ DEPARTURE / PARTIDA</span><span id="fb-destination">✉ CORREIO AÉREO</span></div>
+        <div class="fb-canvas-frame">
+          <canvas id="fb-canvas" width="420" height="590" tabindex="0" role="button" aria-label="Área de jogo: toque ou pressione Espaço para bater asas"></canvas>
+          <div class="fb-overlay" id="fb-overlay">
+            <div class="fb-overlay-card" role="status" aria-live="polite">
+              <span id="fb-overlay-icon" class="fb-overlay-icon" aria-hidden="true">✉️</span>
+              <h3 id="fb-overlay-title">Pronto para voar?</h3>
+              <p id="fb-overlay-text">Seu passaporte está carimbado. Atravesse os portais e acumule milhas!</p>
+              <button type="button" id="fb-start" class="fb-start">DECOLAR →</button>
+            </div>
+          </div>
+        </div>
+        <div class="fb-under"><span>✈ UM DESTINO POR VEZ</span><span><strong>TOQUE / ESPAÇO</strong> PARA VOAR</span></div>
+      </div>
+    </div>
+  </div>
+</section>

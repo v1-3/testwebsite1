@@ -1,0 +1,107 @@
+
+/* A new opening scene. Paper, motion, and typography belong to this intro only. */
+html.pj-entry-locked,html.pj-entry-locked body {overflow:hidden!important;}
+html[data-entry-state="closed"] body > :is(header,main,footer).content-layer,
+html[data-entry-state="opening"] body > :is(header,main,footer).content-layer {
+  opacity:0;transform:translateY(18px);
+}
+html[data-entry-state="entered"] body > :is(header,main,footer).content-layer {opacity:1;transform:none;}
+#welcome-screen.pj-entry {
+  --entry-paper:#fffdf5;--entry-ink:#183148;--entry-muted:#425970;
+  --entry-back:#cbdedc;--entry-front:#e3eeea;--entry-flap:#f1f6ed;
+  --entry-accent:#096c77;--entry-seal:#a72c58;--entry-seal-ink:#fff;
+  position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:28px 20px;
+  width:100%;height:100%;max-width:none;max-height:none;margin:0;border:0;
+  overflow:hidden;background:var(--ux-bg);color:var(--ux-ink);font-family:var(--ux-font);
+  isolation:isolate;perspective:1200px;
+}
+html[data-postcard-theme="dark"] #welcome-screen.pj-entry {
+  --entry-paper:#263e51;--entry-ink:#edf5ff;--entry-muted:#d0e1ef;
+  --entry-back:#203647;--entry-front:#2b4759;--entry-flap:#345466;
+  --entry-accent:#9ad8d0;--entry-seal:#8c385a;--entry-seal-ink:#fff1f6;
+}
+#welcome-screen[hidden] {display:none!important;}
+#welcome-screen .pj-entry-grid {
+  position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.24;
+  background-image:radial-gradient(var(--ux-border) 1px,transparent 1px);background-size:24px 24px;
+}
+#welcome-screen .pj-entry-stripe {position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(-45deg,var(--entry-accent) 0 14px,transparent 14px 25px,var(--entry-seal) 25px 39px,transparent 39px 50px);opacity:.65;}
+#welcome-screen .pj-entry-content {position:relative;display:flex;flex-direction:column;align-items:center;max-width:600px;width:100%;text-align:center;}
+#welcome-screen .pj-entry-brand {display:flex;align-items:center;gap:10px;font-size:10px;font-weight:850;letter-spacing:.17em;color:var(--ux-ink-sub);}
+#welcome-screen .pj-entry-brand > span {display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--ux-border);border-radius:50%;letter-spacing:.02em;color:var(--entry-accent);font-size:11px;}
+#welcome-screen .pj-entry-heading {margin-top:24px;}
+#welcome-screen .pj-entry-title {margin:0;font:850 clamp(42px,6vw,68px)/.98 var(--ux-display);letter-spacing:-.04em;color:var(--ux-ink);}
+#welcome-screen .pj-entry-title em {font-style:normal;color:var(--entry-accent);}
+#welcome-screen .pj-entry-subtitle {margin:14px auto 0;max-width:34ch;font-size:13px;line-height:1.6;color:var(--ux-ink-sub);}
+#welcome-screen .pj-entry-scene {position:relative;margin-top:40px;width:min(100%,440px);aspect-ratio:1.52;perspective:1100px;}
+#welcome-screen .pj-entry-envelope {
+  position:relative;display:block;width:100%;height:100%;appearance:none;padding:0;border:0;
+  background:transparent;border-radius:12px;cursor:pointer;transform-style:preserve-3d;
+  box-shadow:0 28px 35px -23px rgba(9,33,49,.30);outline-offset:10px;
+}
+#welcome-screen .pj-entry-envelope:disabled {cursor:default;opacity:1;}
+#welcome-screen .pj-entry-envelope:focus-visible {outline:3px solid var(--entry-accent);}
+#welcome-screen .pj-entry-back {position:absolute;inset:0;background:var(--entry-back);border:1px solid var(--ux-border);border-radius:12px;z-index:0;}
+#welcome-screen .pj-entry-letter {
+  position:absolute;left:7%;right:7%;top:8%;height:82%;z-index:1;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;gap:14px;border:1px solid var(--ux-border);border-radius:8px;
+  background:var(--entry-paper);color:var(--entry-ink);box-shadow:0 8px 22px rgba(10,27,45,.10);
+}
+#welcome-screen .pj-entry-letter-label {font-size:8px;letter-spacing:.18em;font-weight:850;color:var(--entry-muted);}
+#welcome-screen .pj-entry-letter-names {display:flex;align-items:center;gap:14px;font:850 clamp(28px,5vw,43px)/1 var(--ux-display);color:var(--entry-ink);}
+#welcome-screen .pj-entry-letter-names svg {width:26px;height:26px;fill:var(--entry-accent);}
+#welcome-screen .pj-entry-letter-copy {max-width:27ch;font-size:11px;line-height:1.5;color:var(--entry-muted);}
+#welcome-screen .pj-entry-fold {position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:12px;}
+#welcome-screen .pj-entry-fold-left {background:var(--entry-front);clip-path:polygon(0 0,59% 60%,0 100%);}
+#welcome-screen .pj-entry-fold-right {background:var(--entry-front);clip-path:polygon(100% 0,41% 60%,100% 100%);filter:brightness(.97);}
+#welcome-screen .pj-entry-pocket {position:absolute;inset:0;z-index:4;background:var(--entry-front);clip-path:polygon(0 100%,0 43%,50% 61%,100% 43%,100% 100%);border-radius:12px;pointer-events:none;}
+#welcome-screen .pj-entry-pocket::after {content:'';position:absolute;left:7%;right:7%;bottom:16%;height:1px;background:var(--ux-border);}
+#welcome-screen .pj-entry-flap {position:absolute;top:0;left:0;right:0;height:62%;z-index:5;transform-origin:50% 0;transform-style:preserve-3d;pointer-events:none;}
+#welcome-screen .pj-entry-flap-face {position:absolute;inset:0;background:var(--entry-flap);clip-path:polygon(0 0,100% 0,50% 100%);backface-visibility:hidden;border-radius:10px 10px 0 0;}
+#welcome-screen .pj-entry-flap-lining {background:var(--entry-back);transform:rotateY(180deg);}
+#welcome-screen .pj-entry-seal {
+  position:absolute;z-index:6;left:50%;top:55%;display:grid;place-items:center;width:56px;height:56px;
+  border-radius:50%;transform:translate(-50%,-50%);background:var(--entry-seal);color:var(--entry-seal-ink);
+  border:1px solid rgba(255,255,255,.25);box-shadow:inset 0 0 0 5px rgba(255,255,255,.07);
+}
+#welcome-screen .pj-entry-seal svg {width:24px;height:24px;fill:currentColor;}
+#welcome-screen .pj-entry-postmark {position:absolute;z-index:5;bottom:6%;left:7%;font:800 9px/1.4 var(--ux-font);letter-spacing:.16em;color:var(--entry-ink);text-align:left;pointer-events:none;}
+#welcome-screen .pj-entry-postmark small {display:block;font-size:8px;letter-spacing:.08em;font-weight:600;color:var(--entry-muted);}
+#welcome-screen .pj-entry-stamp {position:absolute;z-index:5;bottom:5%;right:6%;display:grid;place-items:center;width:49px;height:43px;border:1px dashed var(--entry-accent);border-radius:5px;font:850 19px var(--ux-display);color:var(--entry-accent);transform:rotate(-5deg);pointer-events:none;}
+#welcome-screen .pj-entry-instruction {margin-top:30px;font-size:12px;font-weight:700;line-height:1.5;color:var(--ux-ink-sub);}
+#welcome-screen .pj-entry-skip {margin-top:12px;min-height:38px;padding:7px 12px;border:0;border-radius:9px;background:transparent;color:var(--entry-accent);font:750 11px var(--ux-font);text-decoration:underline;text-underline-offset:4px;cursor:pointer;}
+#welcome-screen .pj-entry-skip:hover {background:var(--ux-surface-alt);}
+#welcome-screen .pj-entry-skip:focus-visible {outline:2px solid var(--entry-accent);outline-offset:3px;}
+#welcome-screen .pj-entry-flight {position:absolute;z-index:8;left:50%;top:50%;width:40px;height:40px;fill:var(--entry-accent);opacity:0;pointer-events:none;}
+@media(max-width:480px) {
+  #welcome-screen.pj-entry {padding:24px 30px;}
+  #welcome-screen .pj-entry-scene {margin-top:36px;}
+  #welcome-screen .pj-entry-letter {gap:10px;}
+  #welcome-screen .pj-entry-letter-names {gap:9px;}
+  #welcome-screen .pj-entry-seal {width:48px;height:48px;}
+  #welcome-screen .pj-entry-postmark {font-size:8px;}
+}
+@media(max-height:700px) {
+  #welcome-screen .pj-entry-brand {font-size:9px;}
+  #welcome-screen .pj-entry-heading {margin-top:16px;}
+  #welcome-screen .pj-entry-title {font-size:40px;}
+  #welcome-screen .pj-entry-subtitle {margin-top:9px;font-size:12px;}
+  #welcome-screen .pj-entry-scene {margin-top:27px;max-width:340px;}
+  #welcome-screen .pj-entry-instruction {margin-top:19px;}
+  #welcome-screen .pj-entry-skip {margin-top:5px;}
+}
+@media(max-height:650px) {
+  #welcome-screen.pj-entry {overflow-y:auto;place-items:start center;}
+  #welcome-screen .pj-entry-content {margin-block:auto;}
+}
+@media(max-height:500px) {
+  #welcome-screen.pj-entry {padding-block:18px;}
+  #welcome-screen .pj-entry-scene {max-width:260px;margin-top:20px;}
+  #welcome-screen .pj-entry-title {font-size:32px;}
+  #welcome-screen .pj-entry-brand > span {width:28px;height:28px;}
+  #welcome-screen .pj-entry-instruction {margin-top:15px;}
+}
+@media(prefers-reduced-motion:reduce) {
+  #welcome-screen *,html[data-entry-state] body>.content-layer {animation:none!important;transition:none!important;}
+}
+

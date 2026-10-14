@@ -1,0 +1,58 @@
+
+
+        <!-- JOGO DE DESCRIÇÕES LITERAIS: OBJETOS E ANIMAIS MULTILÍNGUE -->
+        <section id="literal-guess-section" class="w-full max-w-4xl" aria-labelledby="lg-title">
+          <div class="lg-shell">
+            <div class="lg-header">
+              <span class="lg-kicker" data-lg-i18n="eyebrow">DESAFIO DE DESCRIÇÕES</span>
+              <h2 id="lg-title" data-lg-i18n="title">Adivinhe o animal ou objeto</h2>
+              <p data-lg-i18n="intro">Leia a descrição literal e digite o nome do animal ou objeto. Você tem três tentativas por rodada.</p>
+            </div>
+            <div class="lg-controls">
+              <label class="lg-label"><span data-lg-i18n="language">Idioma</span>
+                <select id="lg-language" class="lg-select">
+                  <option value="pt">Português</option><option value="it">Italiano</option><option value="es">Espanhol</option>
+                  <option value="en">Inglês</option><option value="de">Alemão</option><option value="fr">Francês</option>
+                  <option value="nl">Holandês</option><option value="sv">Sueco</option><option value="no">Norueguês (bokmål)</option>
+                </select>
+              </label>
+              <label class="lg-label"><span data-lg-i18n="categoryLabel">Categoria</span>
+                <select id="lg-category" class="lg-select">
+                  <option value="all" data-lg-i18n="all">Todos</option>
+                  <option value="animal" data-lg-i18n="animals">Animais</option>
+                  <option value="object" data-lg-i18n="objects">Objetos</option>
+                </select>
+              </label>
+            </div>
+            <div class="lg-stats" aria-label="Estatísticas">
+              <div class="lg-stat"><strong id="lg-score">0</strong><span data-lg-i18n="score">Pontos</span></div>
+              <div class="lg-stat"><strong id="lg-correct">0</strong><span data-lg-i18n="correct">Acertos</span></div>
+              <div class="lg-stat"><strong id="lg-streak">0</strong><span data-lg-i18n="streak">Sequência</span></div>
+              <div class="lg-stat"><strong id="lg-remaining">3</strong><span data-lg-i18n="remaining">Tentativas</span></div>
+            </div>
+            <div class="lg-play">
+              <div class="lg-question-meta"><span id="lg-kind" class="lg-pill">—</span><span id="lg-round" class="lg-counter">—</span></div>
+              <p class="lg-prompt" data-lg-i18n="question">O que é isto?</p>
+              <p id="lg-clue" class="lg-clue">—</p>
+              <p id="lg-hint-text" class="lg-hint-text" aria-live="polite"></p>
+              <form id="lg-form" class="lg-form" autocomplete="off">
+                <input type="text" id="lg-answer" class="lg-input" placeholder="Sua resposta" aria-label="Sua resposta" maxlength="72" autocomplete="off" spellcheck="false" required />
+                <button id="lg-submit" class="lg-button lg-primary" type="submit" data-lg-i18n="submit">Responder</button>
+              </form>
+              <div class="lg-actions">
+                <button id="lg-hint" class="lg-button" type="button"><i class="fa-regular fa-lightbulb" aria-hidden="true"></i><span data-lg-i18n="hint">Mostrar primeira letra</span></button>
+                <button id="lg-skip" class="lg-button" type="button" data-lg-i18n="reveal">Revelar resposta</button>
+                <button id="lg-skip-word" class="lg-button" type="button"><i class="fa-solid fa-forward-step" aria-hidden="true"></i><span data-lg-i18n="skip">Pular palavra</span></button>
+                <button id="lg-next" class="lg-button" type="button"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span data-lg-i18n="next">Próxima</span></button>
+              </div>
+              <p id="lg-status" class="lg-status" role="status" aria-live="polite"></p>
+              <div id="lg-reveal" class="lg-reveal" hidden>
+                <span data-lg-i18n="solution">Resposta:</span> <strong id="lg-solution"></strong>
+                <div><a id="lg-wiktionary" href="https://pt.wiktionary.org" rel="noopener noreferrer" target="_blank" data-lg-i18n="readDictionary">Consultar no Wikcionário ↗</a></div>
+                <div><a id="lg-google" href="https://www.google.com/search?q=defini%C3%A7%C3%A3o" rel="noopener noreferrer" target="_blank" data-lg-i18n="google">Buscar definição no Google ↗</a></div>
+                <div><a id="lg-wikipedia" href="https://pt.wikipedia.org" rel="noopener noreferrer" target="_blank" data-lg-i18n="sourceArticle" hidden>Ver artigo original ↗</a></div>
+              </div>
+            </div>
+            <p class="lg-source"><span id="lg-dictionary-status"></span> <a href="https://github.com/LibreOffice/dictionaries" target="_blank" rel="noopener noreferrer">LibreOffice Dictionaries ↗</a></p>
+          </div>
+        </section>
